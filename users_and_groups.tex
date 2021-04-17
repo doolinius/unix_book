@@ -1,0 +1,210 @@
+\chapter{Users and Groups}
+
+Those coming from a Windows world by now are familiar with the concepts of users and possibly even groups if you've worked with Active Directory.  However users and groups work differently in the Unix world, especially in terms of one of the original purposes of Unix: timesharing.
+
+\section{Timesharing and Normal Users}
+
+In the 1960's, computers were largely single user batch systems.  In other words, only one person at a time could use the computer and often could only run one program at a time.  These machines were tremendously expensive and in high demand in the growing computer industry.  It wasn't unusual for programmers to wait for hours for their time with the computer, nor was it unusual for people to be charged money for this time. \\
+
+One of the goals of MULTICS and later Unix (as well as other newer systems of the time) was \textit{timesharing}.  This would allow multiple users to interface with a computer at the same time using terminals that could be situated around a room or even a building.  Not only would the users be able to run their jobs concurrently with others using the system, but it should be transparent, such that each person felt as though they were the only one using the system.\\
+
+This introduces the concept of \textbf{users} and \textbf{groups}.  Each person that uses the computer has a unique user account.  Each account is identified by a username and in Unix, a numeric User ID.  These accounts are used for file and directory ownership so that each user's files can be protected from other users (permissions will be covered next chapter) and even isolates each user's processes (running programs).  On systems that have mail servers, a user account may also then have an email address.\\
+
+So far this isn't all that different from the Windows world.  But what makes Unix different is that any of its users may login and use the system concurrently.  This can be done with multiple terminals or even remote connections over the network.  While Windows allows remote connection, only one user may be on the system at any time.\\
+
+There are two primary types of user accounts: normal (unprivileged) users and root.  This is equivalent to the normal and Administrator accounts on Windows machines, however there can be only one root user on Unix machines.  On Unix systems, this user's name is nearly always \textbf{root}.\\
+
+Normal users have full access to their files and read access to the programs and files needed for normal operation.  They do not, however, have access to system configuration files.
+
+\section{Bow Before Me, For I Am root}
+
+root can do anything root wants on the system, up to and including removing every important file on the system until it is no longer operational.  root can install and uninstall software, enable/disable or start/stop services and daemons, reboot or shut down the system and make critical changes to the system.  root has access to all files, including those of all normal users.  root can terminate any process, mount filesystems, partition hard disks and many other tasks that a normal user can not.\\
+
+Because root has so much power, there is a security risk in performing operations as root.  Not only could uninentional mistakes be made, but if you were to browse the web as root, for example, and your browser was compromised by a malicious web site, the attack would then also have root access to your entire computer, which is obviously not good.\\
+
+It is therefore recommended to use a normal user account for day to day computer usage and only use the root account for the tasks that require it.
+
+\subsection{su and sudo}
+
+If you need root access, you can always just log in at the console as root and you're good to go.  However this isn't always practical.  After all, if you're using a normal account, it would be inconvenient to log out just to install a piece of software.  Unix has one primary and one secondary way of getting root access without having to use the console.\\
+
+The first is the \textbf{su} command.  su without any arguments allows you to enter the root password and become root for as long as you need.  You can also pass su a username so that you can switch to a different user account temporarily.  Traditionally, when you become root, your shell prompt becomes a \# symbol instead of the usual \$.
+
+\begin{verbatim}
+$ su
+Password:
+# 
+\end{verbatim}
+
+Note that the password is not echoed back to the screen in any way, not even asterisks.  Many first time users mistakenly believe that the keyboard isn't working or the OS isn't responding.  Once you've finished the task that needs root access, you can and should exit the root shell by using \textbf{exit, logout} or \textbf{Ctrl+d}.\\
+
+Another way of obtaining root access is through a slightly more secure system called \textbf{sudo}.  sudo allows you to enter a single command with root access and without entering or even knowing the root password.  You must, however, enter your own password.  For example, to install the 'screen' program on an Ubuntu or Debian Linux system, you may do the following:
+
+\begin{verbatim}
+$ sudo apt-get install screen
+[sudo] password for jdoolin:
+\end{verbatim}
+
+The user's password, rather than the root password, is then entered, and if successful, the program will execute with root access and immediately return to the normal user account.  While this is a nice system, it is not default on all Unix or even Linux systems.  On some systems it can be installed separately, usually by the package manager.  It is the default on Ubuntu systems and Mac OSX, for example, but must be installed separately on Arch Linux systems or FreeBSD.
+%who, whoami, passwords
+
+\section{Adding and Removing a User}
+
+The method for adding and removing users varies between different Unix systems.  Some have graphical user and group management tools while others may have their own custom command line or console applications for user management.\\
+
+The traditional method of adding a user on Unix systems is with the \textbf{useradd} command.  useradd modifies and creates a number of files and offers the opportunity to customize the account.  useradd may also behave slightly differently on various Unix systems and provide a variety of options.\\
+
+Among the options available to the useradd command are those to specify the user's home directory, whether or not to create the home directory (it may exist already), their numeric user id, initial login group, expiration date (for temporary accounts), the password or the user's shell (a user may wish, for example, to use zsh instead of bash).\\
+
+To create a new normal user account you can use the following command:
+
+\begin{verbatim}
+$ sudo useradd -m dstoffel
+[sudo] password for jdoolin:
+$ 
+\end{verbatim}
+
+Note that the '-m' option is required for the home directory to be created.  Without any other options specified, the command will use default settings for the account.  The home directory will default to /home/dstoffel but it could be set to anything else.  There are many other options for the useradd command such as an expiration date for the account, the shell program, numeric user id, group membership and any additional comments, such as the user's full name.\\
+
+On some Unix systems the command may be different, such as \textit{adduser} on FreeBSD.  FreeBSD's adduser command is also interactive and prompts for the various pieces of information required to create the user account.\\
+
+Aside from creating a home directory, what else is modified on a Unix system that effectively brings the user account into existence?  Let's move on to find out.
+
+\subsection{/etc/passwd}
+
+As mentioned in Chapter 2, most Unix systems by far use plain text files for the bulk of the configuration of the system.  This is also true for user accounts.  The primary file that stores user account information is \textbf{/etc/passwd}.  This file contains the account information for one user per line.  Each line consists of seven fields separated by colons (similar to how the PATH environment variable contains paths to executables separated by colons). For example:\\
+
+\begin{verbatim}
+jdoolin:x:1000:1000:Jeremy Doolin, CIT Instructor:/home/jdoolin:/bin/bash
+\end{verbatim}
+
+The fields are as follows:
+
+\begin{enumerate}
+\item Username - a unique username field
+\item Password - this previously held the user's encrypted password, however on modern systems this is usually an 'x' or '*', indicating that the encrypted password is actually in a separate file, such as /etc/shadow.
+\item User ID - the numeric identifier used by the underlying operating system
+\item Group ID - the numeric identifier of the user's primary group
+\item GECOS - this is a field for any additional information, such as full name, address, phone, title, email, etc.
+\item Home Directory - a full path describing the location of this user's home directory
+\item Shell - The full path to the program that is run any time the user logs in.  This is usually a shell, such as /bin/bash, but could also be a menu driven application that restricts the user to particular tasks and does not give a full command prompt.
+\end{enumerate}
+
+The /etc/passwd file is readable by all users on the system but can only be changed by root.  While it is possible to edit the file manually, it is preferable to use commands to add, delete or change information in the passwd file.
+
+\subsection{/etc/shadow and Account Aging}
+
+As previously mentioned, account passwords were previously stored in /etc/passwd along with all the other account information, however this became a security risk, as normal user accounts could read the passwd file and obtain the encrypted password.  It was then only a matter of decrypting it and using it.  The solution was to save password information in a separate file that is restricted only to the root user.  On most Linux and Unix systems, this file is \textbf{/etc/shadow}.  On BSD systems it is /etc/master.passwd.\\
+
+/etc/shadow has a very similar format as /etc/passwd, with one account's information per line, with fields separated by colons.  The fields in /etc/shadow are usually as follows:
+
+\begin{enumerate}
+\item Username
+\item Algorithm ID, salt and hashed password - combination of information required to authenticate the user at login
+\item Days since last password change
+\item Days until password change is allowed
+\item Days before a change is required
+\item Number of expiration warning days
+\item Days before an account becomes inactive
+\item Days until account expires
+\item Reserved
+\end{enumerate}
+
+As you may have noticed, /etc/shadow also contains some very useful information about account aging and expiration.  User accounts may be set to expire on a certain date and policies may be put into place to enforce changing passwords on a regular basis.  Some of this information is located in /etc/shadow and yet more is located in /etc/login.defs on many systems.\\
+
+To enforce restrictions on password complexity you must edit the file \textbf{/etc/pam.d/system-auth}.  More on this as I get time to write more of the book.  But you can set things like minimum length, number of lowercase, uppercase, digits and other characters required and number of characters that must be different from the previous password.
+
+% chage, id, groups
+
+\section{Groups}
+
+All Unix user accounts must belong to at least one group.  This group is the user's "primary group", and any files the user creates will be owned by this group (more on file ownership next chapter).  However a user may also belong to multiple other groups as well.  Group membership not only allows permission to read, write or execute certain files, but also often grants privileges not available to those who are not members of the group.\\
+
+For example, on BSD systems, a normal user cannot use the 'su' command to become root unless they are members of the \textbf{wheel} group\footnote{The term 'wheel' is used in reference to the slang "big wheel" to refer to someone with power or influence}.  The wheel group also exists by default in some Linux distributions such as Arch, but wheel membership is not required to use the 'su' command.  However 'sudo' can be configured so that you must belong to wheel to use the 'sudo' command.\\
+
+Other groups may grant permission to use USB storage devices, optical drives, printers or view the system log.
+
+\subsection{/etc/group}
+
+Not surprisingly, group information is also stored in a text file, \textbf{/etc/group}.  It also has the same style and format as /etc/passwd, but the fields are different. For example, on an Arch Linux system:
+
+\begin{verbatim}
+optical:x:93:jdoolin
+\end{verbatim}
+
+The fields are as follows:
+
+\begin{enumerate}
+\item Group name
+\item Password - privileged groups can be created that require passwords
+\item Group ID - analogous to the numerical User ID
+\item Group List - a list of usernames that belong to the group, separated by commas
+\end{enumerate}
+
+\subsection{Adding a New Group}
+
+Adding a new group requires root access and the command is rather simple: \textbf{groupadd}.  You can supply arguments that specify the numeric group ID and an optional password.  Group passwords allow users who are not members of a group to be granted temporary privileges supplied by the group.  Think of it like 'sudo', but for group membership.  This isn't used very often due to security reasons.\\
+
+When the new group is created it will be empty.
+
+\subsection{Adding Users to a Group}
+
+There are a few utilities that can be used to add a user to a group.  The most commonly available is the command \textbf{usermod}.  The primary purpose of usermod is to modify user account information, however part of that information is group membership.  To add a user to a new group (called a ''supplementary group''), use a command like the following example:
+
+\begin{verbatim}
+# usermod -G wheel -a jdoolin
+\end{verbatim}
+
+This will add the user 'jdoolin' to the 'wheel' group.  The other command frequently found on Unix systems is \textbf{gpasswd}.  Think of this program as one that modifies the \textit{group} information rather than the user information.  To add a user to a group using gpasswd:
+
+\begin{verbatim}
+# gpasswd -a jdoolin wheel
+\end{verbatim}
+
+Notice that the command syntax is opposite for usermod.  The -a argument is followed by the username to be added to the group, then the group name that is being modified.
+
+\section{Modifying or Removing Users and Groups}
+
+As previously mentioned there are multiple commands for adding users to a group.  These same commands, usermod and gpasswd, may also be used to modify users and groups in other ways.\\
+
+usermod may be used to change the home directory (as well as moving the contents of their current home directory to the new location), the shell program, numeric user ID, primary group ID, password, expiration date and even lock or unlock the account.  See the usermod man page for all of the options, but here is an example:
+
+\begin{verbatim}
+# usermod -d /Users/jdoolin -m -s /bin/zsh -u 5000 jdoolin
+\end{verbatim}
+
+This command will change the home directory location, move the contents of the current home directory, change the shell and user ID of the account 'jdoolin'.\\
+
+gpasswd can be used to add or remove a user from a group, add or remove a password for the group and a few other tasks.\\
+
+Removing users is accomplished with the \textbf{userdel} command.  The command is simple and has only a few optional arguments.  An example usage would be as follows:
+
+\begin{verbatim}
+# userdel -rf jdoolin
+\end{verbatim}
+
+This command will remove the jdoolin account from the system as well as their home directory and all of its contents, which is the reason for the '-rf' options.\\
+
+The command to remove a group is even simpler:
+
+\begin{verbatim}
+# groupdel lenders
+\end{verbatim}
+
+This removes the 'lenders' group from the system.
+
+\subsection{Viewing user and group information}
+
+To view information about a user account as well as group membership, the \textbf{id} command may be used. For example, on my Arch linux laptop, id shows the following information:
+
+\begin{verbatim}
+$ id
+uid=1000(jdoolin) gid=1000(jdoolin) groups=1000(jdoolin),10(wheel),
+14(uucp),93(optical),108(vboxusers),1001(lpadmin)
+\end{verbatim}
+
+\section{Back to sudo}
+
+Now that we've reviewed user accounts and groups, let's return to the sudo command.  sudo must be configured with a (surprise) text file, \textbf{/etc/sudoers}.  On BSD systems that install from their ports software system, it may be located in /usr/local/etc/sudoers.\\
+
+

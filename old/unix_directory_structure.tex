@@ -1,0 +1,105 @@
+\chapter{UNIX Directory Structure}
+
+While not universal, most Unix systems, such as Linux, have a very similar directory structure.  Some of the directories found in typical Unix systems are analogous to some found on Windows systems, but not all of them.\\
+
+One thing to keep in mind is that Unix treats nearly everything as files, even access to hardware devices as we shall see.
+
+\section{/}
+
+/ is the "root" directory of a Unix filesystem.  All disk drives and partitions will be accessible within this directory.  This is different from typical Windows setups where each partition or drive is designated its own drive letter.  All Unix systems, at the very least, \textit{must} have one partition on which / is mounted.\\
+
+If you list the contents of /, you will see the top level directories of the system, which I will now discuss in more detail.
+
+\section{/home and /root}
+
+/home is the traditional directory that contains all user account directories or "home" directories.  This is analogous to C:\textbackslash Users on Windows systems.  Each user account with a valid login should have a home directory within /home, such as /home/jdoolin.  On MacOSX systems it is /Users.\\
+
+/root is root's home directory.  But why wouldn't it simply be /home/root?\\
+
+It is not uncommon in Unix network settings for /home to be mounted on a network drive, such as one provided by NFS or Samba.  This allows one to login on any Unix machine on a network, but still have access to the exact same content in their home directory.  It is also common for /home to be mounted on a different disk or partition.\\
+
+If the /home mountpoint is unavailable, perhaps due to a network problem or a failing hard disk, then the users that have data stored within /home will then be unable to retrieve it.  The system is now potentially in a state that requires repair that will necessitate root access.  If root cannot access his own home directory, this could cause significant problems.  It is therefore a best practice to keep root's home directory on the \textbf{same partition as the root partition}, thus /root is rarely on its own partition or disk.\\
+
+\section{/etc}
+
+The bulk of Unix configuration files are located in /etc.  Think of it as analogous to the Windows registry, but usually consists of text files.  Key files are /etc/passwd, /etc/group, /etc/shadow, /etc/init.d and many, many others.
+
+\section{/bin and /sbin}
+
+Traditionally, /bin contains the primary system binaries required for basic system operation.  Such programs could be ls, mkdir, rm, rmdir, cp, mv, ps, kill, bash, chmod, cat and pwd.\\
+
+/sbin typically contains system binaries that require root access.  These may include fdisk, fsck (filesystem check), mount and umount, ifconfig, route, or mkfs programs.\\
+
+Some modern Linux systems do not use /bin or /sbin, and instead place all binaries in /usr/bin and /usr/sbin or even just /usr/bin.
+
+\section{/usr}
+
+The /usr directory is typically the largest aside from home directories.  It contains the majority of the rest of a Unix system's applications and all resources they require.  On Unix networks, it is common for /usr partitions to be mounted as a network share so that all users have access to the same applications that can now be managed on one server.
+
+\subsection{/usr/bin, /usr/sbin and /usr/local/bin}
+
+/usr/bin contains the majority of application programs, such as web browsers, compilers, text editors, audio and video applications and others that are needed by typical computer users.  On Arch Linux, however, /usr/bin contains nearly all binaries for the whole system.\\
+
+/usr/sbin usually contains system services such as sshd, web servers, mail servers, directory servers, ntpd, nfs, samba, dns and dhcp servers and others.  It also contains some utilities often needed by users, such as tcpdump or traceroute.\\
+
+/usr/local/bin often contains binaries local to the system or installed by means other than official package managers.  /usr/local will be discussed in more detail shortly.
+
+\subsection{/usr/share}
+
+Within /usr/share you may find platform independent resources required by other programs.  These aren't binary executables, but are files needed by other binaries.  This could be icons and images, audio files, documentation and html, time zone information, man pages and a dictionary of common words.  These files are in formats common to all operating systems and distributions.
+
+\subsection{/usr/local}
+
+Because some Unix networks mount /usr on a network share, it may be necessary for a local program to be installed that the network administrators do not wish to have on the file server.  /usr/local is a place for applications to be installed on the local machine.  It contains a set of directories that looks very similar to what is found in the / directory.  /usr/local has its own bin, share, sbin, include, etc and other directories.
+
+\section{/var}
+
+/var contains primarily variable data, or any data or files that change frequently, such as log files, print jobs, database files, caches and lockfiles.
+
+\subsection{/var/log}
+
+/var/log is a nearly ubiquitous directory for storing operating system log files, such as the main system log, login failures and successes, server logs (mail, web, ftp), firewall logs, boot logs or errors.
+
+\section{/dev}
+
+/dev is a unique and interesting directory.  It doesn't contain conventional files, such as text, image, audio, video or program data.  /dev contains files that refer to devices.  Some of these devices are physical, such as hard drives, the audio interface, keyboards, mice, joysticks, hard drive partitions, thumb drives, optical drives or terminals.  Other /dev entries are virtual, such as a file containing all zero data, random data and the mysterious /dev/null.\\
+
+/dev entries can be read from and sometimes written to.  For example, the following command will read the contents of a CD or DVD ROM and send the output, bit for bit, to an ISO file:
+
+\begin{verbatim}
+$ dd if=/dev/sr0  of=/home/jdoolin/arch_linux.iso
+\end{verbatim}
+
+This command will read a floppy disk image and write it to a disk in the floppy drive:
+
+\begin{verbatim}
+$ dd if=boot_floppy.img of=/dev/fd0
+\end{verbatim}
+
+\section{/tmp}
+
+As the name may imply, /tmp is a temporary storage location.  It is used by the operating system and is often also the only other directory on a system that is writable by normal users.  /tmp is usually emptied after every reboot, so do not use it as permanent storage.
+
+\section{/boot}
+
+On many Unix systems, /boot contains bootloader and bootloader configuration data, as well as the operating system kernel.  It is vital to the boot process.
+
+\section{/lib, /usr/lib, /lib64}
+
+Those familiar with Windows systems may be aware of .DLL files.  These are Dynamic Linked Libraries that provide functionality for a variety of other programs.  For example, a programmer doesn't need to write their own code for accessing the network because there will already be a library (.DLL) file for it.\\
+
+In Unix, /lib and /usr/lib contain most of the libraries used by the operating system and applications.  On Linux, these files are typically .so files.
+
+\section{Other common directories}
+
+\subsection{/opt}
+
+/opt is another directory that is self describing.  It is an optional directory that can be used when no other directory is quite appropriate.  This is usually in the form of locally installed, self contained application directories, such as those needed by google chrome, eclipse, android SDKs or other programs that extract to their own directory.  /usr/local can also be used for this purpose.
+
+\subsection{/proc}
+
+Like the /dev directory, /proc doesn't contain actual data files.  It is a virtual filesystem containing virtual files that have information about running processes and the kernel.
+
+\subsection{/mnt and /media}
+
+/mnt and /media are normally used for accessing removeable media or disks that are separate from the main operating system.  This inludes thumb drives, optical drives or hard drives with other operating systems installed.  Mountpoints may be permanently created, such as in the case of other hard drives or partitions within the system, but can also be created and deleted automatically, such as with USB, SD or other flash media.  The new directory will appear in /mnt when the drive is mounted, but then will disappear when the drive is removed.

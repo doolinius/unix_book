@@ -1,0 +1,59 @@
+0 - Unix/Linux history, what makes it different, why learn it?
+   Where is Unix/Linux? (servers, supercomputers, Android, OSX, appliances, routers, switches, TiVo, business workstations, LHC, )
+   GNU, GPL, and FOSS software (BSD license as well)
+   State of computing in the mid 60's (many vendors, many operating systems)
+   MULTICS->Unics->Unix
+   Branching and diversion to many variations, including Linux
+   Linux Distributions
+
+I - Installing UNIX/Linux
+
+II - The Command Line (ls, mkdir, rm, cp, cd, nano, echo, cat, less/more) 
+   [pipes, redirecting i/o]
+   environment variables
+
+III - Users and Groups (useradd, userdel, groupadd, chgrp, usermod, passwd)
+   [su, sudo]
+
+IV - Unix Permissions (chmod, chown)
+
+V - Typical Unix Filesystem Directory Structure
+   /bin, /sbin/, /usr, /home, /tmp, /mnt, /media, etc
+
+VI - Hard Drives and Filesystems (df, du, mount, umount, mkfs, fdisk, /etc/fstab)
+   Filesystem options (ext2, ext3, ext4, XFS, etc)
+
+VII - Processes (ps, kill, killall, top)
+VIII - Initscripts and Daemons (ssh, ntpd, /etc/{init.d,rc.d})
+   init process, runlevels
+
+IX - Common Unix utilities (tar, gzip, bzip2, grep, who, last)
+
+X - Installing Applications (apt-get, yum, ports)
+   ./configure; make; sudo make install
+
+XI - Linux/Unix networking
+   ifconfig, route, netstat, ping, traceroute, dig, etc
+
+XII - Setting Up nginx/Apache, MySQL and PHP
+
+XIII - Shell Scripting
+
+XIV - System Administration (cron, backups, logs, screen)
+
+XV - Linux on the Desktop
+
+XVI - Linux anti-virus, anti-spyware and malware removal
+   A one sentence chapter that just says "Haha... just kidding, lol"
+
+??? - Working with Windows
+
+Appendices
+-common commands
+-Charts comparing popular Linux distros and BSDs
+-equivalent DOS commands to UNIX commands
+-Linux/FOSS equivalents of popular Windows software
+
+Hands on exercises/homework for each chapter
+Student Data Files so that all examples in the book will work
+Will need unix.wvncc.edu pointing to the FreeBSD server

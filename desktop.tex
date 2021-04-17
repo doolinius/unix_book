@@ -1,0 +1,183 @@
+\chapter{Linux On The Desktop}
+
+Thus far we have explored Linux and Unix as purely command driven operating systems.  While it is immensely capable and preferable for servers and other headless systems, command line only is not ideal for the desktop environment.\\
+
+It is no secret that Microsoft's Windows dominates the desktop market both at home and in the office, but Linux (and other Unix systems) is capable of providing a full desktop environment with all of the programs and applications one would expect, such as web browsing, office software, chat, audio, video, software development and an increasing number of games.\\
+
+Many operating systems have their main graphical interface integrated with the operating system.  The case is very different with Linux.  It implements the GUI in separate software packages and in multiple layers.
+
+\section{X Windows}
+
+The first layer is X Windows.  X Windows is a windowing system that began development in the mid 80's at the time Microsoft and Apple were also working on their own graphical systems.  There are many implementations of the X Window system but the most common are X.Org (the predominant implementation), XFree86 (predominant before X.Org) and X11.app on Mac OSX.  Others include implementations for Android and Windows.\\
+
+X Windows is very different from Microsoft's Windows GUI.  X is run as a client/server application that can actually be run over the network.  What this means is that a graphical application can run on one system (the X client), but it is displayed on the X server of another system.  This means many different machines could connect to and use the same system with a graphical interface.  This is still possible today through an SSH session and graphical display managers.\\
+
+X provides the underlying graphical interface command primitives that allows an application to draw to the screen.  At the very minimum, one could run an instance of X Windows from a command line, then from the same command line run multiple applications.  You would have to specify things like the location and size of the window and there would not be any window decorations or ways to close, minimize, maximize or start applications from within the GUI.  This is why it is very rare that X is ever run on its own.  At the very least, X requires a window manager.
+
+\section{Window Managers}
+
+Window managers perform exactly the task that their name describes: they manage the windows that are displayed on an X Windows display.  This includes adding titlebars, borders, buttons that allow one to close, minimize (or iconify), maximize and roll-up windows, as well as many other tasks.  Windows can be selected, moved and repositioned with a variety of techniques.\\
+
+Window managers also allow the X display to be split into \textbf{virtual pages and/or desktops.}  This is in contrast to Microsoft Windows where there is only a single desktop and all applications display and run within it.  Multiple pages/desktops allows the user to dedicate specific desktops to certain tasks.  For example, a user may have 4 desktops, one for web browsing and chat, one for image editing, one for games and one for software development.\\
+
+Window managers may provide taskbars, start menus, application menus, configuration utilities, desktop switchers/pagers, system trays, docks and more.\\
+
+There is a very large number of window managers available, some more popular than others.  Some are very minimal and lightweight while others offer a larger number of features but at the expense of requiring more system resources.
+
+\subsection{twm}
+
+twm is a very early window manager for X Windows.  It is packaged with X windows so that there is always an option for a window manager, albeit very basic.  It doesn't feature much more than the ability to place, move, resize, close and iconify (minimize) windows.
+
+\subsection{FVWM}
+
+FVWM\footnote{There is no official meaning for the 'F' in the acronym, but it is often said to mean "flexible", "feeble", "feline" and other odd words, but the VWM stands for Virtual Window Manager} is originally based on twm.  FVWM is extraordinarily flexible and customizable to the point that it can be said that FVWM does not have a look and feel of its own.  It all depends on how you configure it.  It essentially gives you the tools and ability to make a window manager that suits you.\\
+
+FVWM does, however, require that the user spend a fair amount of time learning how it works and how to configure the system via text files.  There is a lot to learn, but a lot of power in FVWM's system.  It is probably best thought of as the hacker's window manager.  Some FVWM users\footnote{Such as yours truly} spend years tweaking and refining their desktop, discovering new tricks and easier ways to improve workflow.
+
+\subsection{Fluxbox}
+
+Fluxbox is another lightweight window manager based on another called Blackbox.  Fluxbox forked from Blackbox and added features, primarily the ability to tab windows similar to the way you can have multiple tabs open in web browsers.  It supports wallpaper, themes, multiple desktops and an application menu accessible by right clicking on the desktop.
+
+\subsection{Enlightenment}
+
+Enlightenment (or simply 'E') is a slightly larger window manager that requires a bit more resources than the likes of Fluxbox or FVWM, but supports some interesting features out of the box.  It offers multiple desktops, window grouping (so multiple related windows can be minimized, maximized or closed at the same time), more advanced theming, customizable keyboard shortcuts, a Mac OSX like dock, a built-in file manager and visual effects.
+
+\subsection{Windowmaker}
+
+Windowmaker is a lightweight window manager based on the NeXTStep operating system.  The unique feature of Windowmaker is the use of something called "dockapps", which are small utilities that fit in a single small window.  Examples are a weather app, disk usage, performance monitor, email notification and audio control.  This idea would later be extended to similar features such as Windows Vista Gadgets, Gnome Widgets and OSX Dashboard Widgets.
+
+\subsection{Others}
+
+The window managers decribed here comprise a very tiny tip of a very large iceberg.  There are literally hundreds more, from very lightweight, minimalist designs to those that can be programmed with programming languages, to window managers that emulate Microsoft Windows or the Silicon Graphics GUI.\\
+
+Feel free to experiment and find the one that suits you best.
+
+\section{Desktop Environments}
+
+Beyond the role of the window manager is the Desktop Environment.  A desktop environment includes a window manager (sometimes it can be selected by the user), but more importantly provides a set of integrated programs, tools and utilities, as well as features like desktop icons and recycle bins.\\
+
+The programs provided by a desktop environment are designed to work with each other and integrate with other elements of the system like the taskbar, menus, desktop and wallpaper, system sounds and system trays.  Desktop environments also provide configuration utilities not only for the desktop itself, but also for the system.  It may provide a program for installing software, enabling or disabling services, setting up a network or wireless connection, managing users, adding disks, mounting external media or mounting network shares.\\
+
+Because desktop environments provide so much they require substantially more hard drive space, processing power and time and memory.  For some, it is worth using the extra system resources, while others prefer to optimize the usage of their resources and use lightweight window managers.
+
+\subsection{CDE}
+
+In the early and mid-90's there were many proprietary variants of Unix available and they all had different interfaces.  As part of the Single Unix Specification, an effort was made to provide a desktop environment that would be available and common to all major Unix systems from vendors willing to participage.  IBM, Sun Microsystems, HP, DEC and Novell all contributed to the effort and developed the Common Desktop Environment.\\
+
+CDE was the standard Unix desktop for several years until open source alternatives matured.\\
+
+CDE provided many features expected of a desktop system such as a calendar, file manager, configuration tools, a mail client and customizable colors and themes.\\
+
+CDE was released as an open source project in 2012, so it is now a free option for Linux systems.
+
+\subsection{KDE}
+
+The K Desktop Environment\footnote{The K doesn't really stand for anything.  It was chosen as wordplay on CDE} began development in 1996 as an open source alternative to CDE.  The aim was a cross-platform, easy to use desktop that provided a suite of applications that all looked and behaved similarly.  The KDE developers opted to use the proprietary licensed QT graphical libraries to build its applications.\\
+
+KDE is known for its distinctly Windows-like default appearance, with a start menu, taskbar and desktop icons.  Among KDE's applications are Konqueror (a web browser and file manager), k3b (cd and dvd burning), kopete (instant messaging), KMail email client and Amarok, an advanced audio manager and player.
+
+\subsection{Gnome}
+
+There were a number of developers that liked the mission of the KDE project but were opposed to using the proprietary QT graphics library.  This group opted to start their own project using their own open source graphics library, GTK+.  This would become the GNOME project.\\
+
+GNOME version 1 would have a very similar appearance as KDE, with a Windows-like taskbar, start menu, desktop icons, system tray and a set of integrated utilities like mail clients, a web browser, file manager, configuration tools and the ability to customize the appearance.  GNOME 2 would see a slight difference in default setup, with menus such as Applications and System being a part of a taskbar at the upper part of the screen.  GNOME 3 changed things rather drastically, moving from the traditional desktop model to what it calls the "Gnome Shell".\\
+
+Because the GNOME Shell was not universally well received, two other projects forked from GNOME 2 and GNOME 3 codebases called MATE and Cinnamon, respectively.  They both seek to provide an experience more like GNOME 2 but also have fragmented the GNOME community.
+
+\subsection{XFCE}
+
+XFCE started as a project to provide a free desktop environment for Linux that is similar to CDE.  Early versions of XFCE were quite obviously inspired by CDE but as the software matured it began to take on a style of its own.  It's new focus would be less about being inspired by CDE and more about providing a desktop that's lightweight and fast but still have visual appeal. It's a bit more lightweight than GNOME or KDE, yet still has a file manager, compositing window management (meaning it can have drop shadows and other effects for windows) and a set of built-in applications.  The Xubuntu distribution is basically Ubuntu that defaults to the XFCE desktop environment.
+
+\subsection{LXDE}
+
+LXDE goes beyond XFCE in terms of resource requirements.  It aims to be usable on computers with much less resources (particularly RAM), such as netbooks, small devices or older computers.  It is faster and more lightweight than even XFCE, but not necessarily some of the more minimal window managers like Fluxbox or FVWM.  LXDE still provides a desktop environment that is easy to use and has a suite of applications built-in.  LXDE is the default environment on the Lubuntu distribution as well as the Raspbian variation of Debian that's built for running on the Raspberry Pi.
+
+\section{Starting X Windows and Display Managers}
+
+The old way of starting X Windows was to create a hidden file in your home directory called \textbf{.xinitrc}.  In this file you would set certain variables, paths and execute the window manager, desktop or applications of your choice.  There are a number of other X configuration files that can be used to personalize your X Windows session, but they are beyond the scope of this book at the time of this writing.  The user would log in via the command line then type the \textbf{startx} command which processes the .xinitrc file and begins the X Session.\\
+
+This method can still be used but it has its limitations.  First, if you decide to change window managers you have to edit the .xinitrc file, quit X Windows and restart it.  Rebooting is not necessary.  Second, it requires the user to login at the command prompt first.\\
+
+A more popular method is to use an X Display Manager.  These are typically graphical programs that present a login box, user selection, window manager/desktop environment selection and options for rebooting, shutting down or hibernating and sleep.  Display managers may also allow starting an X session on a remote host.\\
+
+There are a number of display managers available.  \textbf{xdm} is the oldest and most basic display manager.  Its only benefit is that it is very likely to be found on most machines that have X Windows installed.  Otherwise there are more sophisticated display managers available.  \textbf{GDM} and \textbf{KDM} are the display managers provided by the GNOME and KDE projects, respectively.  They allow logins to other window managers or desktops as well, however you must install a large portion of the GNOME and KDE desktop systems, which require a fair amount of disk space.  \textbf{LightDM} is a more lightweight manager that is installed independently of any other desktop environment.  \textbf{SLiM} is the Simple Log-in Manager.  It's small, fast, lightweight and themeable but requires a bit more work to configure.
+
+\section{Desktop Applications}
+
+While Linux may be more often used for servers, embedded systems, supercomputers and other non-desktop applications, Linux does provide many desktop applications that are often as good or better than proprietary versions.  For most open source projects the same applications will also exist for FreeBSD, Solaris, OSX and other Unix variants.
+
+\subsection{Office}
+
+Both Libre Office and OpenOffice.org are available for Linux and contain all of the office software you might come to expect: word processing, spreadsheets, presentation, database, drawing and others.  The interface and options may not be exactly the same as Microsoft Office but most of the usual tasks can still be performed. Calligra Office is another suite that is part of the KDE project and will integrate very well with the KDE desktop.\\
+
+There are also individual office applications such as Abiword and Gnumeric.\\
+
+\subsection{Browsers}
+
+Linux offers all the same web browsers you see on other operating systems with the exception of Safari and Internet Explorer\footnote{There are even hacks for running older versions of Internet Explorer through the wine emulator, but there probably isn't much purpose in that any more}.  Firefox, Google Chrome, Chromium (the open source version of Chrome) and Opera all work perfectly in Linux.  KDE has its own browser called Konqueror as well.\\
+
+There are other options for those looking for leaner browsers, such as Dillo, Arora and Midori and even the text based web browser, elinks.  These browsers come at a price, such as lack of plugins, themes and extensions.  But they serve their purpose of being small and fast.
+
+\subsection{Audio and Video}
+
+Linux is loaded with audio software for both playing, recording and mixing.  Rhythmbox, Amarok, Audacious, Banshee, Beatbox, MPD and XMMS (a clone of the popular Winamp) are all full featured audio players.  They allow management of your digital audio collection, playlists, ratings and favorites, album artwork, etc.  Audacity is available for Linux as is Ardour and Qtractor among others for recording and mixing.  There are, of course, many command line options as well for playing and recording audio.\\
+
+Linux allows CD ripping and burning with programs like K3b, xcdroast, the above audio players and some very powerful command line programs like cdparanoia, lame, oggenc, flac, faac and many encoders.
+
+mplayer, xine, VLC and Miro are four obvious video players that support a multitude of codecs and formats as well as online streams and channels.\\
+
+Beyond simply playing audio and video, there is the excellent XBMC for a complete HTPC solution supported fully in Linux, including a variation of Linux for the Raspberry Pi specifically designed for XBMC.\\
+
+The powerful Handbrake is available for transcoding digital video from and to many formats such as MP4, MKV, Theora, H.246, MPEG4 and MPEG2.
+
+\subsection{Graphics}
+
+Right away: you will not get Adope Photoshop for Linux.  It's simply not going to happen any time soon and if you require the specific advanced features of Photoshop you will need to use Windows or OSX.\\
+
+However, for those simply looking to edit images from the basics to slightly advanced tasks, the GIMP (GNU Image Manipulation Program) is definitely up to the task.  It supports layers, filters, scripting, brushes, patterns, masking, alpha blending and many other features.\\
+
+Inkscape is an excellent vector graphics drawing program, while Dia and xfig allow more traditional diagrams such as those produced by Visio.
+
+\subsection{Chat and VOIP}
+
+Chat is very well covered in Linux.  There are a number of multi-protocol chat clients that support popular systems such as AIM, ICQ, Yahoo, MSN and Jabber, but foremost among them is Pidgin and Kopete.  They support far more than those protocols mentioned.\\
+
+There are also many IRC clients available, including the XChat graphical client and irssi console client.  There is also a secure IRC client for the SILC protocol.\\
+
+Skype is available for Linux and OSX and provides text and video chat.
+
+\section{Software Development}
+
+Perhaps the area in which Linux and Unix shines the most is software development.  With only a few exceptions (usually Microsoft related) Linux provides a development environment for any major programming language, past or present, and includes many powerful programming editors and development environments.
+
+\subsection{Languages}
+
+If you can think of a language, Linux and other Unix variants will probably have a compiler for it.  Here is a nowhere-near-complete list:
+
+\begin{itemize}
+\item C - gcc, clang
+\item C++ - g++, clang
+\item C\# - Mono
+\item Java - OpenJDK, Oracle Java JDK
+\item PHP
+\item Perl
+\item Python
+\item Ruby
+\item COBOL - GNU Cobol
+\item Fortran - GNU Fortran (gfortran)
+\item Common LISP - sbcl, clisp, cmucl, Clozure CL, Allegro
+\item Pascal - Free Pascal, GNU Pascal
+\item Assembly - nasm, dasm and many others for nearly any architecture (x86, MIPS, ARM, MOS 6502, Zilog Z80, SPARC, etc)
+\end{itemize}
+
+\subsection{IDEs}
+
+Most enthusiastic programmers in the Unix world use one of the many powerful programmer's editors available.  Of those there are two that are the most used and are part of what could be considered a "holy war" between two factions: vim and emacs.  vim is "VI Improved".  We talked about the vi editor earlier in the book.  vim operates the same as vi but has many more features including syntax highlighting and coloring, auto indentation, folding, completion, building and debugging and many others.  emacs offers most of the same only perhaps more.  Many jokingly say that emacs would be a great operating system if only it had a good text editor.\\
+
+There are graphical editors as well, such as jedit, gedit and Sublime\footnote{Sublime is powerful but is also proprietary and costs money}.\\
+
+Beyond the editor is the full blown Integrated Development Environment, possessing graphical interface builders, project trees, menus, log viewing, build setups debuggers and more.\\
+
+Eclipse is an IDE familiar to many Java and Android programmers.  It is free and cross-platform, which includes Linux.  While it is meant for Java it can also be used for other programming languages.  It is also capable of building Android applications from start to finish, including a GUI builder.  Oracle Studio and Netbeans are two IDEs from Sun Microsystems and Oracle.\\
+
+KDevelop is a full IDE for developing KDE applications.  Anjuta is capable of developing GTK applications and is part of the GNOME project.  MonoDevelop is meant for developing C\# and other .NET applications.  

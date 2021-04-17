@@ -1,0 +1,305 @@
+\chapter{Installing Unix/Linux}
+
+\section{Requirements}
+
+First you need a computer.  Any computer.\\
+
+With few exceptions, there is a Unix or Linux distribution that will work on any computer you can scrape together or purchase.  You can install it on anything from old Intel 386 machines that originally ran DOS to a modern laptop or server system.  This is one of the great things about Unix and Linux systems: the ability to use it on hardware that most people would consider worthless.\\
+
+This also means that there is no reason not to have a Linux or BSD machine at your disposal for learning and practicing.  Old hardware can be had for free or nearly free and this makes it a perfect candidate for learning, and the most effective way to learn Unix is to use it on a regular basis.\\
+
+The Raspberry Pi is another great option for someone interested in learning about Linux.  At about 35 dollars, it is inexpensive, runs the OS from an SD card, is lightweight, and surprisingly capable, with current versions supporting built-in Bluetooth and Wifi\footnote{Current Raspberry Pi as of this writing is the Raspberry Pi 3}.  The Pi also has built-in camera and LCD screen connectors as well as General Purpose IO pins that allow a programmer to turn the Pi into a sort of microcontroller.  The possibilities are limited only by your imagination.\\
+
+A third option is to dual boot your current laptop or desktop so that when you turn on the machine, you can select either Windows or Linux.  This will be discussed in the Dual Booting section.\\
+
+Finally, you can install Linux on a virtual machine using software such as VMWare Player or VirtualBox.  This allows you to test, experiment and learn without having to install the OS to your hard disk.  It also allows you to test various distributions.
+
+\section{Linux Distributions}
+
+Unlike Apple or Microsoft, there is no Linux company. There is, however, a group of programmers who are in control of what goes into the Linux kernel, and another group of programmers that are in charge of the GNU utilities.  Literally anyone (yes, even you) can contribute code, ideas or innovations, but there is a core group that approves these inclusions or changes.  The same is true for Mozilla Firefox, Libre Office, the GIMP image editor, Apache web server, MySQL database, PHP programming language and a multitude of other open source projects.  Each group maintains their own projects and the same is true for Linux, which is just the kernel.\\
+
+However, this also means \textbf{there is no ''official'' Linux you can download and install}.  Anyone is free to build an operating system based on the Linux kernel, packaged with whichever packages they desire.  They can design the system differently than other systems, focusing on different aspects or principles.  This collection of Linux kernel and accompanying software is called a Linux \textbf{distribution}.  The number of Linux distributions as of this writing probably numbers in the thousands.  It's difficult to enumerate simply because literally \textit{anyone} can create a Linux distribution and many do, including businesses, research facilities and hobbyists\footnote{Yes, even you can create your own Linux distribution}.\\
+
+Distributions (or ''distros'') are usually designed with a particular purpose or focus in mind.  Some are designed as a stable server environment, while others are aimed at a flexible desktop system able to support as many different hardware configurations as possible.  Some are designed to run on distributed supercomputing systems while others target very small devices with limited resources.  Some distros are concerned with packaging only completely free software, free of any proprietary drivers or utilities while others aren't concerned about this fact.\\
+
+Here is a review of some popular (and a few not so popular) Linux distributions.
+
+\subsection{Ubuntu}
+
+Ubuntu and its derivatives (Kubuntu, Xubuntu, Lubuntu and others) focus primarily on providing a desktop system that is easy to install and use.  They also have a version that targets server systems and are even getting into the mobile device systems.\\
+
+Ubuntu proved to be very popular and spawned a few derivatives.  Kubuntu is the same distro but with the KDE Desktop environment as its default (as opposed to Ubuntu's Unity desktop).  Xubuntu is the same but with the more lightweight XFCE desktop.  Lubuntu is a more lightweight version that includes software that requires less RAM, processing power and hard disk space.  It also supports older processors that the newer versions of Ubuntu do not.  This makes Lubuntu a good option for older computers.\\
+
+Ubuntu itself is derived from another popular distribution called Debian.
+
+\subsection{Debian}
+
+Debian is a fairly early distribution focused on providing a complete, stable opearating system consisting of free, open source software.  Debian developed a remarkable software package system that allowed users to install software from the internet just by typing a simple command.  Think of it as Ubuntu but without the extra systems and software specific to Ubuntu.  Or you could think of Debian as the older, wiser and more stable father of the younger, more cutting edge and flashy (yet resource intensive) Ubuntu.
+
+\subsection{Raspbian}
+
+Raspbian is a special derivative of Debian that is tailor made to run on the Raspbery Pi computer.  It contains the exact drivers for its hardware, has special configuration utilities and even has smaller, more efficient programs as well as software written specifically for the Raspberry Pi, including Minecraft Pi, a stripped down Minecraft that you are able to program yourself with Python.\\
+
+Raspbian isn't the only Linux system available for the Raspberry Pi, nor even the only Unix system.  There is a version of Fedora (see below), Arch (see below), Ubuntu and even FreeBSD.
+
+\subsection{Red Hat/Fedora}
+
+Red Hat was previously a very popular free distribution somewhat akin to what Ubuntu is now.  However their focus has changed to providing and supporting enterprise level Linux installations with their new distribution called Red Hat Enterprise Linux (RHEL).  RHEL is \textit{not} available as a free download.\\
+
+There are, however, two Red Hat based distributions that pick up where the former free Red Hat left off.  \textbf{Fedora}, sponsored by Red Hat, provides users a free Red Hat based distribution for installation on desktops.  Fedora basically occupies the role previously held be Red Hat Linux.  \textbf{CentOS} aims to provide a free enterprise level Red Hat distribution for use on servers.\\
+
+Red Hat has its own popular package system called RPM, and has an associated package manager called yum.
+
+\subsection{Arch Linux}
+
+Arch Linux takes a polar opposite direction from Ubuntu.  While Ubuntu aims for ease of installation and use, Arch targets Linux and Unix enthusiasts who are more experienced and like to know the internal workings of the operating system.  Arch aims for simplicity, efficiency and a minimalist environment.  Arch also incorporates more bleeding edge software that other distributions that are more concerned about stability.  To put it simply, Arch is not for the feint of heart.
+
+\subsection{Puppy Linux}
+
+Puppy is a unique distribution focused on being lightweight and easy to use.  Puppy can be run entirely within RAM, so no hard disk is needed.  It is common to run Puppy from CD, DVD or USB drives, though Puppy can also be installed to a hard disk.  It is well known for running very well on much older hardware, such as Pentium II systems.
+
+\subsection{Damn Small Linux}
+
+DSL attempts to provide a Linux system \textit{with a graphical interface} that is as small as possible (small enough to fit on a business card CDR).  It's current install size is 50 megabytes and, like Puppy, can be run from USB drives, SD cards and other portable media.
+
+\subsection{tomsrtbt}
+
+tomsrtbt and other distributions like it take small Linux distributions to the extreme.  tomsrtbt fits on a single, 1.44MB floppy disk.  While it contains as many Unix/Linux utilities as possible, it's primary goal is data rescue and recovery utilities.  It's just enough to fix installations or to grab critical data when a system will not boot from the hard disk.
+
+\subsection{Open SUSE}
+
+OpenSUSE aims to be a complete, general purpose operating system that is stable, easy to use and good for a variety of purposes such as server, desktop or laptop.  This makes it very similar to Ubuntu, Debian and Fedora, but SUSE aims to provide server possibilities in the same distro.  It also has its own utilities different from other distros that some users prefer.  If it's one thing the Open Source community offers, it's choice.  It is also known for its all-in-one configuration utility, YaST.
+
+\subsection{FreeBSD}
+
+FreeBSD is \textbf{not} a Linux distribution.  FreeBSD is a complete operating system, including the kernel and core utilities all developed together.  This is different from Linux where the kernel is developed independently from all other software, including the GNU utilities.  While FreeBSD has its own core utilities, it is also possible to install many of thousands of non-FreeBSD software packages, such as Firefox, VLC, MPlayer and many others.\\
+
+FreeBSD originates from the 4.3 BSD UNIX system developed at Berkeley, which itself was derived from the original AT\&T Unix, making FreeBSD a direct descendent.\\
+
+FreeBSD aims for stability, efficiency and speed.  It is a very popular server system (Yahoo! and Netflix both use FreeBSD) and many Unix enthusiasts use it on their desktop.  It also runs well on older hardware.
+
+\subsection{PC-BSD}
+
+PC-BSD is essentially a FreeBSD distribution that aims to be easy to use and install as a desktop system.  It consists of the FreeBSD operating system, a graphical installer, pre-installed graphical interfaces and its own package management system.  PC-BSD does break some convention by installing software in unconventional directories, similar to Mac OSX.  The PC-BSD project developers are also building their own custom desktop environment called Lumina.
+
+\subsection{NetBSD}
+
+NetBSD forked from the same project FreeBSD did.  NetBSD's claim and purpose is to provide a modern Unix system to as many hardware platforms as possible.  This includes Intel/x86, sparc, alpha, powerpc, MIPS, ARM and older platforms like the VAX.
+
+\subsection{OpenBSD}
+
+OpenBSD is a NetBSD fork focused entirely on security.  Its claim to fame is that there have been only two remote exploits in the default install since its inception in 1996 (25 years as of this writing).
+
+\section{Download Install Disk Images}
+
+The first step is to acquire the installation media.  For most Linux and BSD systems this means downloading a CD or DVD image from the internet and burning it to a disk.\\
+
+Before downloading, make note of what PC hardware you have.  If you have a computer with a 32 bit processor, you will need to download the 32-bit version, also often referred to as x86 or i386.  If you have a 64 bit capable processor you will need the 64 bit version, also known as amd64.  If you happen to be installing on a machine with an architecture other than Intel/AMD, such as an old Macintosh or Sun workstation, make sure you get the version for your architecture (ppc, sparc, mips, etc).\\
+
+The best resource for downloading the images is the official website for whichever system you intend to install. Here is a small list:\\
+
+\begin{itemize}
+
+\item
+\textbf{Ubuntu} - http://www.ubuntu.com/download
+\item
+\textbf{Fedora} - http://fedoraproject.org/get-fedora
+\item
+\textbf{CentOS} - http://wiki.centos.org/Download
+\item
+\textbf{Debian} - http://www.debian.org/CD/live/
+\item
+\textbf{Raspbian} - https://www.raspberrypi.org/downloads/raspbian/
+\item
+\textbf{Arch} - https://www.archlinux.org/download/
+\item
+\textbf{OpenSUSE} - http://software.opensuse.org/123/en
+\item
+\textbf{FreeBSD} - http://www.freebsd.org/where.html
+\item
+\textbf{NetBSD} - http://www.netbsd.org/releases/
+\item
+\textbf{OpenBSD} - http://www.openbsd.org/ftp.html
+
+\end{itemize}
+
+\section{Create Install Media}
+
+After you have downloaded the images, you will need to create the install media.  There are serveral possibilities.
+
+\subsection{Burning CDs/DVDs}
+
+This is the usual method.  You will download an ISO (.iso) image that must be burned directly to disk and not as a file.  Your CD/DVD burning software will normally handle this properly.
+
+\subsection{USB Installers}
+
+Some distributions offer USB thumb drive installer systems.  To create these you will need to follow instructions on the distribution website, but it usually consists of directly copying files to a thumb drive or writing an image similarly to burning a CD image.  Occasionally you may need to download a CD image first, boot from it and use a utility to create a thumb drive installer.
+
+% Add remarks about Etcher
+
+\subsection{Floppy Images}
+
+On particularly old hardware it may be necessary to create boot floppy images.  Any distribution you may be considering for this task will normally have a floppy image on the CD or DVD.  This file must be written directly to the floppy using a utility such as 'dd' in Unix or rawrite.exe in Windows.  There will be instructions on the website.
+
+\subsection{SD Card Images}
+
+The Raspberry Pi runs the OS from an SD card.  To ''install'' a Raspberry Pi distribution, you must download the SD card image and write the image directly to the SD card.  This is very much like burning an ISO to cd.  You don't want to copy the image file into the SD card's folder structure, you want to copy the image \textit{directly to} the SD card, using software like Win32DiskImager or the \textbf{dd} command in Linux/Unix or macOS.
+
+\section{Boot PC From Install Media}
+
+Once you have the media created, you must boot from it.  This means you need to either use a Boot Menu (often accessed by pressing an F key, such as F12) or configure the BIOS so that the boot order checks the CD/DVD, USB or floppy drives first before attempting to boot from the hard disk.  If this is done properly, the computer will boot from the install media instead of the hard drive.
+
+\subsection{Live Install Systems}
+
+Many distributions now provide live systems for installing the operating system.  When you boot from the media (such as a DVD) you can select to try the system before installing.  This will take you into a live environment of the operating system that you can actually use.  If things go well, there will be a link or menu item for installing the system from within the live environment.\\
+
+It is also worth noting that these live CD and USB systems are \textbf{immeasurably useful} for tasks other than installing the OS.  They can be used for PC diagnosis and troubleshooting, data recovery and many other miscellaneous tasks.  Always be sure to keep a Linux live CD or thumb drive around for emergencies.
+
+\section{Typical Install Process}
+
+While every operating system's install process will be slightly different, most of them will have many things in common.  For details, consult the installation manual for your operating system of choice.
+
+\subsection{Select Language}
+
+This one is pretty simple.  The installer asks for a language to be used by the remainder of the install system.  Because open source software is so popular worldwide, one of its most appealing aspects is that it supports many languages.  In the old Red Hat days there was even an option for a language called "redneck".
+
+\subsection{Partition Disk(s)}
+
+Before an OS can be installed to a hard disk, the disk must be prepared.  This involves creating a partition on the hard drive specifically for the OS and its files.  It is definitely easier to dedicate an entire disk to the OS, but multi-booting is a very popular option as well.\\
+
+On Linux and Unix systems, the process usually involves optionally deleting other partitions on the disk (if they exist) and creating new ones.  When you create a new one you will specify the partition size (20 GB, for example), which filesystem to use and where to mount the disk.\\
+
+The filesystem type will depend on the OS you are installing.  Linux supports many filesystems, including ext2, ext3, ext4, btrfs, reiser4, XFS and others.  The most recent ext system (currently ext4) is usually the most popular for Linux systems, though there are reasons for using the others, which we will discuss in the Hard Disk chapter.  Other systems will have their own supported filesystems.  FreeBSD, for example, offers UFS and ZFS support.\\
+
+The mountpoint is which directory will be mapped to the hard disk.  In Windows systems, every disk partition is usually mapped to a drive letter, such as C:.  This is not true of Unix systems.  In Unix there is one filesystem root called /.  Any other hard disk is simply accessed as a folder beneath that root partition.\\
+
+For example, you may have system with two disks.  One disk contains all of the user files and folders while the other contains the operating system.  The system disk will be mounted on /, while the user folders will be mounted on /home.\\
+
+Things get a little more complex with dual boot systems, but that's another section.
+
+\subsection{Choose Packages}
+
+After partitioning the disk, the installer may ask you to select software packages.  Sometimes this is more of a general selection such as ''games'', ''software development'', ''web hosting'', ''graphical interfaces/X11'', etc.  Other systems allow you to select to install or not install individual packages.  Still others will install their default software without your intervention at all.\\
+
+\textit{Note: some systems do allow you to install a system without any graphical user interface and some do not include them by default, such as Ubuntu Server and FreeBSD.  They can be installed later, however.}
+
+\subsection{Install System and Packages}
+
+At this point you can go have a cup of coffee or read a book while the software actually installs the system and packages.  Some distros, such as Ubuntu, will offer a preview of the features of their system.
+
+\subsection{Set Time Zone}
+
+Very simple.  You will choose a time zone very close to your location.
+
+\subsection{Set root Password}
+
+Not all Linux distributions require you to set the root password these days.  Ubuntu only sets up a normal user account.  Traditionally, however, Unix systems require a root password to be set.  root is the administrator account on Unix systems.  root has ultimate control of the system and machine, and can make system-wide changes, install or remove software, create other accounts, start services and many other tasks.  If you do set a root password, make it a good one and do not forget it.
+
+\subsection{Create User Account}
+
+On any computer system it is not a good idea to perform every day tasks as the administrator or root account.  This is a significant security risk.  Therefore it is good practice to set up a normal, unprivileged user account.\\
+
+In this step you will create an account for yourself by supplying a username, password and possibly full name and other information.  This is the account you will use for your every day task, and only use the root account for making changes to the system.  This is covered in more detail in the Users and Groups chapter.
+
+\subsection{Configure Network}
+
+Computer networks are ubiquitous today.  Whether it's wired or wireless, nearly every computer is connected to a network.  This part of the install phase allows you to configure the network settings.\\
+
+There are typically two options: dynamic and static.  Dynamic or automatic setup means that your computer will be set to automatically retrieve its settings and an IP address from a server on the network (such as a wireless router at home).  There will be no further configuration necessary.  Static or manual configuration requires you to know your network settings and an available IP address you will assign to your network interface.  This will be discussed in more detail in the Linux/Unix Networking chapter.
+
+\subsection{Reboot}
+
+After the post-install tasks are completed, it is time to reboot, remove the install media and attempt to boot to the new system.  Assuming all went well, you should see a login prompt.  This will either be a graphical login display or a text based prompt.
+
+\section{Dual/Multi Booting}
+
+Dual booting is very common today.  Many users require Windows for specific software that may not have a Linux alternative (though this is becoming much less common) while others may be avid PC gamers.  Some people like to experiment with multiple operating systems.  Many simply like to keep Windows around while learning the Linux system.\\
+
+Regardless of the reason for dual booting, there is a little bit of planning and setup involved.  How you go about this depends on one of two scenarios.
+
+\subsection{Multiple Disks}
+
+By far the easiest way to set up a dual boot system is to use a single hard disk for each operating system.  For example, you could have a hard drive dedicated to Windows and one dedicated to Linux.  For that matter, you could have triple, quadruple or many-boot systems.  This is a clean solution that isolates files, disk access and even boot code depending on how you set it up.\\
+
+The procedure for setting up a dual boot system with multiple disks is as follows:
+
+\begin{enumerate}
+
+\item
+Install Windows on one disk first (if using Windows, of course). This is because Windows will completely overwrite the Master Boot Record of the primary boot drive when you install it.  Installing Windows first allows us a nice choice later
+
+\item
+Install Linux, BSD, etc. on the other disk after installing Windows.  This will overwrite the Master Boot Record that Windows installed previously.  But that's ok.  We can now configure the Unix boot system to recognize both operating systems and allow the choice of OS at boot time
+
+\end{enumerate}
+
+It is also possible to install Windows with \textbf{only that disk in the computer}.  That way Windows and its MBR are installed only on that disk.  Then you will install Linux on the other disk, also with \textbf{only that disk in the computer}.  Then add the Windows drive back to the system and configure the Linux boot loader to see the Windows system and add it as a boot option.\\
+
+The advantage to this setup is that you can completely remove the Unix disk and Windows is still capable of booting from its own disk.
+
+\subsection{Single Disk}
+
+This one is a little more tricky because it requires partitioning.  This is complicated if you have already been using a Windows install and would like to add Linux to the system.\\
+
+It is easier to start from scratch, which involves the following steps:
+
+\begin{enumerate}
+
+\item
+Use a disk partitioning utility such as a GParted boot CD.  You can also use many Linux Live CDs (such as Ubuntu).  These often include the GParted utility.
+
+\item
+Create two partitions, one formatted NTFS for Windows and the other ext4 (or your filesystem of choice) for Linux
+
+\item
+Reboot and remove the GParted or Linux CD.
+
+\item
+Boot from the Windows install disk and proceed to install Windows on its NTFS partition.  This will also configure the Master Boot Record to boot into Windows.
+
+\item
+After installing and configuring Windows, boot from the Linux install disk and install Linux to the other partition.  Depending on the distribution it may recognize the Windows system and offer to allow booting to it.  This will then overwrite the MBR that Windows installed, which is what we want.
+
+\item
+Reboot and test.  The Linux boot loader (which these days is usually a program called GRUB) will then prompt you to select which operating system to use.
+
+\end{enumerate}
+
+The other scenario is if you already have Windows installed and would like to add Linux.  In this case you must resize/shrink the Windows NTFS partition and create a new one for Linux.  This is the procedure:
+
+\begin{enumerate}
+\item
+Defragment the hard drive if using Windows prior to Vista.  This is often necessary because fragmented systems can have files all across the partition, which makes resizing impossible.  Defragmenting places all files at the beginning of the partition, creating all free space on the rest of the drive
+
+\item
+Resize the NTFS partition.  This can be done with a GParted disk, some Linux Live CDs or with the Windows Disk Management utility.  You will need to shrink the volume to an appropriate size.  Make sure to leave enough for Windows, and give enough to Linux (how much you need depends a lot on the distribution).  After resizing, reboot Windows \textit{twice}.
+
+\item
+Install Linux in the newly created free space.  You will use its partitioning tool (probably GParted) to create a new partition in the unused space.  This will then overwrite the MBR installed by Windows and configure the boot menu to allow a choice of OS.
+\end{enumerate}
+
+\section*{Summary}
+
+One of the great things about Unix/Linux is that it can run and even be useful on almost any hardware, old or new.  This means anybody can have a working Unix system, even with no money invested.\\
+
+Once you have the hardware, the install process is as follows:\\
+
+\begin{enumerate}
+\item Download or otherwise acquire installation media, such as a CD or DVD image
+\item Burn the CD/DVD or write installer to USB drive
+\item Boot from the install media.  It may be necessary to configure the BIOS to allow this
+\item Follow the instructions or prompts for the installer.  The key steps are:
+   \begin{itemize}
+   \item Partition hard drive
+   \item Select packages (may be optional)
+   \item Wait for packages to install
+   \item Set root password
+   \item Create a user account
+   \item Configure network
+   \end{itemize}
+\item If you wish to dual boot you have two options
+   \begin{itemize}
+   \item Use a hard disk for each OS
+   \item Create multiple partitions on a single hard disk. If Windows is already installed, this will mean shrinking the NTFS partition to allow space for creating a Linux partition
+   \end{itemize}
+\end{enumerate}

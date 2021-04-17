@@ -1,0 +1,109 @@
+\documentclass[10pt,twoside]{book}
+\usepackage[
+   inner=0.75in,
+   outer=0.75in,
+   top=0.75in,
+   bottom=0.75in,
+   paperwidth=6in,
+   paperheight=9in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{pxfonts}
+\usepackage[final]{microtype}
+%test
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\linespread{1.1}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+\newcommand{\sectionbreak}{\medskip\centerline{\S}\medskip}
+
+\begin{document}
+~
+\vfill
+{
+
+   \centerline{\Huge\bf\lsstyle UNIX and Linux}
+
+}
+
+\vfill
+\centerline{\huge Jeremy Doolin}
+\vfill
+~
+
+\mainmatter
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[CO]{\emph{UNIX and Linux}}
+\fancyhead[CE]{\emph{Doolin}}
+\fancypagestyle{plain}{%
+   \fancyhead{}
+   \fancyfoot{}
+
+   \fancyhead[CO]{\emph{UNIX and Linux}}
+   \fancyhead[CE]{\emph{Doolin}}
+   \fancyfoot[CO]{\thepage}
+   \fancyfoot[CE]{\thepage}
+}
+
+\setcounter{tocdepth}{1}
+\setcounter{chapter}{-1}
+\tableofcontents
+
+% Chapter 0
+\include{introduction} %Introduction
+
+% Chapter 1
+\include{installing} %Installing Unix/Linux
+
+% Chapter 2
+\include{command_line} %The Command Line
+
+% Chapter 3
+\include{users_and_groups} %Users and Groups
+
+% Chapter 4
+\include{unix_permissions}
+
+% Chapter 5
+\include{installing_software}
+
+% Chapter 6
+\include{desktop}
+
+% Chapter 7
+\include{hard_disks}
+
+% Chapter 8
+\include{system_administration}
+
+% Chapter 9
+\include{lamp}
+
+% Chapter 10
+\include{processes}
+
+% Chapter 11
+\include{anti_virus}
+
+% Chapter 12 
+\include{networking}
+
+% Chapter 13
+\include{shell_scripting}
+
+\include{appendix}
+
+\backmatter
+
+\chapter*{About the Author}
+
+Jeremy Doolin is a graduate of Ohio University in Athens, Ohio, with Bachelor's Degrees in Computer Science and Mathematics.  He has worked as a system administrator (primarily UNIX/Linux) for a variety of businesses, including an Internet Service Provider, a casino, a bank and sports media.  He has developed software for internet service, sports media, military sensor equipment, malware detection and mobile applications.  He is currently a Computer and Information Technology Instructor at West Virginia Northern Community College.  He enjoys software development in his spare time and is a UNIX enthusiast.  He also enjoys computer history, playing guitar, cooking, teaching, building electronics and many other constructive activities.
+
+\end{document}

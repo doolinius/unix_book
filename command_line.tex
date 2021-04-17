@@ -1,0 +1,715 @@
+\chapter{The Command Line}
+
+What?  Command line already?  We just got Unix installed.  This isn't 1985 any more, we're way beyond DOS.  Why are we bothering with the command line when we have all those easy to use Graphical User Interface (GUI, often pronounced \textit{''GOO-ee''}) utilities and programs?\\
+
+I'm going to answer that question very directly:\\
+
+Learning the command line will make you a better computer user.  It is more powerful and eventually faster (usually) than GUI tools.  Like Unix itself, command line is \textit{everywhere}, including Windows.  Not only is the DOS-like Command Prompt useful in Windows, Microsoft's PowerShell command line system is becoming a necessity on its recent server operating systems.  By ''necessity'', I mean that there are things in Windows Server 2012 that you can \textit{only do via command line}.\\
+
+Many systems are available only with command line remote access.  Unix systems very often do not even have GUI environments installed, as it would require more memory and processing power to run them.  As such, all management and administration is performed with the command line.  If you are an experienced Linux command line user, your skills will be useful if you're ever working for a bank with an IBM AIX server that has no GUI installed.\\
+
+So embrace the command line.  Use it and use it a lot.  It may be slow going at first, but before you know it, you'll be managing your files faster than you ever could with a GUI.  You will be a better computer user for it and if you're pursuing a career in IT or software development, it will be one of the most useful skills you can have.\\
+
+Command line isn't difficult to use.  In fact, the basic idea is very simple: you type a command with the keyboard and the computer executes the task or program.  It is, however, not as easy to \textit{learn} as GUI tools.  But with time and experience, it becomes second nature.  You may even grow to prefer command prompt.\\
+
+Finally, an example of the power of the command line.  Say you have a folder full of one thousand photos and images of varying sizes and types.  You need to convert all of them to PNG images no wider than 640 pixels.  This would be a nightmare using GUI utilities.  It would take days, or many people to complete the task.  Admittedly, there are GUI tools that would do this for you in much less time than using Paint or Photoshop.  But the idea is to show that it can be done easily via command line:
+
+\begin{verbatim}
+$ for img in *; \
+do convert -resize "640x>" ${I} ${img%.*}.png; \
+done
+\end{verbatim}
+
+I'll be the first to admit that that command looks a bit cryptic in places.  Certainly not something that could be learned on the first day, but an example of a single line command that can accomplish a task that would require specially installed GUI software, or a lot of time and effort.  It would also be the only way to do it if the system was a server or machine without a GUI installed or accessible only via remote command line.
+
+\section{The Shell}
+
+The command line environment is provided by a program called a \textit{shell}.  The shell accepts and interprets your commands, executes them and displays output if necessary.  In Windows, this program is called Command Prompt (or cmd.exe).  There are and have been many Unix shells in the past, such as the Bourne Shell, csh (c-shell), ksh (korn-shell) and the Bourne Again Shell, or \textbf{bash}.  bash is by far the most popular shell on Linux systems, while BSD systems offer their own versions of csh and ksh and require that bash be installed separately.  Multiple shells can be installed at the same time, and each user can use whichever they prefer.
+
+\section{Command Structure}
+
+Most Unix commands have a particular structure, and this was by design.  Unfortunately there are exceptions, but for the most part it is the same.\\
+
+There are two types of commands: internal and external.  \textbf{Internal} commands are part of the shell program itself (bash, csh, ksh, etc).  When you type the command it is interpreted and executed by the shell software.  Examples are cd, read, eval and echo.  \textbf{External} commands are actually programs installed on the system are are thus external to the shell program.  The shell must search for and execute the programs.  Examples are tar, passwd, unzip and rm.\\
+
+By far, most commands you use will be external.  This means the name of the command corresponds to the name of a program file located somewhere on your hard drive (or other storage medium).  If that program does not exist, the shell will give you an error if you try to run it.\\
+
+Historically, a command prompt ends with ''\$'', so that is how I will indicate the prompt itself.  The prompt is \textit{not} a part of the command itself.\\
+
+Unix commands are composed of one or more parts, usually \textit{separated by spaces}. The first part is the command itself.  You will always need at least that part.  The next parts are called the command \textbf{arguments}.  We shall cover this in more detail shortly.\\
+
+The most basic form of a command is to type only the command itself.  This is an exmaple of a command that will list the contents of your present working directory (more on that in a few pages):
+
+\begin{verbatim}
+$ ls
+programs/ websites.txt song.mp3
+$
+\end{verbatim}
+
+The output shows a folder called ''programs'' (denoted by the trailing / in the name), a text file called ''websites.txt'', and an mp3 file.\\
+
+In graphical environments, a command prompt window can be used to launch common programs.  For example, to start the firefox web browser, you can do the following in a command prompt window:
+
+\begin{verbatim}
+$ firefox
+\end{verbatim}
+
+The next command form involves command line arguments.  The basic form is as follows:
+
+\begin{verbatim}
+$ command_name argument
+\end{verbatim}
+
+First type the command itself, then one or more spaces, followed by an argument.  This argument could be many things, such as a file name, a web address or a string of characters.  Examples:\\
+
+To download a file:
+\begin{verbatim}
+$ wget http://unix.wvncc.edu/cit220/StudentDataFiles.zip
+\end{verbatim}
+
+To unzip a file:
+\begin{verbatim}
+$ unzip StudentDataFiles.zip
+\end{verbatim}
+
+To change to a new directory that's in your current one:
+\begin{verbatim}
+$ cd StudentDataFiles
+\end{verbatim}
+
+To list only mp3 files:
+\begin{verbatim}
+$ ls *.mp3
+song.mp3
+$
+\end{verbatim}
+
+By far one of the most common mistakes among those who are new to Unix commands is forgetting the space between the command and any following arguments.  Always remember to include the space or the computer will think you are trying to run a different command.\\
+
+Here is an important one you may find yourself using very frequently:
+
+\begin{verbatim}
+$ nano filename.txt
+\end{verbatim}
+
+This command will run the \textbf{nano} text editor (like Notepad in Unix) and open a file called filename.txt.  If you ever need to make changes to a text file, you will use a command just like this.  If filename.txt does not exist, this will allow you to create it.\\
+
+Another type of argument is a \textbf{command option} or \textbf{flag}.  These are usually denoted with a dash, followed by a character or word.  Command options are usually intended to change the behavior of a program or to invoke a particular feature that doesn't happen by default, or to supply some necessary bit of information the program needs to run properly.\\
+
+For example, to get a long list of the files in your current directory:
+\begin{verbatim}
+$ ls -l
+total 78808
+drwxrwxr-x 2 jdoolin jdoolin     4096 Oct 19 16:03 programs
+-rw-rw-r-- 1 jdoolin jdoolin 80690400 Oct 19 16:06 song.mp3
+-rw-rw-r-- 1 jdoolin jdoolin     2679 Oct 19 16:05 websites.txt
+\end{verbatim}
+
+The option passed to the 'ls' command is '-l'.  The 'ls' command all by itself only gives a list of the filenames in a directory.  However, this option changes the behavior of 'ls'.  The 'l' stands for 'long' and instructs the ls command to show file details, including permissions, user and group ownership, file size, last access time and the name.  These types of arguments to commands are VERY common and you should make it a point to become familiar with using them.\\
+
+Commands can also take multiple arguments.  For example, we can combine two previous examples to get a long list of all mp3s in the current directory:
+\begin{verbatim}
+$ ls -l *.mp3
+-rw-rw-r-- 1 jdoolin jdoolin 80690400 Oct 19 16:06 song.mp3
+\end{verbatim}
+
+Multiple flags/options can often be passed as a single argument.  The following command adds the -h option to display the file size in 'human' readable form (in Kilo/Mega/Giga/Terabytes instead of number of bytes):
+
+\begin{verbatim}
+$ ls -lh *.mp3
+-rw-rw-r-- 1 jdoolin jdoolin 77M Oct 19 16:06 song.mp3
+\end{verbatim}
+
+Some command options require another argument.  The following command downloads the same file from the earlier 'wget' command, but saves it under a different filename.  The -O argument tells wget to use a different filename, but it \textit{must be followed by the filename} you wish you use, otherwise wget will give an error:
+\begin{verbatim}
+$ wget http://unix.wvncc.edu/cit220/StudentDataFiles.zip -O sdf.zip
+\end{verbatim}
+
+So just like 'ls -l', this command is changing the behavior of the 'wget' program.  It normally downloads the file under the same name it gets from the web site (StudentDataFiles.zip in this example).  But using the -O command tells wget to save the downloaded file under a different filename (sdf.zip).  However, if you didn't supply the new name (sdf.zip), wget would give you an error.\\  
+
+These various command structures can be used together, sometimes resulting in rather long commands, but with the proper understanding and practice, they will make complete sense.  The more you use the command line, the more it will make sense and the more comfortable you will be.
+
+\section{man Pages}
+
+Before going on any further, it must be mentioned that most Unix systems have a built-in documentation system.  It is similar to the Windows Help system.  This documentation system is called \textbf{man pages}.  'man' stands for 'manual' and can be used to view the documentation for any command.  For example, this will show you the manual, or ''man page'' for the wget command:
+
+\begin{verbatim}
+$ man wget
+\end{verbatim}
+
+man pages display a short and long description of what the command or program does, how to use it, what its arguments, flags and options are, relevant files, related commands, bugs and sometimes even examples.  When all else fails, try 'man' to see how to use a command.
+
+\section{Where Am I?}
+
+One of the concepts that many people new to the command line struggle with is the idea of the \textbf{Present Working Directory}.\\
+
+When you log into a Unix system it ''places'' you in your personal home directory.  This is always your starting point when loggin in.  All users on a Unix system have their own isolated directory where they work and keep their files.  On most Unix systems, this is located in /home/username, where ''username'' is whatever the user's system username is.  For example, my home directory is /home/jdoolin.  On Mac OSX systems it is /Users/jdoolin.  More on home directories in Users and Groups.\\
+
+The present working directory can be thought of as your current operating context.  It is the directory you are ''in''.  If you are coming from Windows, you can think of it as the folder you are currently viewing in the File Explorer.  If you type ''ls'' by itself, it will list the contents of your present working directory.  There is a command to see what your present working directory is.  Not surprisingly:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin
+$
+\end{verbatim}
+
+So in the above case, my present working directory, or pwd, is /home/jdoolin.  If I enter the ls command, I will see all the files in my home directory.  If I have a subdirectory (technical term for sub-folder) in my home directory called 'StudentDataFiles', I can move or ''change'' to this directory with the cd command.  Get it?  cd?  \textbf{c}-hange \textbf{d}-irectory?  This is analogous to double clicking on a sub-folder in the Windows File Explorer.
+
+\begin{verbatim}
+$ cd StudentDataFiles/
+$ pwd
+/home/jdoolin/StudentDataFiles
+\end{verbatim}
+
+I have now changed my present working directory.  First, the 'cd StudentDataFiles/' command changed my present working directory.  If that directory did not exist, the shell would have reported an error.  Then the 'pwd' command shows my new present working directory.  Note that if you use the cd command without any arguments, it takes you back to your home directory:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin/StudentDataFiles
+$ cd
+$ pwd
+/home/jdoolin
+\end{verbatim}
+
+The first 'pwd' command reports that I am currently in the /home/jdoolin/StudentDataFiles directory.  Running 'cd' by itself always takes you to your home directory, so my new pwd is /home/jdoolin.\\
+
+It is very important to note that with many commands \textit{there will be no output when the command is successful}.  This is something that confuses many who are new to the Unix command line.  A lot of people assume that a command will give output regardless of success or failure.  However many programs only show output if there is an error or if it fails.  cd doesn't show you any output unless you try to change to a directory that doesn't exist, such as in the following example:
+
+\begin{verbatim}
+$ cd StudentDataFiles/
+$ cd NonExistent/
+-bash: cd: NonExistent: No such file or directory
+$ pwd
+/home/jdoolin/StudentDataFiles
+\end{verbatim}
+
+\section{Paths}
+
+It is important in any operating system to understand the concept of paths.  A path is a way of expressing where a file or folder is located within a filesystem.  In the Windows world, paths look something like this:
+
+\begin{verbatim}
+C:\Users\jdoolin\My Documents\file.txt
+\end{verbatim}
+
+This indicates that the file is located on the C: drive.  To navigate to the file in Explorer, you would double click on C:, then the Users folder, then the jdoolin folder, then My Documents.  Then to open the file you would double click on file.txt.  In the path, each directory name is separated by a backslash (\textbackslash).  This is called the \textbf{path delimiter}.\\
+
+In the Unix world there is no concept of drive letters.  There is only a single root filesystem under which all other drives or shares are accessed.  This root directory is called / (forward slash).  More on drives and mountpoints in another chapter.\\
+
+A similarly placed file on a Unix system would look like this:
+
+\begin{verbatim}
+/home/jdoolin/Documents/file.txt
+\end{verbatim}
+
+First take note that the path delimiter on Unix systems is a forward slash (/) as opposed to the backslash (\textbackslash) in Windows paths.  You could open this file in one of several ways.  But to understand how they work, you must understand the two different types of paths.
+
+\subsection{Absolute Paths}
+
+An \textbf{absolute path} (or \textbf{full path}) is one like the example above.  It describes in full detail, from the root of the system to the absolute location, where a file or directory is located.  Examples:
+
+\begin{verbatim}
+/ <-- the root partition or top level directory of the entire system
+/home/ <-- the home directory, which will contain all user directories
+/home/jdoolin/ <-- my home directory
+/home/jdoolin/Documents/file.txt <-- the file located in a Documents folder 
+\end{verbatim}
+
+The 'nano' command has already been mentioned as a way to create or make changes to a text file.  It is often the case that on Unix systems you need to view the contents of a file, but you have no need to change it.  To only view (but not edit) the contents of the file in the example above, you can use the \textit{less} command, followed by the full path/absolute path to the file:
+
+\begin{verbatim}
+$ less /home/jdoolin/Documents/file.txt
+\end{verbatim}
+
+This would successfully open the file no matter what your present working directory is, since you are supplying the full path.  Full paths work everywhere.\\
+
+Another approach would be to navigate to the directory containing the file then open it.  This is technically the approach you must use to open a file in Windows Explorer, only instead of double-clicking on drive letters and folder names or icons, you would use the \textit{cd} command to change to the directory containing the file, then open it with \textit{less}.  You can give the absolute path to the cd command:
+
+\begin{verbatim}
+$ cd /home/jdoolin/Documents/
+$ less file.txt
+\end{verbatim}
+
+This will change your present working directory to /home/jdoolin/Documents.  Because you are now in that directory, you can just use the filename as the single argument to \textit{less}.\\
+
+As you can see, there are already multiple ways of performing the same task on the command line.  We just looked at two different ways of opening a text file to view its contents.  First, we used the full path to the less command.  The second way was to use the cd command with the full path to the folder containing the file, then using the less command to view it using only the filename.\\
+
+This brings up another common stumbling block for those new to command line.  To access a file using \textit{only the filename by itself}, you must be \textbf{in} the directory containing it.  In other words, the directory containing the file must be your present working directory.  Otherwise, you must use the path to the filename.\\
+
+\subsection{Relative Paths}
+
+Using absolute paths all the time would eventually get tiresome.  In fact, for some folder structures it would be a complete mess.  Fortunately it isn't necessary to always use full paths.  There is another type of path called a \textbf{relative path}.  Instead of using the full path, you can use a path that's relative to your present working directory.  In fact, we have already used relative paths without realizing that's what we were doing.  But first, there are two special directories that need to be discussed.\\
+
+Every folder on Unix systems contains two special directories.  The first one is called ''.'' (just a single dot/period) and the other is ''..'' (two dots/periods).  These aren't real directories. They are \textit{virtual} directories that exists in \textit{all} Unix directories.  Recall our earlier example when we used the \textit{ls} command.  We can pass \textit{ls} an argument that will show all files, including those two special directories.  Appropriately, the option is \textit{-a}.
+
+\begin{verbatim}
+$ ls
+programs/  song.mp3  websites.txt
+$ ls -a
+.  ..  programs/  song.mp3  websites.txt
+\end{verbatim}
+
+You can see . and .. listed among the other files and directories.  But what are they?\\
+
+The single dot refers to your present working directory.  You can treat it like any other directory.  For example:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin
+$ ls
+programs/  song.mp3  websites.txt
+$ cd .
+$ pwd
+/home/jdoolin
+$ ls .
+programs/  song.mp3  websites.txt
+$ less ./websites.txt
+\end{verbatim}
+
+In that example I executed a few commands that did essentially the same thing.  My pwd is /home/jdoolin.  The third command, \textit{cd .}, told the shell to change directory to single dot.  Since single dot refers to whatever our present working directory is, it doesn't really change directory.  That is evident by the next \textit{pwd} command.  Passing single dot to the \textit{ls} command is equivalent to using \textit{ls} by itself.  You can even view a text file using less and prepending ./ to the filename.\\
+
+Double dot is a more interesting virtual directory.  It refers to the directory that \textit{contains} your present working directory.  This is also known as the ''parent'' directory, or directory ''above'' your present working directory.  For example, if your pwd is /home/jdoolin/Documents, .. refers to /home/jdoolin:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin/Documents
+$ cd ..
+$ pwd
+/home/jdoolin
+$ cd ..
+$ pwd
+/home
+$ cd ..
+$ pwd
+/
+$
+\end{verbatim}
+
+By passing .. to \textit{cd}, I changed to the directory that contains the Documents directory, /home/jdoolin.  Doing the same puts me into the directory above the jdoolin directory, which is /home.  Doing it a third time puts me in /, or the root of the entire system.  Using the double-dot is a lot like clicking the Back button in Windows File Explorer (though not quite).\\
+
+With double-dot in our toolbox, we are now equipped to use relative paths for most of our needs.  Remember first that relative means relative to your present working directory.  So you don't necessarily need to know the full path to a file, but merely where it is relative to your present working directory.\\
+
+The first and easiest way to use relative paths is one we've already been using, and that's by referring to files in the present working directory with only their filename:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin/StudentDataFiles
+$ less websites.txt
+\end{verbatim}
+
+As mentioned before, we can refer to websites.txt directly since it is in our present working directory.  Let's change the scenario and say our present working directory is simply /home/jdoolin.  We can still use a relative path to open websites.txt:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin
+$ less StudentDataFiles/websites.txt
+\end{verbatim}
+
+This works because StudentDataFiles/ is also in our present working directory and we can refer to it directly.  We could also refer to it more explicitly by using the ''dot'' virtual directory (although this isn't very common):
+
+\begin{verbatim}
+$ less ./StudentDataFiles/websites.txt
+\end{verbatim}
+
+This is functionally the same thing as the previous example.  In the same way, ''double dot'' can also be used in relative paths.  Remember that '..' refers to one directory above our present working directory.  Assume that we are still in /home/jdoolin:
+
+\begin{verbatim}
+$ cd StudentDataFiles/programs/
+$ pwd
+/home/jdoolin/StudentDataFiles/programs
+$ less ../websites.txt
+\end{verbatim}
+
+Let's take a look at that closely.  Since we are in /home/jdoolin already, we can pass a relative path to \textit{cd} that takes us into StudentDataFiles/programs.  \textit{pwd} then shows us where we are.  We can then view websites.txt by using '..', which refers to one directory above our pwd, or in this case, StudentDataFiles.  Since the StudentDataFiles directory contains the file, the command works.\\
+
+'..' can even be combined like so:
+
+\begin{verbatim}
+$ pwd
+/home/jdoolin/StudentDataFiles/programs
+$ cd ../../
+$ pwd
+/home/jdoolin
+\end{verbatim}
+
+This command has the effect of taking us two directories above.  The first '..' takes us back into the StudentDataFiles directory and the second one takes us back to the jdoolin directory.  This would be similar to using Windows File Explorer and clicking on the Back button twice to leave the programs folder, then th eStudentDataFiles folder.\\
+
+There is one final relative path shortcut that must be mentioned, and that is ' {\textasciitilde} '.  The character is called a \textit{tilde} (pronounced ''TILL-duh'') and is usually to the left of the 1 key on a US keyboard and must be accessed with the Shift key.  This character is basically shorthand for \textit{your home directory}.  For example:
+
+\begin{verbatim}
+$ cd ~
+$ pwd
+/home/jdoolin
+$ less ~/StudentDataFiles/websites.txt
+\end{verbatim}
+
+In this case, ' {\textasciitilde} ' was used as an argument to cd (silly, I know, since we could have just typed 'cd' without any arguments) and as a way of opening the websites.txt file again.  The nice thing about ' {\textasciitilde} ' is that no matter what your present working directory is, you can refer to files or directories in your home directory just by using ' {\textasciitilde} '.
+
+\section{File Management}
+
+One of the primary tasks any computer user needs to perform is file management.  This refers to where we create files, how we organize them, naming and renaming, removing unwanted files, moving, copying and opening them.  Users coming from the Windows world are accustomed to doing this with a graphical tool such as File Explorer, Windows Explorer or if you're old enough, File Manager.  Many Windows users aren't even very familiar with Explorer and just use default directories and libraries without really knowing where their data is saved on the hard drive.  You can also manage files using the Windows Command Prompt, as one would have in the DOS days.  In fact, if you suspect your working career may involve Windows system administration, I suggest getting at least a little familiar with the Windows Command Prompt.\\
+
+File management using the command line may seem slow and cumbersome at first, but as you internalize the commands and commit them to muscle memory\footnote{Eventually you won't have to think about which command you use to move, copy or delete a file, your fingers will just type it automatically}, it becomes much faster and more efficient.
+
+\subsection{Creating and Removing Files}
+
+Most files you work with will be created by applications and programs, files you download or that are transferred from other devices.  However, there is a simple command that allows you to create a completely empty file: \textbf{touch}.
+
+\begin{verbatim}
+$ touch notes.txt
+\end{verbatim}
+
+It is occasionally useful to create empty files using touch, but this is not the usual way you will create the files you use on a regular basis.\\
+
+Removing a file requires the \textbf{rm} command, which can take one or more filenames to be removed.
+
+\begin{verbatim}
+$ rm notes.txt
+$ touch todo.txt changes.txt
+$ rm todo.txt changes.txt
+\end{verbatim}
+
+\subsection{Creating and Removing Directories}
+
+Creating a directory, or folder as it is otherwise known, requires the \textbf{mkdir} command.  You can use absolute or relative paths to make a directory.
+
+\begin{verbatim}
+$ mkdir cit222
+$ mkdir cit222/scripts
+$ mkdir /home/jdoolin/cit222/pdfs
+$ ls
+cit222  StudentDataFiles
+$ cd cit222/
+$ ls
+pdfs  scripts
+$ cd
+\end{verbatim}
+
+This will create three directories.  The first is a 'cit222' directory in my home directory.  The second creates a 'scripts' directory within my new 'cit222' folder.  The third uses an absolute path to create another directory called 'scripts' within the new 'cit222' directory.\\
+
+There is a command option, -p,  that can be passed to mkdir that will create directories within directories at once.  For example, the above command could have been simplified:
+
+\begin{verbatim}
+$ mkdir -p cit222/scripts
+$ mkdir cit222/pdfs
+\end{verbatim}
+
+The -p option allows mkdir to create both the 'cit222' directory and the 'scripts' directory within it.  You can also create multiple directories with one command simply by supplying more directory names to mkdir:
+
+\begin{verbatim}
+$ mkdir music videos photos
+\end{verbatim}
+
+This will create three new folders inside your present working directory: music, videos and photos.\\
+
+There are two ways to remove a directory.  The first is the \textbf{rmdir} command.  rmdir, however, requires that the directory you are removing to be empty.
+
+\begin{verbatim}
+$ mkdir photos/vacation
+$ rmdir music
+$ rmdir videos
+$ rmdir photos
+rmdir: failed to remove 'photos': Directory not empty
+\end{verbatim}
+
+In that example, the first two rmdir commands were successful because those directories are empty.  The third fails, however, because it is not empty.  The first command created a directory inside the photos directory, meaning it is not empty.\\
+
+The other way to remove directories is to use the 'rm' command, but with the -rf option passed to it.  This tells 'rm' to remove the directory and all files and subdirectories beneath it.
+
+\begin{verbatim}
+$ mkdir photos/vacation
+$ rm -rf photos/
+\end{verbatim}
+
+Be careful about using 'rm -rf'.  \textit{It is not reversible} and it removes the entire folder and its contents.  Be especially careful when using this command as the root user.  Imagine the destruction of an accidental 'rm -rf /'.
+
+\section{Copying a File}
+
+The command to copy a file is \textbf{cp}.  This command can be used to create a copy of a file in one location to either another directory or to the same directory with a new filename.  The cp command requires two arguments: a source file (the file to be copied) and a destination directory or filename.  Here are a few examples:
+
+\begin{verbatim}
+$ cp grandCanyon.jpg photos/vacation
+$ cp photos/vacation/meteorCrater.jpg /tmp
+$ cp paintedDesert.jpg paintedDesert2.jpg
+$ cp /home/jdoolin/reminders.txt /tmp
+\end{verbatim}
+
+This shows four different ways of using the copy command.  Each one works as follows:\\
+
+The first creates a copy of the file grandCanyon.jpg in the vacation directory inside the photos directory.  There will now be a file in /home/jdoolin/photos/vacation named grandCanyon.jpg in addition to the original file.\\
+
+The second command copies the meteorCrater.jpg file from a relative path to the /tmp directory.  This is an example of how you can copy a file that isn't in your present working directory to another location.\\
+
+The third example makes a copy of paintedDesert.jpg in the present working directory, but since it is being copied in the same directory, it must have a different filename (paintedDesert2.jpg).  So there would now be two copies of the same photo but with different filenames.\\
+
+The fourth is simply an example of copying a file using two full paths, showing how you can really make a copy of any file in any location from any present working directory.\\
+
+\subsection{Copying Multiple Files}
+
+You can also use the cp command to copy multiple files to a single destination folder.  The format is as follows:
+
+\begin{verbatim}
+cp file1 file2 file3 file4 ... destinationFolder/
+\end{verbatim}
+
+In other words, you can copy any number of files, which will be listed first, to a single destiantion folder, which will be the last argument in the command.
+
+\subsection{Copying a Directory}
+
+In order to copy a directory, you must supply the \textbf{-r} argument to the cp command as follows:
+
+\begin{verbatim}
+$ cp -r photos /tmp
+\end{verbatim}
+
+This will create a copy of the entire photos directory to the /tmp directory.
+
+\section{Moving a File}
+
+Moving a file requires the \textbf{mv} command.  The arguments are the same as the cp command, but instead of leaving the original file, it will be removed.  For example:
+
+\begin{verbatim}
+$ mv grandCanyon.jpg photos/vacation
+$ mv photos/vacation/meteorCrater.jpg /tmp
+$ mv paintedDesert.jpg paintedDesert2.jpg
+$ mv /home/jdoolin/reminders.txt /tmp
+\end{verbatim}
+
+These are exactly the same examples listed above, but with cp replaced with mv.  The first will move the grandCanyon.jpg file from the present working directory to photos/vacation.  The second will move the meteorCrater.jpg file to /tmp.  The third one will have the effect of renaming paintedDesert.jpg to paintedDesert2.jpg.  The fourth will move a file using a full path to /tmp.\\
+
+\section{Renaming a File}
+
+There is not a separate command for renaming a file.  There are two ways to rename a file: using mv (move) or cp (copy).  The first was just illustrated in the third of the mv examples.  The mv command is the primary method of renaming a file.  The other method is during a file copy.  When you use the cp command to copy a file, instead of supplying a directory name for the destination, you can also supply a filename.  Here are a couple of examples:
+
+\begin{verbatim}
+$ cp petForest.jpg photos/vacation/petrifiedForest.jpg
+$ cp /tmp/reminders.txt /home/jdoolin/myReminders.txt
+\end{verbatim}
+
+In both cases, the file is copied but it is also renamed at the same time.  But by far, the most common method of renaming a file is simply to use the 'mv' command:
+
+\begin{verbatim}
+$ mv IMG_311834.JPG sunset.jpg
+\end{verbatim}
+
+This mv command renames a file, such as one you may transfer from a smartphone or digital camera, to a more descriptive name.
+
+\section{Reading and Editing Files}
+
+One area (among many) in which the Windows and Unix worlds differ significantly is in the storage of configuration and settings data and information.  While Windows mostly uses its labyrinth of cryptic and mysterious keys in the form of its registry, most of the Unix world uses simple text files for the bulk of its configuration, many of which reside in the /etc directory or a subdirectory within /etc.  Most individual user configuration files are also plain text. Most Unix logs are also plain text files, though there are exceptions.\\
+
+What this means is that being able to read or edit text files is one of the most important and frequent tasks you will do on Unix systems.  It is therefore imperative to learn how to view and edit these files.\\
+
+While there are many graphical text editors available that put you in the mind of Microsoft's Notepad, you aren't necessarily guaranteed to have a graphical interface available to you for a Unix system.  You know what that means.  Yes, we're going to look at command line/console text editors.\\
+
+The two most common editors found on Unix and Linux systems are \textbf{vi} and \textbf{nano}.  vi is almost \textit{guaranteed} to exist on any Unix system you ever use, so it's certainly a good choice if you think you may move beyond the Linux world.  nano is very common nowadays on most major Linux distributions.  It is lightweight, easy to use and even has syntax highlighting and coloring.  However it is not guaranteed to be on any random Unix system (such as an AIX server or a FreeBSD box).  There are many other editors out there, such as vim (vi Improved), emacs, jed, joe and pico, and a lot of graphical editors like jedit and gedit.  But since vi and nano are so common, we will discuss these two before moving on.\\
+
+Of the two, nano is more intuitive to use.  To start nano, the command is simply:
+
+\begin{verbatim}
+$ nano file.txt
+\end{verbatim}
+
+This will open a file called \textit{file.txt}.  If the file already exists, it will open the current file for editing.  If the file does not exist nano will create the file once you save it.\\
+
+Once nano is open, you can enter text normally and navigate with the arrow keys, home, end, pageup and pagedown.  When you have finished editing, do the following steps:
+
+\begin{enumerate}
+\item Press Ctrl+x to tell nano to exit the editor, however the file is not yet saved.  You will be asked if you wish to save.
+\item Press 'y' to tell nano that you would like to save the file. You will then be prompted with a filename.
+\item Press Enter to accept the filename -OR- if you wish to save as a different filename, change the name then press Enter.
+\end{enumerate}
+
+That's pretty much all there is to nano.  vi, on the other hand, is a little more complex, yet more powerful.  Opening a file with vi is just as easy as it is with nano:
+
+\begin{verbatim}
+$ vi file.txt
+\end{verbatim}
+
+However, things change as soon as the file is open.  If you try to enter text it may not work.  This is because vi opens in \textbf{command mode}.  vi has two modes: command mode and \textbf{insert mode}.\\
+
+It's easier to say what command mode is not.  Command mode is not the mode you use for entering text normally.  Command mode is for entering, well... commands.  These commands range from copy and paste and search and replace to sorting, capitalizing sections of text, formatting paragraphs, grabbing output from the command line, building software, debugging code and many other tasks.  It is also used for saving and exiting vi.\\
+
+Insert mode is what you want for entering text normally.  But since you start in command mode you must get into insert mode by pressing the 'i' key.  Technically there are other keys as well, but we'll just focus on 'i' for insert.  Once you're in insert mode, you can type normally.\\
+
+Once you've made your changes or additions, you'll have to save and probably quit as well.  Now we need command mode.  To go from insert to command mode, you press the Esc (escape) key.  Yep, that one all the way at the upper left.  You can always tell when someone is doing some heavy editing in vi (or vim) when you see them repeatedly going for the Esc key.\\
+
+Once you've pressed Esc to get into command mode, you save by typing ':w'.  You then quite by pressing ':q'.  If you wish to save \textit{and} quit in the same step, you can type ':wq'.\\
+
+There is a lot more to both editors, especially vi and it's more powerful cousin vim, but this will be enough to get you by.
+
+\section{I/O Redirection}
+
+Wouldn't it be great if we could send the output of a command to a file?  For example, there is a command you can use to see how much disk space your files and folders are using.  It would be very handy to send this output to a file so you could review it without scrolling up and down the terminal.  Or maybe it would be handy to run a series of commands that collects some useful information about your Unix system, such as which OS and version you're using, disk space, network information, etc, and send it all to a file.\\
+
+The command line offers a way to do this called I/O redirection.  It allows you to send the output of any command to a file instead of the screen.  However, it must be noted that \textbf{you will not see the output of the command}.  The special character used for redirecting output is '\textgreater'.  For example:
+
+\begin{verbatim}
+$ ls
+programs/ song.mp3 websites.txt
+$ ls > output.txt
+$ ls
+output.txt programs/ song.mp3 websites.txt
+\end{verbatim}
+
+The first command is a simple ls.  The second one redirects the output of the 'ls' command, so you don't see its output.  Instead the output is sent to a file.  You can see this new file by entering another 'ls'.  Just FYI, you can do the same thing in the Windows command prompt if the need was ever there.\\
+
+If you redirect output to the same file twice, \textbf{it will overwrite the previous file} with the new output.  So be sure that this is what you want.  You may find the need to append (add) the output of a program to a file that already exists, rather than overwrite it.  This is done in the same matter, but instead of a single '\textgreater' character, you simply use two, '\textgreater\textgreater'.
+
+\begin{verbatim}
+$ ls >> output2.txt
+$ ls >> output2.txt
+$ cat output.txt
+output.txt programs/ song.mp3 websites.txt
+output.txt output2.txt programs/ song.mp3 websites.txt
+\end{verbatim}
+
+The first 'ls' command sends its output to the file 'output2.txt' using the append symbol.  Because the file does not yet exist, this will create the file.  The second 'ls' command is exactly the same, but its output will be different because of the presence of the new file 'output2.txt' that was created previously.  The 'cat' command simply dumps the contents of a file to the screen, so we can see both lines of output printed by the two 'ls' commands.\\
+
+Occasionally you may try output redirection that seems as if it doesn't work.  You still see output to the screen and nothing goes into the file.  When this happens it is usually because the program is sending its output to \textbf{standard error}.  It is basically a separate output stream even though it normally just gets printed to the screen. This allows a program to have normal output and error output that can be processed separately.  In order to catch error output, the command becomes a little more complex: 
+
+\begin{verbatim}
+$ wget http://unix.local/cit220/index.html 2> wget_output.txt
+$
+\end{verbatim}
+
+wget, as we saw in an earlier chapter, is a program that can be used to download a file from a web site.  The output of the command shows connection information and a progress bar, as well as results of the download attempt.  This is all sent to standard error instead of standard output, so if you just use '\textgreater', you will still see the output and there will be nothing in the output file.  However, using '2\textgreater' tells the shell to redirect standard error\footnote{The number 2 refers to file descripter number 2.  File descriptors are basically the numerical assignments of any opened file, given by the operating system.  Two reserved file descriptors are 1, which is assigned to standard output, and 2, which is assigned to standard error.}.\\
+
+It is also possible to redirect input.  This is valuable for interactive programs that prompt for information.  You can store your answers in a file, then simply use that file as the input to the program.
+
+\begin{verbatim}
+$ sort < websites.txt
+\end{verbatim}
+
+This command will use the websites.txt file as the input for the sort command and will then send sort's output to the screen.  However, there is a good chance you would like to also send that output to another file, so you could have both the sorted and unsorted files.  This is possible by combining input and output redirection:
+
+\begin{verbatim}
+$ sort < websites.txt > websites_sorted.txt
+$
+\end{verbatim}
+
+\section{Pipes}
+
+One of the most powerful command line tools is the \textbf{pipe}.  Pipes were one of the features that made Unix stand out from other operating systems of its time, and it remains incredibly useful today.  Pipes are basically a really slick form of I/O redirection.  The idea of the pipe is that the output of one program becomes the input of another.  But before getting into details, let's talk about the Unix Philosphy.
+
+\subsection{The Unix Philosophy}
+
+During the early development years of Unix at Bell Labs, an approach to computing began to develop that would eventually be referred to as the Unix Philosophy.  This is best summarized by Doug McIlroy of Bell Labs:
+
+\begin{quote}
+''This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.''
+\end{quote}
+
+The original Unix developers strove for simplicity.  One way in which they achieved this was to write small programs that do only one thing, but do it very well.  This is opposed to writing large programs that do many things.  Smaller programs are easier to maintain.\\
+
+These small programs were also designed to work well together.  This was achieved using the third part of the philosophy, by handling text streams.  We've already seen text streams any time a program on the command line produces output.  This stream of output is sent to the screen.  We can redirect that stream to a file.  But we can also redirect it to another program, and that is a Unix pipe.
+
+\subsection{Output Becomes Input}
+
+Rather than sending the output of a program to the screen or a file, a pipe allows the output to be sent to another program.  For example, the \textit{cat} program, as mentioned before, reads the contents of a file and sends it to the screen.  This is all well and good for a small file, but what about a very large file?  A pipe can be used to send the output of cat to a program called a \textbf{pager}.  There are two common pager programs in the Unix world.  The earlier and more common pager is called \textbf{more}.  This allows you to page through a file or the output of a program page by page instead of just dumping it to the screen.\\
+
+Never without a sense of humor, Unix programmers created another pager called \textbf{less}.  This is ironic, of course, since less actually does more than more.  less allows you to page backward, forward and even to the side, rather than just straight through the output once.  less, however, is not on as many Unix systems as more.  So be aware of both, but use less when you can.\\
+
+You can pipe the output of any command to less.  Remember our sort command from earlier?  Instead of sending its output to a file, we could also pipe it to less.  In fact, instead of redirecting input, we can pipe the output of cat to sort.  The pipe character is '\textbar' (the vertical bar accessed by pressing Shift+\textbackslash).
+
+\begin{verbatim}
+$ cat websites.txt | sort | less
+\end{verbatim}
+
+First, the cat command dumps the contents of websites.txt, but since we're using a pipe, the output is not sent to the screen.  Instead it becomes the input for the sort command, which then sends its output to less.  This is the Unix Philosophy at work.  There are three programs that are designed for one purpose each, but work well together using text streams.\\
+
+Not surprisingly, pipes and I/O redirection can be combined.
+
+\section{Command Sequences}
+
+It is also possible to type a sequence of commands on the same line.  There are two common ways to do this.  The first is to separate each command with a ';' character.  Using this method, each command will be executed, regardless of success or failure.  For example:
+
+\begin{verbatim}
+$ cd StudentDataFiles; ls
+\end{verbatim}
+
+This will work just fine.  It will change to the StudentDataFiles directory then list its contents.  This may be exactly what you want, however what if you tried to change to a directory that doesn't exist?  You may not want the ls command to execute in the event that the directory doesn't exist.  In this case, you use '\&\&' to separate the commands.  If the first command fails, the second will \textbf{not} execute.
+
+\begin{verbatim}
+$ cd DoesNotExist && ls
+\end{verbatim}
+
+The cd command will fail because the DoesNotExist directory isn't there.  Since the cd command fails, the ls command will not even be attempted.  This is appropriate for many situations where one command depends on the first being successful.
+
+\section{Environment Variables}
+
+When you use the command line, it is dependent on a variety settings that determine your operating environment.  These are called \textbf{environment variables}.  There can be many environment variables, depending on the system.  Some shell programs use different variables than others do.  We will be going over some common environment variables used by the bash shell.\\
+
+Environment variables are referred to by name.  A few examples are USER (your username), UID (your numeric user id), SHELL (the path to your shell's binary), TERM (the terminal emulator used by your command prompt) and PATH.  Each of these variable names also has an associated value.  To see its value, you use the \textbf{echo} command, followed by the variable name, but with a dollar sign ('\$') preceding it.  For example:
+
+\begin{verbatim}
+$ echo $USER
+jdoolin
+$ echo $SHELL
+/bin/bash
+$ echo $TERM
+rxvt
+\end{verbatim}
+
+These variables are used by the shell itself and can even be accessed by programs that are started within the shell.\\
+
+Many variables are set, changed or updated automatically, such as USER, PWD (present working directory) and SHELL.  Others, however, are useful to modify.  To modify a variable, you use the \textbf{export} command as follows:
+
+\begin{verbatim}
+$ export VARIABLE=value
+\end{verbatim}
+
+One useful environment variable that you can modify is your shell prompt.  The variable name you need to modify is 'PS1'.  The prompt this book has used thus far has been a simple \$ followed by a space.  If you wanted to change this to say, for example, "command\textgreater ", you would use export to change the PS1 variable:
+
+\begin{verbatim}
+$ export PS1="command> "
+command> echo $USER
+jdoolin
+command>
+\end{verbatim}
+
+After the export command, the shell prompt changes, and it will remain this way until you log out of the shell.\footnote{There is a way to make this permanent. You must add the same export command to the file named .bashrc located in your home directory. Note that the filename begins with a dot.}  Also notice that when you \textit{set} a variable, you do not need the '\$' before the variable name.\\  
+
+Possibly the most useful environment variable to know about, however, is the PATH environment variable.  When you enter a command in the shell, it is often the name of a program file (also known as a "binary") located somewhere on the hard drive.  A good example is the ls command.  To see where the ls command is found, you can use the \textbf{which} command.
+
+\begin{verbatim}
+$ which ls
+/usr/bin/ls
+\end{verbatim}
+
+This tells us that the binary executable file for ls is located in the /usr/bin directory.  But how did the shell know that?  How did it know where to find the ls program?  The answer is in the PATH environment variable.  First, examine the contents of the PATH variable (yours will not likely be the same):
+
+\begin{verbatim}
+$ echo $PATH
+/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:
+/opt/java/bin:/opt/java/jre/bin:/opt/android-sdk/platform-tools
+\end{verbatim}
+
+The PATH variable contains a list of directories separated by a colon.  Each one of these directories contains binaries for programs.  Any time you type a command that corresponds to a program, the shell searches each of these directories in order until it finds one with the name you typed.  If it does not find one, it will display a "command not found" error.\\
+
+As you will see in a future chapter, some of these directories are Unix standards for the location of binaries, such as /bin, /sbin and /usr/bin.  A few in my PATH, however, aren't standard.  A good example is /opt/android-sdk/platform-tools.  This is where Android development programs are stored on my hard drive, and I had to put this directory in my PATH variable myself.  If you want to add a directory to the PATH variable, it is slightly different than just setting a variable:
+
+\begin{verbatim}
+$ export PATH=$PATH:/opt/android-sdk/platform-tools
+\end{verbatim}
+
+This command is essentially instructing the shell to set the PATH variable to whatever it currently is (\$PATH) plus the /opt/android-sdk/platform-tools directory.  You can add any directory to the PATH variable, including those in your own home directory.  One bad practice, however, is to have '.' in your current PATH.  Some beginners do this so that their Unix shell behaves more like Windows or so they can execute binaries that are in their current directory, whatever it happens to be.  There are some security implications with doing this.  For example, I could write my own custom program named 'ls' that does something devious.  If you were to change to that directory and type 'ls', there is a chance that MY ls command will be executed instead of the real one.
+
+\section*{Summary}
+
+\begin{itemize}
+\item The command line environment is provided by a program called a \textit{shell}, the most common of which is \textit{bash}.
+\item Typical command structure is \textit{command-name} (space) \textit{options} (space) \textit{arguments}, however there is a lot of variation.
+\item To see how to use a particular command, you can usually use the \textit{man} command, also known as \textit{man page}.
+\item Your \textit{present working directory}, or pwd, is the directory in which you are currently operating.  You change directories with the \textit{cd} command.
+\item A \textit{path} describes the location of a file or directory on the filesystem.  Paths may be absolute, which displays the full path from the root all the way down to the file or directory, or relative, which is relative to your present working directory.
+\item \textit{rm} removes a file, \textit{mkdir} makes a directory, \textit{rmdir} removes a directory, \textit{cp} copies files and directories and \textit{mv} is used to remove or rename a file.
+\item Editing text files is a very common task on Unix systems.  Two popular Unix editors are \textit{vi} and \textit{nano}.
+\item The output of a command can be redirected to a file with the \textgreater character.  To append/add the output to a file that already exists, use \textgreater\textgreater.
+\item The output of one command can be used as the input to another command by using a pipe, denoted by the \textbar character between the commands.
+\item Multiple commands can be executed on one line using either a semi-colon (;) or the double ampersand (\&\&), which requires that the first command be successful for the next command to execute.
+\item Environment variables are important settings for the shell and other programs.  They can be accessed with the \textit{echo} command and can be set with the \textit{export} command.
+\end{itemize}
+
+\section{Command aliasing}
+
+\section{.bashrc}

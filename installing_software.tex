@@ -1,0 +1,145 @@
+\chapter{Installing Software}
+
+While many Unix systems and Linux distributions come with a lot of very useful software and tools, you will at some point be installing additional software.  There isn't a standard method for installing software in Unix/Linux and it varies by the individual OS or even Linux distribution.\\
+
+A lot of software is available as binary packages built for specific Linux distributions or other operating systems.  As much of the software that's available is also open source, it can also be installed by compiling this source to a binary format.  What this means is that the original source code written for the application is translated into the executable format for the operating system.\\
+
+Many modern systems also offer a package management system that connects to online software repositories, tracks software updates and patches, installs necessary dependencies and more.
+
+\section{Binary Packages}
+
+Users familiar with installing Windows applications are most familiar with binary packages.  For Windows these files are often in the form of installer files, usually with a .exe or .msi file extension.  These files contain all of the application executables and binaries, resources and documentation, and also take care of things such as updating menus, creating desktop icons and registering the application.\\
+
+Many Linux distributions and Unix systems offer similar installer files.  There are many package formats found in the various distributions, but I'll discuss the most common ones.
+
+\subsection{RPM}
+
+\textbf{RPM} is the Redhat Package Manager, obviously developed by the maintainers of the Red Hat Linux distribution.  It has also been ported to other Linux distributions and even other Unix systems, such as IBM's AIX.  Distributions that use the RPM installer format are often said to be ``RPM based''.\\
+
+The files end in a .rpm file extension.  RPM files contain a compressed archive of all necessary files and documentation, and when the package is installed, information about the software is saved in a database.  The .rpm file also contains references to any additional software that is required to be installed first.  This is called a \textbf{dependency}, because the package is dependent on another package that must also be installed.  The files can also be digitally signed, which is a way of verifying that the package you are installing is not corrupt or tampered with.\\
+
+Because RPM files are binary, they must be built for a particular CPU architecture, such as x86 (32 bit Intel/AMD), amd64 (64 bit Intel or AMD), ppc, sparc, arm or other architecture.  If you cannot download an RPM for your architecture, you will have to build it from source.\\
+
+RPM allows packages to be removed and updated and the RPM database can even be queried to see which versions of certain packages are installed or which files are installed by certain packages.\\
+
+In days of yore, one may have to download RPM files individually from a source such as http://www.rpmfind.net.  It would also be necessary to download any dependencies not already installed.  This was a tedious and messy process.  Later, package managers would solve this problem.
+
+\subsection{Debian}
+
+Debian GNU/Linux has a different binary package format of its own.  The files end in the .deb extension and can be managed with the \textbf{dpkg} utility.  These installer files offer the same advantages as the RPM format, however for many years, Debian packages have been able to be managed with the \textbf{apt} package manager, to be discussed shortly.
+
+\subsection{OSX dmg and pkg files}
+
+Mac OSX usually distributes installers either as .pkg binary installer files, or as .dmg disk images.  The .pkg file is the format recognized by the OSX Installer program, which originated in the NeXT Operating System, a Unix variant that was the precursor to OSX.  .pkg files can be customized to prompt the user for information, change welcome messages, display README files or documentation or require license agreements.\\
+
+.dmg files are Apple Disk Images.  When the file is opened, it is mounted as if it were a hard disk.  At this point it can be browsed like a filesystem.  From here you may be required to drag an application icon to the Applications directory or open a .pkg file.
+
+\subsection{.tar.gz binary distributions}
+
+Some software is distributed as binaries in a .tar.gz file.  This is a compressed archive similar to a Windows .zip file.  This file, when extracted, contains the complete directory structure necessary to run the application, very similar to a Windows application distributed in a .zip file.  These binaries aren't made for any specific Linux distribution, but are still compiled for particular architectures, so make sure you have the right one.\\
+
+These files may be extracted anywhere, as long as you know the path to the executable, but some common places to extract them are /usr/local and /opt.\\
+
+One example is the Android ADT development IDE based on Eclipse.  This is distributed as a single compressed archive rather than as RPM, .deb or other installer package.
+
+\subsection{.tar.gz source distributions}
+
+Some software is only distributed as source code in the form of .tar.gz compressed archives.  It is also often provided as an alternative to binary packages such as .rpm or .deb files.  Some prefer to compile from source as it provides more of a guarantee that it will function with currently installed libraries and allows the user to customize the installation.\\
+
+Because the files are source code (most often C or C++), a compiler for the language in which the application is written is required.  For C and C++ applications, this most often means gcc or clang/llvm must be installed.  It is also often necessary to install other build utilities such as autotools, m4 and make.  Some distributions provide these in a single package, such as \textit{build-essentials} in Debian/Ubuntu.\\
+
+The most common commands required for installing from source are as follows, assuming the package is called ''application'' and is version 1.0:
+
+\begin{verbatim}
+$ cd application-1.0/
+$ ./configure
+[lots of output here]
+$ make
+[lots more output]
+$ make install
+[even more output]
+\end{verbatim}
+
+The first step simply changes to the source code directory that's created after extracting the .tar.gz file.\\
+
+The second step allows the user to configure the installation, such as destination directories, options to enable or disable or support for various features.  ``configure'' is a script that resides in the present working directory.  This is why the ./ is required before the name of the file.  Without any arguments, configure will use default settings.\\
+
+The third step, ''make'', reads what is called a Makefile and performs the actual compiling from code to binary formats.  Finally, ''make install'' runs the make program again, but with the argument to install the software.\\
+
+However, if the software is being installed on a RPM, Debian or other system with a package manager, the software installed from source in this manner will \textit{not} be registered in the official package database.  To remove it, you will either have to manually remove files or hope that the maintainers provide an uninstall option in the Makefile.\\
+
+Some distributions provide tools to install source packages under the package management system, such as Debian's ''checkinstall''.
+
+
+\section{Package Managers}
+
+Binary distributed packages and installers are convenient, but resolving dependencies and finding and downloading all the packages is tedious.  It's also possible that not all RPM or .deb files provided by software maintainers will work well with the distribution they are designed for.  If, however, the packages are maintained by those who also maintain the distribution, they should theoretically work much better.\\
+
+Package managers were developed to resolve these issues.  The distribution maintainers (the Red Hat people, Ubuntu people, etc) build an official online \textbf{repository} of packages that have been built specifically for their distribution, tested and are updated regularly.  The package manager software can then automatically download packages, resolve dependencies by downloading any other package that is required (any any required by those, and so-on), the packages are digitally signed so they can be verified and they are tracked in a database that can be queried.\\
+
+Some software may not make it into official repositories for a distribution, but it is usually possible to add additional repositories to the package manager.\\
+
+There are several \textit{major} benefits to using software repositories.
+
+\begin{enumerate}
+\item \textbf{automatic downloading} - You don't have to browse the web to find the software.  You need only know the package name.
+\item \textbf{dependency resolving} - Automatically fetches all software needed by the package
+\item \textbf{updating} - Software repositories update frequently, allowing you to have current software versions
+\item \textbf{querying} - You can search the repository, find which package a file comes from, see what is installed, etc.
+\item \textbf{digital signatures} - software is verified and digitally signed so you can ensure integrity and prevent malware
+\end{enumerate}
+
+Digital signatures alone make the spread of malware nearly impossible on Unix systems that use software repositories.  It doesn't mean there won't be unintentional security vulnerabilities in software that gets installed, but intentionally malicious software is practically non-existent in the Linux/Unix world for this reason.
+
+\subsection{yum}
+
+\textbf{yum} is the package manager most often used on RPM based systems such as Red Hat, Fedora and CentOS.  Installing a package via yum is done with a command such as:
+
+\begin{verbatim}
+$ sudo yum install fpc
+\end{verbatim}
+
+This will automatically download the Free Pascal Compiler from the Fedora/RedHat repositories along with any dependencies (software that fpc needs to have installed first).
+
+\subsection{apt}
+
+\textbf{apt} is the package manager most often used on Debian based systems such as Debian itself and Ubuntu and its variants, such as Raspbian on the Raspberry Pi.  The example installation is as follows:
+
+\begin{verbatim}
+$ sudo apt-get install fpc
+\end{verbatim}
+
+This will perform the same tasks as the yum command above, but for Debian based systems.
+
+\subsection{BSD ports}
+
+The BSD systems have a package management system that is also entirely based on compiling from source.  In FreeBSD and OpenBSD it is called \textbf{ports} and in NetBSD it is called \textbf{pkgsrc}.  Even Mac OSX (which has FreeBSD code as part of its core) has a ports tree called \textbf{MacPorts}.  This system is installed to the hard drive as a directory tree, usually called the ports tree.  To install a package, you cd to the necessary directory on the system and type ''make install''.  So for example:
+
+\begin{verbatim}
+$ cd /usr/ports/lang/fpc
+$ sudo make install
+\end{verbatim}
+
+This will download the source code package for the Free Pascal Compiler (fpc), as well as any other packages that it may depend on, then automatically compile the source code into the executables and then install them.\\
+
+The advantage of the ports tree is that all of your software is custom compiled for your particular computer, its architecture and installed software.  It also has the advantage of being maintained by the operating system maintainers, it resolves dependencies, allows customization and the other advantages of binary package management systems.\\
+
+The BSDs do still have a binary package system that can be used with what is called the \textbf{pkg tools}.  On FreeBSD, for example, you can issue the following command:
+
+\begin{verbatim}
+$ sudo pkg install gprolog
+\end{verbatim}
+
+This will download a \textit{binary} package for the GNU Prolog programming language that does not need to be compiled, and install it automatically.
+
+\subsection{pacman}
+
+Arch Linux uses its own package manager called \textbf{pacman}.  To install a program using pacman, use the following command:
+
+\begin{verbatim}
+$ sudo pacman -S gprolog
+\end{verbatim}
+
+\subsection{OSX App Store}
+
+Many applications for OSX are offically distributed on Apple's App store, such as the popular Garage Band software.  You do not necessarily have to use the App Store, however.  Many applications can simple be installed with installer packages downloaded from the official websites.

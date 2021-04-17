@@ -1,0 +1,99 @@
+\chapter{UNIX Processes}
+
+Similarly to Windows, any running program or task is considered to be a \textbf{process}.  Some processes are graphical programs that we see and interact with or even command line programs like ls, grep, cat or nano.  Others are background tasks that aren't "seen", such as web servers, print services, wireless services or DHCP clients.  Understanding processes allows us to get information about them, how they are affecting the system and to troubleshoot any that are causing problems.
+
+\section{What is a Process?}
+
+A Unix process consists of the following:
+
+\begin{itemize}
+   \item \textbf{Instructions} - these are the actual binary machine code instructions as contained in the binary file (such as /bin/bash).
+   \item \textbf{Data} - These are variables and intermediate data required for the process to run or that it is producing.
+   \item \textbf{Resources} - this refers to open files, sockets or devices
+   \item \textbf{Environment Variables} - passed from the shell that executed the process
+   \item \textbf{Permissions} - each process is owned by a user, typically whichever initiated the process.
+\end{itemize}
+
+All processes are given a process id, or \textbf{pid}.  This id can be used for many tasks, such as changing the priority, tracking whether a process is currently still running or terminating the process.
+
+\section{Listing Processes}
+
+In Windows, one may need to list currently running processes to see if some particular application is running, not responding using a lot of resources and memory, or has a particular file open.  The graphical program most often used is Task Manager, however there is also a command prompt utility called "tasklist" that will show running processes.\\
+
+The Unix command usually used for listing all process is \textbf{ps}.  ps has many command options, so a thorough understanding of the command will require reading the man page.  But a few common examples are:
+
+\begin{verbatim}
+## List All processes
+$ ps -A
+## List all processes along with full path to the binary and user ownership
+$ ps -aux
+\end{verbatim}
+
+There are many other great examples in the man page.  ps output can be combined with grep to retrieve information for only particular processes, users or even binaries or their arguments.  One example that we will discuss later is using ps to retrieve the process id for a process you wish to terminate.
+
+\subsection{Process Resource Usage}
+
+Most Unix systems have a Task Manager type program called \textbf{top} that shows running processes sorted by certain criteria, such as those using the most CPU time or memory.  This is quite useful for seeing which programs are causing performance problems or that may have memory leaks.  There are other, more modern versions of top that you can also install from software repositories, such as \textbf{htop}.  They provide the same function but are easier to read, colorful and more intuitive to use.
+
+\section{Background and Foreground}
+
+Conventionally, when you run a program or command from the command prompt, you must wait for it to complete before issuing the next command.  This is because the process interrupts the execution of the bash shell until the process has completed.  For simple, quick programs like ls, mkdir or touch, this may be too brief to even notice.  But occasionally these programs can run for much longer.  For example, you may be creating a .tar.gz file of the entire /home partition.  This may take several minutes to hours to complete.  You don't have time to wait for it to finish before moving on to other administrative duties.\\
+
+Another example is if you are using a graphical interface and you launch a graphical program from a command prompt, such as firefox.  Until firefox is finished running, you can no longer use that command prompt window to enter further commands.\\
+
+In either case, one solution provided by the shell itself is to put the process into the background by adding an ampersand (\&) at the end of the command, like so:
+
+\begin{verbatim}
+$ tar -czvf home.tar.gz /home &
+$
+\end{verbatim}
+
+The tar process will now run in the background and you will get your command prompt back.  The command will continue to run until you either exit the program (such as with firefox) or until it finishes on its own (tar).\\
+
+Occasionally you may initiate a process that takes much longer than you expect and that would be better off running in the background.  This can be done, but first we need to examine pausing a process.\\
+
+If you enter a command that takes an appreciable amount of time, you may stop/pause the process by pressing \textbf{Ctrl-z} (hold the control key and press 'z').  This now pauses the process. It is no longer running, yet it is not terminated either.  At this point you have a choice.  You can now put this program in the background by typing the \textbf{bg} command, or bring it back into the foreground with \textbf{fg}.\\
+
+There is a possibility that you may have several active processes that are either stopped or running in the background.  You can get a list of these processes by using the \textbf{jobs} command, which will list these background and stopped processes by number.  You can then specify the number of a process to either put in the background or to resume in the foreground, like so:
+
+\begin{verbatim}
+$ jobs
+[1]+ Stopped		firefox
+$ fg 1
+\end{verbatim}
+
+These commands list current background or stopped processes, which shows only one, firefox.  The fg command then brings firefox back to the foreground.
+
+\section{Terminating Processes}
+
+Killing a process can be accomplished in one of three ways.  For a command line process that is currently running in the foreground, such as a large file download with wget, for example, you can terminate this process with \textbf{Ctrl-c}.  You can try this by running the 'cat' program by itself, which will wait for input.  Press Ctrl-c to terminate cat.\\
+
+But occasionally you want to terminate a process that is not or has not ever run in your terminal.  In this case you need its PID (process id), which can be obtained from the 'ps' command.  First issue ps, then you can use the \textbf{kill} command to terminate the process:
+
+\begin{verbatim}
+$ ps -A | grep ntpd
+2122 ?        00:01:46 ntpd
+$ kill 2122
+\end{verbatim}
+
+If you know the exact name of the process, such as ntpd or firefox, you can kill it by name with the \textbf{killall} command:
+
+\begin{verbatim}
+$ killall firefox
+\end{verbatim}
+
+The caveat here is that its default behavior is to kill all occurences of the processes running under that name.\\
+
+The kill command actually sends a signal to a running process that tells it to terminate.  Some programs are written to accept particular signals that allow it to perform certain tasks to allow it to terminate gracefully, such as closing files, network connections or writing configuration data.   The default signal used by kill is SIGTERM, which stands for TERMINATE.  There are other signals as well, but the most common other signal is SIGKILL.  This signal terminates a process immediately and it cannot be ignored.  It's the sledgehammer of process termination.  The typical, shorthand manner of issuing SIGKILL is \textbf{kill -9}, like so:
+
+\begin{verbatim}
+$ kill -9 2122
+\end{verbatim}
+
+Two other signals that are useful are SIGSTP, which the equivalent of pressing "Ctrl-Z" to pause a process and SIGCONT, which resumes stopped processes.  These signals are how shells like bash implement job control.
+
+\section{Daemons}
+
+\subsection{Init and Runlevels}
+
+\subsection{Init Scripts and Services}

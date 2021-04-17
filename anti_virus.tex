@@ -1,0 +1,73 @@
+\chapter{Unix Security}
+
+\section{Linux Anti-Virus and Malware Removal}
+
+Malware has a long and interesting history.  It was first simply annoyances, written by rather intelligent programmers seeking to show the world how clever they were.  It grew to be expensive, network hogging worms and system damaging viruses.  Eventually it became apparent that malware could actually be profitable, so rather than seeing a decrease in malware, there has actually been an \textit{increase}.\\
+
+Malware comes in many forms, such as viruses, worms, trojans, spyware, adware, rootkits, browser hijackers, ransomware and many others.  It has become a concern for the safety of our private information, sensitive data and even our money.  With this in mind, we should be very mindful of preventing malware .\\
+
+With this in mind, we need to take care in protecting our Linux and Unix systems from the perils of malware.\\
+
+\subsection{Just Kidding}
+
+Hahahahahahahahaha.... malware on Linux! Oh, that was a good one.  Hope you got as much of a laugh out of that one as I did.\\
+
+One of the greatest advantages that Linux and Unix users have is that malware is simply not a problem we have to deal with.  Oh, I already know what some of you are saying.  You're saying, ``Yeah, but Linux has such a tiny market share on the desktop, so why would malware writers even consider it as a target?  If Linux were more popular, it would have just as much malware as Windows''.\\
+
+That seems like a legitimate argument at first, but when you consider the huge number of servers, routers, appliances and other network devices running Linux or some other Unix variant, why would you be happy taking out a few thousand home PCs when you could take out a whole continent?\\
+
+There are a number of reasons why malware is more or less non-existant for Linux.  Among them are:
+
+\begin{itemize}
+\item Not running as root/administrator.  Most Linux users do not use the root account for day-to-day activities.  As such, malware is severely limited to what it could do on a Linux system.  In order to infect binaries, the malware has to have root access, which is more difficult to achieve with accounts that do not themselves have root access.
+\item Software repositories.  In Windows, when you install software, you either go buy it or you download it and install it from any number of sites.  A third option is to pirate the proprietary software.  Windows software can come from unreliable sources, especially if it's pirated.  When you install pirated software, there could be anything hiding in those executables.  Even when you install legitimate software, you often have to use the ``Custom Settings'' for ``Advanced Users'' to disable the installation of various toolbars and other malware.  On most Linux systems, software is installed either from repositories or from packages provided on the original developers' sites.  This prevents malicious code from sneaking in.  Packages are also digitally signed to verify their integrity.
+\item Open source software.  A lot of Windows software is proprietary or closed source, meaning that only the developers ever get to see the code.  Who knows what could be hiding in that program you just installed?  Open source software is an open book.  There are a lot of eyes on the source code, so malware has no chance to get in.
+\item Distribution variety.  It would be difficult to write malware that works on all Linux systems, because not all distributions are built the same, use the same software or have the same configuration systems.
+\item User knowledge - The typical Linux or Unix user has a technology education and knows well enough to not click on suspicious email attachments, visit suspicious websites or otherwise fall for the social engineering tactics used to facilitate the spread of malware.  That's not to say it's true for all Linux users, but it's a safe bet.
+\end{itemize}
+
+If you're running Linux, you can be pretty confident without running any anti-malware or anti-virus software.  I myself have used Linux and BSD systems for 18 years as of this writing and have never once had anything you could call a malware infection.
+
+\section{But Seriously}
+
+Having said all that, this doesn't mean you can just do whatever you want with a Linux system and you'll be fine for all time.  Just because malware isn't a problem doesn't mean you still can't be compromised.
+
+Your Linux machine may also be a server that will be providing data and services to Windows machines, so anti-virus may also play a role in protecting or scanning Windows systems and networks, so knowing what is available can be of some use.\\
+
+Linux and Unix systems still have security vulnerabilities outside of malware and thus they are still major targets for security attacks.  Webservers can be compromised, Unix hosted web sites can be hacked, remote exploits can be conducted.  So you must remain vigilant with software updates and make sure you aren't running unneccessary services.\\
+
+You should approach the security of Linux and Unix system as seriously as you would any Windows system, even if malware isn't a concern.
+
+\section{Unix Security Practices}
+
+\subsection{Keep Software Updated}
+
+The majority of Unix security breaches occur through vulnerable server software or web applications.  Still others occur due to root access being gained by unprivileged user accounts through vulnerable programs.  These can be mitigated by simply keeping your software up to date and applying patches, just as it does on a Windows machine.
+
+\subsection{Use Repositories and Package Managers}
+
+By installing software from repositories using package managers, such as apt and yum, you have a much lower risk of installing programs that contain any malware or malicious code.
+
+\subsection{Disable Unnecessary Services}
+
+By turning off all unnecessary services you decrease the number of \textbf{attack surfaces} on the system.  Many Unix systems enable certain services by default during installation.  If they aren't needed they should be disabled.  This can include mail servers, print servers, Samba file sharing or nameservice and others.
+
+\subsection{Use Secure Remote Access}
+
+Rather than use telnet or FTP protocols for remote access, use the OpenSSH alternatives.  However even this must be protected.  It is a good idea to disable root access through and even to configure the SSH server to allow only certain users.
+
+\subsection{Proper User and Group Management}
+
+When creating users and granting permissions to various resources, use the Principle of Least Privilege.  In other words, when creating users, only grant them access to the minimal resources required to perform their duties.  For example, you may not want to give them sudo access or put them in the BSD wheel group.  Perhaps you don't want them access to certain folders, drives or devices.\\
+
+It is also a good practice to enable user account expiration.  This allows accounts to be automatically disabled after a certain amount of time or lack of activity.  Orphaned or abandoned accounts are potential security problems.
+
+\subsection{Use a Firewall}
+
+Most Unix systems have firewalls either built-in or as optional software.  Linux has \textbf{iptables}.  The BSD systems have \textbf{pf}, \textbf{ipfw} and \textbf{ipfilter}.  Enable and configure the firewall to block all network connection attempts other than those from legitimate sources and to legitimate services.
+
+\subsection{Make Regular Backups}
+
+Keeping good backups prevents loss of data and gives administrators the freedom of reinstalling compromised operating systems and restoring.
+
+

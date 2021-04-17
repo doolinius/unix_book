@@ -1,0 +1,210 @@
+\chapter{Shell Scripting}
+
+In the Windows world, you may have encountered something called a "batch file" ending in the .bat extension.  These are treated as executable files or programs that you can double click to run.  These files are essentially the equivalent of the Unix shell script.\\
+
+Shell scripts are extraordinarily useful programs that can be used for an enormous amount of tasks involving automation, program launchers, backups, startup scripts, software building and installation.  The only limits to what a shell script can do are constrained by your own imagination.
+
+\section{Shells are Programming Languages}
+
+Unix shell scripts are literally computer programs, but they happen to often include the use of day-to-day programs and commands that you routinely use on the command line, such as echo, cd, mkdir, mv, cp and many others.  Just as with other programming languages, shell scripts are capable of conditionals (if/else and case statements), loops (for and while), variable assignment, math and even subroutines.  There is a caveat, however.\\
+
+Back in Chapter 2 we covered the topic of shells and how users in the Unix/Linux world often have their choice of many different shell programs, such as csh, tcsh, bash, zsh, ksh and others, where bash is the most popular and most common on modern Unix systems.  While it is nice that we have this choice, it does present a problem with shell scripts.  Not all shells support the same scripting features nor do they have the same syntax.  For example, the next two lines perform the same task in Bash and CSH:
+
+\begin{verbatim}
+-BASH-
+$ name=Jeremy
+-CSH-
+$ set name = Jeremy
+\end{verbatim}
+
+That is just one of many little differences between shell syntax.  What this means is that what you write for one shell may not work in another, so be aware of this.  Most of the time and for this book, however, you will be using Bash.
+
+\section{List of Commands}
+
+So far you have likely typed thousands of commands directly into the shell (probably bash).  The very simplest of shell scripts consist of a list of commands to be run, or even one command that has a list of complex arguments.  For example, you could write a file named "mkprojects.sh" containing the following lines:
+
+\begin{verbatim}
+mkdir projects
+cd projects
+mkdir python java lisp c++
+cd ../..
+\end{verbatim}
+
+Then if you run this file using the following command...
+
+\begin{verbatim}
+$ bash mkprojects.sh
+\end{verbatim}
+
+... this would proceed to create a directory calld 'projects', change to that directory and create four more directories within it, then cd back to the original directory.  This sequence of commands is precisely the same sequence you would use to perform the same task at the command prompt, but they are written in a file.  You could now keep this file and run it any time you would like to perform the same task.\\
+
+Another simple example is one I'm using personally to start a Minecraft server.  It contains only one line, but simplifies the process of starting the server. In a file simply called 'mcserver', I have the following line:
+
+\begin{verbatim}
+java -jar -Xms128M -Xmx960M spigot-1.9.jar
+\end{verbatim}
+
+This starts the Minecraft server with the necessary arguments to the Java virtual machine to optimize performance on a Raspberry Pi.  Since this more complex command is in a file, I always have those command line arguments available and do not have to memorize them.\\
+
+But shell scripts can go way beyond this.  Unix shell is a full fledged programming language.  Let's look at how.
+
+\section{SheBANG!}
+
+Thus far I have shown you only one way to execute a shell script: by passing the filename as an argument to the shell command:
+
+\begin{verbatim}
+$ bash mkprojects.sh
+\end{verbatim}
+
+But there are more convenient ways of running shell scripts.  One of the ways we can simplify it is by specifying which shell program to use in the very first line of the file.  This line begins with a \textbf{hash symbol} followed by an \textbf{exclamation point}, often referred to as "hash bang" or simply, "shebang".  These two characters are immediately followed by the full path to the shell binary along with any other necessary arguments.  For example:
+
+\begin{verbatim}
+#!/bin/bash
+\end{verbatim}
+
+Using this as the first line in your shell script file would be the first step in allowing it to be run as a self-contained launcher, provided that your bash shell is installed in /bin.  It could be that it is installed in /usr/bin or perhaps even /usr/local/bin.  If your script is designed to run with ksh, your first line would look like:
+
+\begin{verbatim}
+#!/usr/bin/ksh
+\end{verbatim}
+
+ksh would have to be installed in /usr/bin, of course.  However, this alone isn't enough to make your script a self-contained launcher.  You must now make the file executable using chmod, like so:
+
+\begin{verbatim}
+$ chmod a+x mkprojects.sh
+\end{verbatim}
+
+This uses the newer, non-numeric permissions mode to set executable permissions for all users on the system.  Of course, use whichever permissions make the most sense in your particular situation.  You should now be able to run this shell script with the following command:
+
+\begin{verbatim}
+$ ./mkprojects.sh
+\end{verbatim}
+
+This assumes mkprojects.sh is in your present working directory, which is also why we precede the filename with './'.  You could also use the full path to execute the program, like so:
+
+\begin{verbatim}
+$ /home/jdoolin/mkprojects.sh
+\end{verbatim}
+
+Of course, assuming you have root access or sudo, you could simply copy this file to one of the directories in your PATH environment variable, such as /usr/local/bin.  You would then be able to execute the program just by typing the filename.
+
+\begin{verbatim}
+$ sudo cp mkprojects.sh /usr/local/bin
+$ mkprojects.sh
+\end{verbatim}
+
+One final step could be to eliminate the .sh extension, which would make it appear like most of the other Unix commands we type.
+
+\begin{verbatim}
+$ sudo mv /usr/local/bin/mkprojects.sh  /usr/local/bin/mkprojects
+$ mkprojects
+\end{verbatim}
+
+\section{Variables}
+
+Bash and other shells are able to save variables.  This is an extremely common task in programming languages and usually involves the assignment operator, typicall the '=' sign.  To create a variable in Bash, type the following:
+
+\begin{verbatim}
+$ fname=Jeremy
+\end{verbatim}
+
+This will create a variable named 'fname' that contains the data, "Jeremy".  It is very important to note that \textbf{there are no spaces between the '=' sign and the variable name or data}.  This is because bash considers spaces the necessary separator between arguments.  So if you typed
+
+\begin{verbatim}
+$ lname = Doolin
+\end{verbatim}
+
+Bash would look for a program called 'lname' and try to execute it with the arguments '=' and 'Doolin'.  It would likely respond with a "command not found" error in this case.  In order to see the contents of a variable, you can use the 'echo' command, like so:
+
+\begin{verbatim}
+$ echo $fname
+Jeremy
+$ 
+\end{verbatim}
+
+You may remember from previous chapters or exercises that \textbf{echo} is like a print statemnt.  It just prints something to the terminal and exits.  However, echo can be used in this way to print the contents of variables.  Also note the dollar sign before the variable name.  This is required in order to refer to the contents of the variable.  Otherwise, echo would have just printed the word "fname" to the screen.\\
+
+If your data requires the use of spaces, you can use double quotes to begin and end the data.  For example:
+
+\begin{verbatim}
+$ fullname="Jeremy Doolin"
+\end{verbatim}
+
+You can also combine variables with literal data.  Consider the following script:
+
+\begin{verbatim}
+$ fname=Jeremy
+$ lname=Doolin
+$ fullname="$fname $lname"
+$ echo $fullname
+Jeremy Doolin
+\end{verbatim}
+
+This time I created three variables, but the third one used the contents of the first two to construct my full name.
+
+\section{Prompting for Data}
+
+You may occasionally want to acquire input from a user.  This is common in setup scripts that may need to repeatedly use usernames, numbers and other options.  The command for reading data from the user is, appropriately, \textbf{read}.  For example:
+
+\begin{verbatim}
+$ read classnum
+CIT220 <--- this would be typed in
+$ echo $classnum
+CIT220
+\end{verbatim}
+
+This provides an empty prompt for someone to type something as input.  This input will be saved in a variable called 'classnum'.  Pay careful attention to my note that the first 'CIT220' is what I typed into the prompt, not what is printed to the screen.  The second one is printed to the screen after the echo.  But this prompt isn't very helpful.  You can make it better by using the "-p" argument and supplying a prompt, as follows:
+
+\begin{verbatim}
+$ read -p "Enter your course number: " classnum
+Enter your course number: CIT220
+$ echo $classnum
+CIT220
+\end{verbatim}
+
+You can also read multiple variables in the same command by providing a list of variable names and separating the data by spaces when you enter the data.  For example:
+
+\begin{verbatim}
+$ echo "Enter the month, day and year of your birthday"
+$ read -p "separated by spaces: " month day year
+Enter the month, day and year of your birthday
+separated by spaces: 12 8 1978
+$ echo $year
+1978
+\end{verbatim}
+
+\section{for Loops}
+
+One of the most useful parts of the Bash shell is the ability to write 'for' loops.  These will be second nature to any programmers in the class, but may be new to those who have no programming experience.  A for loop allows you to perform the same task repeatedly, usually with different data each time.  For example, you may wish to perform the same task on every .png file in a directory or for every letter of the alphabet or many other sequences that can even be generated by other commands.  One example of these commands is the \textbf{seq} command, which will print a sequence of numbers. 'seq 1 10' will print the numbers 1 to 10.  'seq 20 5' will print the numbers backward from 20 to 5.  This can be used to create a 'for' loop as follows:
+
+\begin{verbatim}
+$ for num in `seq 1 10`; do touch Logfile${num}.txt; done;
+\end{verbatim}
+
+In this loop, 'seq 1 10' is placed inside backticks (we'll get to that shortly), which means it will run the seq program, capture its output and use it for the items in the for loop.  This loop will then create ten files named Logfile1.txt through Logfile10.txt.  If this loop were written in a file, it could also be written in a more readable form, like so:
+
+\begin{verbatim}
+for num in `seq 1 10`
+do
+    touch Logfile${num}.txt
+done
+\end{verbatim}
+
+\section{if/else conditionals}
+
+In many programs, you may need your code to branch such that it does one thing if a condition is met, but do something else if the condition is not met.  For example, if you may need to create a new file if it does not already exist, but if it does, you will do create a different one or simply add to the previous one.  This requires what is called a \textbf{conditional} statement.  The most basic of these is the \textbf{if} statement, something programmers will be all to familiar with.  Here is a simple 'if' statement example:
+
+\begin{verbatim}
+if [ -f config.txt ]
+then
+    echo "SUCCESS: Configuration detected, setup will commence"
+else
+    echo "ERROR: Config file not found!"
+fi
+\end{verbatim}
+
+This simple statement will check to see if "config.txt" exists as a file in the present working directory.  If so, it will print a success message.  Otherwise, it will print an error.  Strangely, the Bash if statement is ended with \textbf{fi}, a backward spelling of "if".  This will also be used for the "case" statement as we shall soon see.
+
+\section{Backquote/Backtick}
+
+\section{The Rabbit Hole}

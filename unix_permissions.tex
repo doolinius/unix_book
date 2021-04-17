@@ -1,0 +1,246 @@
+\chapter{UNIX Permissions}
+
+As mentioned in the first chapter, one of the reasons for developing Unix in the first place was to establish a timesharing operating system that multiple people could use simultaneously.  Each user was given their own directory on the system separate from others.  A natural consequence of this was the necessity for a permissions system that prevented users from accessing unauthorized files.  It certainly wouldn't be ideal if one user could overwrite the resume of another, or for an unprivileged user to access sensitive operating system files that should only be accessible by root.
+
+\section{File Ownership}
+
+Files (including directories) on Unix systems are ''owned'' by a particular user and group.  Files created by a particular user are usually owned by that user and their primary group by default.  Processes, that is running programs and applications, even those such as ls, cat, sort and export, are also owned by a particular user.  There is a command that can be used to see which user account you are currently using called \textbf{whoami} that can be used to demonstrate this.  whoami reflects the user account that owns the process.  It will be different if you use sudo to run whoami:
+
+\begin{verbatim}
+$ whoami
+jdoolin
+$ sudo whoami
+[sudo] password for jdoolin:
+root
+$
+\end{verbatim}
+
+The first command reports back jdoolin, while running whoami under sudo reports that I am root.  This is because sudo causes the subsequent process to be run under the ownership of root.  Another way to see who owns the processes running on a system is to use the \textbf{ps -aux} command.\\
+
+To be more specific, files are owned by the same user and group as the \textit{process} that created them.  So if you use nano to create a new text file, it will be owned by your user account.  If you were to use sudo nano, it would be owned by root because the nano process would be running as root.\\
+
+To view file ownership and other file permissions you can use the \textbf{ls -l} command.  This will show the user and group that owns the file as well as the other permissions settings that we'll be discussing shortly.
+
+\begin{verbatim}
+$ ls -l
+-rw-r--r--  1 jdoolin  cit       4625 Mar 12 17:16 midterm.zip
+drwx------  4 jdoolin  jdoolin    512 Feb 26 14:40 old_midterm
+-rw-r--r--  1 jdoolin  jdoolin   4265 Feb 26 14:41 old_midterm.zip
+drwxrwxr-x  2 jdoolin  cit        512 Feb 26 18:39 old_results
+drwxrwxr-x  2 jdoolin  cit        512 Mar 12 18:40 results
+\end{verbatim}
+
+The above entries are all owned by the jdoolin user, while a few of them are owned by the cit group (of which jdoolin is a member).
+
+\section{Read, Write and Execute}
+
+Files and directories have three permissions: \textbf{read, write} and \textbf{execute}.\\
+
+The read permission allows the contents of a file to be accessed.  For directories it allows only the names of files in the directory to be known, but not any other information about the files therein, such as file size, ownership or contents of the files.\\
+
+The write permission allows the contents of a file to be modified.  For directories it allows one to create, delete or rename files, but it also requires execute permissions.\\
+
+The execute permission allows a user to run the file as a program.  This includes binary executable files, such as /usr/bin/firefox or even script files.  For directories it allows a user to be able to change to that directory and access the file information.\\
+
+These three permissions can be seen with the ''ls -l'' command:
+
+\begin{verbatim}
+$ ls -l
+-rwxr-xr-x 1 jdoolin jdoolin 264 Mar 19 17:15 install.sh
+\end{verbatim}
+
+In the above ls output you can see the file permissions to the far left.  In this case they are -rwxr-xr-x.  'r' means the read permission is set, 'w' means the write permission is set and 'x' means the executable permission is set.  A dash ('-') means that a permission is not set.  If you notice, however, there appear to be three sets of permissions.
+
+\section{User, Group and Everybody Else}
+
+The permissions of a Unix file are separated into three classes of users:  the user that owns the file, the group that owns the file and anybody who isn't that user or in that group (aka, "everybody else").  These permissions are listed \textit{in that order}.  So let's take the permissions from that last command and examine them more closely.\\
+
+For now, let's ignore the very first dash in the permissions and focus on the remaining nine.  We see:
+
+\begin{verbatim}
+rwxr-xr-x
+\end{verbatim}
+
+Separated into the permissions for each class we have:\\
+
+\begin{tabular}{|c|c|c|}
+   \hline
+   User & Group & Everyone Else \\
+   \hline
+   rwx & r-x & r-x \\
+   \hline
+\end{tabular} \\
+
+The user permissions show that the user that owns the file (jdoolin in this case) has permissions to read the file, write to it and execute it as a program.  Anyone who is a member of the group that owns the file (cit in this case) has permissions to read the file and execute it as a program, but \textit{not} to write to the file.  Everybody else on the system (anyone who is \textit{not} jdoolin or a member of the 'cit' group, can also read and execute the file, but not write to it.
+
+\section{Changing Ownership}
+
+It is occasionally necessary to change the ownership of a file, directory or a directory \textit{and} its files.  Changing the user that owns a file can typically only be done by root.  Changing the group ownership can be performed by the user who owns the file, but only to a group to which the user belongs.  For example, if jdoolin is \textit{not} a member of the wheel group, jdoolin may not change group ownership of a file to wheel.  If, however, he is a member of the cit group, he may change the group ownership to cit.  The command for changing ownership is \textbf{chown}.  It has the following syntax:
+
+\begin{verbatim}
+chown  username:groupname  filename
+\end{verbatim}
+
+where \textit{username} is the user to which you would like to change ownership and \textit{groupname} is the group to which you would like to change ownership.  Take the following example:
+
+\begin{verbatim}
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+$ chown jdoolin:admin unix_book.tex
+chown: changing ownership of "unix_book.tex": Operation not permitted
+$ chown jdoolin:cit unix_book.tex
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 jdoolin cit 2268 Mar  4 22:20 unix_book.tex
+\end{verbatim}
+
+ls -l shows that the file is owned by the user jdoolin and the group jdoolin.  The first attempt is to change the group ownership to the admin group, to which jdoolin does not belong.  Thus, the chown command fails.  The second attempt changes the group ownership to cit, to which jdoolin does belong and therefore succeeds.  The second example will change user ownership:
+
+\begin{verbatim}
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 jdoolin cit 2268 Mar  4 22:20 unix_book.tex
+$ chown dstoffel:cit unix_book.tex
+chown: changing ownership of "unix_book.tex": Operation not permitted
+$ sudo chown dstoffel:cit unix_book.tex
+[sudo] password for jdoolin:
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 dstoffel cit 2268 Mar  4 22:20 unix_book.tex
+\end{verbatim}
+
+The first chown attempts to change user ownership to dstoffel.  jdoolin does not have permission to do this.  The second attempt uses sudo to gain root privileges to change ownership, which succeeds.\\
+
+Note that it is also possible to use a different syntax with chown if you merely need to change user ownership or group ownership.  For example:
+
+\begin{verbatim}
+$ chown dstoffel unix_book.tex
+$ chown :cit unix_book.tex
+\end{verbatim}
+
+The first command will change user ownership while the second will change group ownership without specifying the other unnecessary information.
+
+\section{Changing Permissions}
+
+There are two ways of changing permissions on a file.  The command for both is the same: \textbf{chmod}.  The original way uses octal permissions modes, while the newer way uses a completely different syntax.
+
+\subsection{The Old Way}
+
+As mentioned previously, setting permissions the old way (but not necessarily worse way) involves translating the desired permissions to an octal number.  You will need three of these numbers to set the full permissions: one for user permissions, one for group permissions and one for everybody else.  Let's return to the previous example:\\
+
+\begin{tabular}{|c|c|c|}
+   \hline
+   User & Group & Everyone Else \\
+   \hline
+   rwx & r-x & r-x \\
+   \hline
+\end{tabular} \\
+
+Again note that this set of permissions is divided into the three user categories.  Each one of these categories will require a digit from 0 to 7 to properly set the three permissions (read, write and execute).  Examine the following chart to see how to calculate the digit:\\
+
+\begin{tabular}{|c|c|c|}
+   \hline
+   Read & Write & Execute \\
+   \hline
+   4 & 2 & 1 \\
+   \hline
+\end{tabular} \\
+
+If you wish to set the file to be readable, add 4.  If you wish it to be writeable, add 2.  If you wish the file to be executable, add 1.  Observe the following examples:\\
+
+\begin{tabular}{|c|c|c||c||c|}
+   \hline
+   Read & Write & Execute & Formula & Mode\\
+   \hline
+   4 & 2 & 1 &  &  \\
+   \hline
+   yes & yes & no & = 4 + 2 + 0 & = 6 \\
+   \hline
+   yes & no & no & = 4 + 0 + 0 & = 4 \\
+   \hline
+   yes & no & yes & = 4 + 0 + 1 & = 5 \\
+   \hline
+   no & no & no & = 0 + 0 + 0 & = 0 \\
+   \hline
+\end{tabular}
+
+Repeat this formula for each of the three user classes: user, group and everyone else.  Say for example you would like the user who owns the file to be able to read and write to the file, you would like the members of the group to only have read access, but everyone else to have no access at all. If you look at the above chart, you can see this corresponds to a 6 for the user, 4 for the group and 0 for everyone else.  Thus, our chmod command would be as follows:
+
+\begin{verbatim}
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+$ chmod 640 unix_book.tex
+$ ls -l unix_book.tex
+-rw-r----- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+\end{verbatim}
+
+The first ls -l shows that the permissions are almost what we want, with the exception that the jdoolin group has write access.  We would like to remove this write access, which is accomplished with the 4 mode for group permissions in the chmod command.
+
+\subsection{The Recent Way}
+
+A more recent way of changing permissions is by using abbreviations.  The syntax is as follows:
+
+\begin{verbatim}
+chmod [userclass][+/-][permission]
+\end{verbatim}
+
+The \textit{userclass} is one of the following:
+
+\begin{itemize}
+   \item \textbf{u} - the user who owns the file
+   \item \textbf{g} - the group that owns the file
+   \item \textbf{o} - others/everyone else
+   \item \textbf{a} - all user classes (same as ugo together)
+\end{itemize}
+
+The permission is one of the following:
+
+\begin{itemize}
+   \item \textbf{r} - read permission
+   \item \textbf{w} - write permission
+   \item \textbf{x} - execute permission
+\end{itemize}
+
+The +/- is for whether you want to add or remove the permissions for the user class.  Let's look at the previous example using this method:
+
+\begin{verbatim}
+$ ls -l unix_book.tex
+-rw-rw-r-- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+$ chmod g-w unix_book.tex
+$ ls -l unix_book.tex
+-rw-r--r-- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+\end{verbatim}
+
+The chmod command uses "g-w" to remove write partitions from the group owner.  These can also be combined.  Let's say we would like to give write permissions back to the group and to everyone else as well:
+
+\begin{verbatim}
+$ ls -l unix_book.tex
+-rw-r--r-- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+$ chmod go+w unix_book.tex
+$ ls -l unix_book.tex
+-rw-rw-rw- 1 jdoolin jdoolin 2268 Mar  4 22:20 unix_book.tex
+\end{verbatim}
+
+Using "go+w" translates to "add write permissions for group owner and others".  This works well for simple changes, but for more complex changes it requires multiple statements.  For example, if you would like to remove write permissions for everyone and add executable permissions for the user, the command would be as follows:
+
+\begin{verbatim}
+$ ls -l backup.sh
+-rw-rw-rw- 1 jdoolin jdoolin 238 Mar  1 12:20 backup.sh
+$ chmod o-w,u+x backup.sh
+$ ls -l backup.sh
+-rwxrw-r-- 1 jdoolin jdoolin 238 Mar  1 12:20 backup.sh
+\end{verbatim}
+
+Which method you use is entirely up to you, though it is best to know the numerical method as it is most likely to be available on all Unix platforms.
+
+\section{setuid and setgid}
+
+There is one more aspect to chmod that hasn't been mentioned thus far, and that is the ability to set a program to always run as a particular user or group, even if the account running the program is not that user or in that group.  For example, you can set a program to run as user root and group root even if you are not root yourself, or even have the root password or sudo access.  This is called the \textbf{setuid} and \textbf{setgid} permissions.  Like other permissions they are set with chmod.  Instead of using three digits to set the permissions, you must use four.  The values for this digit are 4 for setuid and 2 for setgid, and the digit used is the first one, followed by the usual three.  Here is an example:
+
+\begin{verbatim}
+$ ls -l backup.sh
+-rwxrw-r-- 1 jdoolin jdoolin 238 Mar  1 12:20 backup.sh
+$ chmod 6764 backup.sh
+$ ls -l backup.sh
+-rwsrwSr-- 1 jdoolin jdoolin 238 Mar  1 12:20 backup.sh
+\end{verbatim}
+
+Notice that the permissions now change to display an 's' in the user permissions and a 'S' in the group permissions, indicating that this program is now setuid and setgid for its user and group owner.  This program will now \textit{always} run as user jdoolin and group jdoolin, even if a different user executes the script.
+

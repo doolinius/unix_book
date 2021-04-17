@@ -1,0 +1,151 @@
+\chapter{Introduction}
+
+\section{Why Learn Unix?}
+
+To many people in the early years of their technology education or careers, Unix seems like some archaic, dated software used only by hardcore computer geeks or old guys with beards.  What's with all the command line?  You certainly can't play many of the latest PC games on Unix machines.  This is a Microsoft World.  Windows, Office, Exchange, DirectX and ASP.NET are products by one of the biggest software companies in the world.  Windows dominates the desktop market.\\
+
+It's been a few years since I wrote that first paragraph, and in that time I've noticed a growing interesting in Linux and Unix among younger or newer computer enthusiasts and students.  Perhaps it's due to the growing popularity of the Raspberry Pi or simply an interest in Microsoft alternatives.  Whatever the reason, I find it encouraging that newer computer students are open to different operating systems, especially those that encourage a deeper understanding of their inner workings.\\
+
+So why bother with Unix?\\
+
+To put it simply, Unix is \textit{everywhere}.  Unix had some days of glory in the late 70's to the late 80's as a popular operating system for mainframe systems, but with the rise of the microcomputer and home PC market, software giant Microsoft began to get a foothold across a broad spectrum of systems, not just the desktop.  Unix fell out of favor for a while during a time when Windows NT was becoming a more attractive choice as a server system for more inexpensive hardware.  Unix and its systems were rather expensive and Microsoft was seen as a more cost-effective and viable option, especially for smaller businesses.\\
+
+But Unix has made a big comeback.  It's no longer just a hobbyist system, or something old sysadmins use.  Unix skills are no longer just something a few people here and there know or need to use.  It is so common now and growing so quickly, that it is an obligation for anyone seeking a career in IT, software development or technology.  It is a skill in demand and one that can give you an edge against the competition in the job market.\\
+
+In addition to being a very useful and valuable skill, Unix also offers a computer user more power than alternative successful operating systems.  It gives you the power to do very stupid and bad things to your computer, but at the same time gives you the power to do brilliant and excellent things.  By learning Unix, you will gain a much deeper understanding of the inner workings of a computer and of operating systems in general.\\
+
+Finally, many Unix systems are known for their stability and security\footnote{Not all Unix systems are inherently secure out of the box.  Many, such as SGI's Irix, are known for having numerous exploitable security holes in their default installations.  Unix systems must still be updated, patched and configured properly for best security}.  One of the Unix system administrator's bragging rights is \textit{uptime}:  how long a system remains available without a reboot.  Unix machines are known for uptimes as long as years or even a decade.  High uptime and availability is very attractive for system administrators of high availability systems and networks.
+
+\section{Where is Unix Used?}
+
+Where does one even start?  While Microsoft dominates the desktop, Unix dominates just about every other computing domain.\\
+
+First and foremost, Unix is the backbone and central nervous system of the Internet and always has been.  TCP/IP networking and the Internet itself was born on Unix machines and continues to be used by many of the biggest internet companies and servers worldwide.  Google, Wikipedia and Amazon use Linux for most of their services.  Yahoo! and Netflix use FreeBSD.  Even Microsoft's own Hotmail was hosted on FreeBSD for years before they managed to convert it to Windows.  DNS, WWW, email, chat, streaming video and audio, web hosting, file hosting, cloud storage and a plethora of other services run primarily on Linux, BSD and other Unix systems.\\
+
+Scientific institutions such as NASA and CERN use Linux.  The laptops on the International Space Station were recently converted to Ubuntu Linux.  CERN uses Linux to run the Large Hadron Collider and 20,000 of their internal servers.  Companies like IBM, Novell, Peugeot, the New York and London Stock Exchanges all use Linux.  Most (by far) of the world's top 500 fastest supercomputers are Linux clusters.  Unix is on many computer desktops, not just from computer geeks who prefer Linux or FreeBSD, but Apple's own macOS (formerly OSX) is Unix system.\\
+
+Apple's iPhone is a Unix system (based on OSX) and Android runs a modified version of Linux. These two factors alone make Unix the most successful operating system in history, at least in terms of numbers of users or installations.\\
+
+Unix and Linux can be found in embedded systems, robotics, control systems, simulators, video game systems (the PS4 OS is based on FreeBSD), space probes and satellites, wireless routers, network appliances, firewalls, set top boxes and DVRs, power generation systems, 911 dispatch, navigation and radar systems, HVAC systems, casino gaming systems, medical and surgical systems and even cars and automobiles.
+
+So while Windows is undisputed champion of the home, office and gamer arena, Unix maintains a firm hold in almost every other computing domain.  This is why Unix skills are practically a necessity for today's technology professionals.
+
+\section{A Bit of Unix History}
+
+\subsection{Computing in the Mid-60's}
+
+In the mid 50's into the mid 60's the computing world was a very different place.  There were many vendors building very expensive machines.  IBM, Digital Equipment Corporation (DEC), Honeywell, Interdata, Data General, Apollo, Prime and others were building desk and refrigerator sized computers.  Each company designed its own architectures, which means software from one company would not operate on another company's hardware.  In fact, this was true even for different models produced by the same company.\\
+
+In the 60's, operating systems were new and numerous.  Every company had a different OS, or multiple OS'es, that again did not even work for all models made by the same company.  For example, DEC's OS/8 operating system for their PDP-8 would not work on PDP-7 or PDP-10 models.\\
+
+What this meant was that if a company purchased a computer (a significant financial investment in those days, often in the several tens of thousands to hundreds of thousands of dollars) and a few years later it was outdated, they had to re-learn a completely new architecture and operating system and enter all of their data once again.  It required enormous amounts of time and resources (and thus money).\\
+
+Another problem was that these computers ran batch systems that allowed for only one program to run at a time, meaning only one person could use the system at any given moment.  This led to lines of programmers waiting hours for their turn at the computer and terribly inefficient use of expensive hardware.\\
+
+In the mid 60's, three groups combined efforts to fix these issues.  Bell Labs of AT\&T, the Massachusetts Institute of Technolog (MIT) and General Electric (GE) set out to create a \textbf{timesharing} operating system called MULTICS.  Timesharing basically means the system would allow multiple individuals to use the computer at the same time using separate terminals.\\
+
+By 1969, some of the MULTICS developers began to feel that the project was getting out of hand.  Ken Thompson of Bell Labs described it as "overdesigned, overbuilt and overeverything".  This would lead Bell Labs to pull out of the MULTICS project.\\
+
+\subsection{The Birth of Unix}
+
+Ken Thompson and Dennis Ritchie of Bell Labs decided to take some of the good ideas from the MULTICS project and build a new operating system that was smaller, simpler and able to run on the limited hardware common at the time.  In the early days of the project, it was suggested they name it UNICS as a pun on MULTICS.  The name stuck but the spelling was eventually changed to UNIX.\\
+
+Thompson and Ritchie built Unix for the very popular PDP-11 system by Digital Equipment Corporation.  This made Unix a popular choice for any university or business that owned one.  Dennis Ritchie also developed the C programming language at the same time, for the express purpose of developing Unix into a portable operating system, meaning it could be built and used on multiple hardware platforms.  The C language would go on to be arguably the most popular and important programming language of all time and it is still very heavily used today, especially for development of operating systems.
+
+\subsection{Unix Branches Out}
+
+Those who received license to use Unix also received it's source code as part of the license.  This meant that anyone who had the license to use it could also modify and add to it.  UC Berkely in California was very interested in Unix and began a project based on it that would become the Berkely Software Distribution, or BSD.\\
+
+The BSD project was a very early branch of the Unix system and perhaps the most successful in the 80's.  Several others branched out as well, such as Microsoft's Xenix, Sun Microsystem's SunOS and eventually IBM's AIX, Hewlett Packard's HP-UX, DEC's Ultrix and Tru64 Unix, Sun's Solaris and SCO Unix.\\
+
+Unix had branched into many competing and expensive proprietary products.  By 1988, AT\&T had developed its last version of the original Unix system.  From that point on, AT\&T Unix was gone and replaced by a dozen competing products, all of which were expensive and required expensive hardware to run.\\
+
+\subsection{The Home PC Revolution}
+
+In the early 70's, Intel built the very first \textbf{microprocessor}, the Intel 4004, a 4-bit CPU.  While this chip would not be destined for any popular home PCs, it ushered in a new era of inexpensive microprocessor chips.  Intel would later follow the 4004 with the 8080, an 8-bit microprocessor that would be the CPU for the MITS Altair 8800 microcomputer.  The Altair 8800 is arguably the machine that begain the microcomputer and thus, the home PC revolution.\\
+
+Other technology companies began to manufacture 8-bit microprocessors, such as Motorola with the 6800, MOS Technology's 6502, Zilog's Z80 and Fairchild's F8.  Some of these would be the basis for many new home PCs that would far outsell the Altair 8800.  The Apple and Apple2, Commodore PET, VIC-20 and 64, Atari 400/800 series and Tandy/Radioshack's TRS-80 were the primary competitors in the late 70's and early 80's home PC industry.  The computers themselves were inexpensive, had little memory (the 64 kilobytes in a Commodore 64 was considered impressive) and not nearly as powerful as the industrial competitors like the VAX (a popular UNIX platform) or even the Motorola 68k.\\
+
+Because of this lack of power, Unix developers were not attracted to these platforms.  They simply weren't capable of running an operating system as large and complex as Unix.  But one company was quite willing to work with this hardware: Micro-Soft (as it was originally written).  Microsoft wrote the BASIC programming language interpreter that was the default system for nearly all of these early 8-bit home computers, starting with the MITS Altair 8800 itself.  This was how Microsoft got their start.\\
+
+In time the 8-bit PC would give way to the 16-bit PC, primarily with Intel's new 8086 architecture.  IBM, Intel and Microsoft then began a partnership that would change the home PC landscape permanently.  This partnership resulted in the IBM PC, based on Intel's 8088 (a more cost effective 8086) and Microsoft's new MS-DOS, an operating system that they had purchased from another developer \footnote{The original name of MS-DOS was "QDOS", which stood for Quick and Dirty Operating System.}.\\
+
+The business world and home users now had an inexpensive option for home PCs. By the time Intel had released the 32-bit 386 CPU, home computer enthusiasts were building their own computers as they would today.  But it was not a platform that interested proprietary Unix developers at the time.  So basically, if you owned a 386 based computer and you were a Unix enthusiast, you were out of luck.
+
+\subsection{Enter GNU and Linux}
+
+In 1983, Richard Stallman of the MIT AI laboratory announced the development of a new Unix system, completely independent from any proprietary product and developed from scratch.  Stallman believed that software and its users should be free: free of cost and free to modify, extend, improve and share.  Stallman dubbed the project GNU (a recursive acronym that stands for "GNU's Not Unix").\\
+
+Stallman and his Free Software Foundation began to develop a new system that had the same structure and similar design as Unix.  GNU successfully wrote many of their own Unix utilities and programs, yet were struggling with the kernel (the core of the OS).\\
+
+Meanwhile, there were projects under way to port BSD Unix to the highly popular Intel 386 platform that was dominating the home and office market.  One can think of the 386 as the early 1990's equivalent of today's Intel Core processor line in terms of popularity.\\
+
+Another Unix-like project, MINIX, was being developed by Andrew Tannenbaum as an educational system.  It was not intended for use outside of the academic context.  A Finnish student named Linus Torvalds was both inspired by MINIX design, frustrated by the ''educational use only'' MINIX license and the lack of a good, general purpose Unix system for the Intel 386 system.  Torvalds decided to write his own operating system kernel for the popular platform.\\
+
+Torvalds called his kernel "Linux" and eventually paired it with the Unix utilities from the incomplete GNU system.  This pairing of the Linux kernel by Torvalds and the GNU utilites by Stallman and the Free Software Foundation, would become what we collectively know of as ''Linux'', though some would insist it be called ''GNU/Linux''.\\
+
+An interesting side note: Torvalds has said that had the 386 port of BSD been released earlier, Linux may never have happened, since his primary motivation had been to have a Unix system on his 386, which 386BSD would have provided.\\
+
+The 386BSD project did succeed, only it was a day late.  Linux had been released to the world first.  386BSD forked into two separate projects: FreeBSD and NetBSD.  NetBSD itself forked again, which resulted in OpenBSD.  They are all free and open source BSD Unix systems.\\
+
+\subsection{FreeBSD}
+
+Along with Linux, this course will examine the FreeBSD operating system.  FreeBSD quite possibly can lay claim to the ''purest'' lineage going back to original AT\&T Unix code.  It's heritage goes back to 386BSD, which itself goes back to 4.2BSD, which was was a highly updated version of AT\&T's Unix system.\\
+
+FreeBSD, like Linux, is... well, free.  Free as in free of charge and that you can acquire its source code.  One of the main differences between FreeBSD and Linux is that FreeBSD is an \textit{entire operating system}, while Linux is only a kernel (OS core) and does not include the programs, utilities and applications required for a fully functioning and useful operating system.
+
+\section{What is the difference between Unix and Linux?}
+
+\subsection{First, where is Unix now?}
+
+UNIX, the operating system, doesn't really exist any more.  You can't go to unix.com and purchase a license or visit UNIX headquarters.  AT\&T would eventually sell the rights to UNIX to a company called Novell, previously a big player in the network operating system business.  This was effectively the end of the original UNIX.\\
+
+Novell merged UNIX with their Netware software to create UnixWare.  Eventually Novell sold the rights to the Santa Cruz Operation (SCO), who already had their own version of Unix.\\
+
+SCO is the current rights holder to Unix and they have two products based on AT\&T Unix, UnixWare and OpenServer.\\
+
+The closest OS you can easily obtain and install on modern commodity hardware would be FreeBSD.\\
+
+Other systems, regardless of their lineage, may also claim to be an "official Unix system", but only by means of the Single Unix Specification.
+
+\subsection{The Single Unix Specification and POSIX}
+
+During the major branching of Unix in the 80's there were some who attempted to establish standards that would define what was required for an operating system to have the right to call itself Unix.  This resulted in two standards: the Single Unix Specification and POSIX.\\
+
+Any operating system may be POSIX compliant (even Windows).  It is simply a list of technical requirements that an OS must meet, such that developers may know that they can expect certain things on any POSIX operating system.  However, to make it official, the developers of a system must pay a fee, which for some can be rather expensive.  Even so, a POSIX system could theoretically behave very little like classic UNIX.\\
+
+The Single Unix Specification is a similar concept, but covers more area than POSIX.  It is the same in that the owners of an operating system must pay a fee to be an official "Unix".  Some examples are Sun's Solaris, Apple's OSX, Silicon Graphics' Irix, IBM's AIX and HP's HP-UX.  Linux, the BSD systems and other open source systems typically do not bother with paying to be an official Unix system as there is very little reason to do so.\\
+
+\subsection{So What About Linux? Is it Unix?}
+
+Linux is unique.  It has no connection to the original AT\&T Unix the way the BSD systems do.  Neither is it certified as POSIX compliant or under the Single Unix Specification.  It was an independently developed kernel, and only a kernel, inspired by the design and implementation of Unix.  Since Linux isn't a complete OS as macOS or FreeBSD are, it technically doesn't even qualify to be considered under either standard.  This means it would be up to the Linux Distributions, which provide all the other software that uses the kernel, to become POSIX or SUS certified.  The problem is that there is little motivation to pay the high fee just for a certification that isn't really needed.\\
+
+So to put it simply, no, Linux is not Unix.  It's not even \textit{a} Unix system.  The best way to think of Linux, is that when it is paired with the GNU programs and utilities it becomes a Unix system in spirit and design, just not in any official capacity.  Or, you could think of Linux as a Unix clone.
+
+\section{Free and Open Source Software}
+
+Linux became a usable and stable Unix-like system, available at no cost and usable on very inexpensive hardware. GNU and Linux had started a powerful movement.  Open Source software began to grow and mature.  Hundreds, thousands and eventually tens of thousands of developers worldwide began to combine efforts to improve Linux, the BSD systems and an ever growing list of open source projects.\\
+
+Programmers the world over began releasing their projects as open source, available to all for free and allowing anyone to help improve their software.  These projects included web browsers, multimedia applications, encryption algorithms, filesystems and drivers, programming languages like PHP, Perl and Python, programming language compilers, emulators, complex server software such as the Apache web server, MySQL database server and complete desktop environments.\\
+
+This also enabled engineers, designers and researchers to use Linux or a BSD as a development and testing platform.  This means that many of the technology world's cutting edge technologies are being developed on Linux or BSD \textit{first}.  It also means they are often adopted in the Linux system before other proprietary systems.\\
+
+\subsection{The GNU Public License}
+
+GNU and Linux are released under a special license called the GNU Public License (or GPL for short).  The GPL essentially states that software released under its license must be open source, and that if the source or software is used in another product, that it must be credited and the software must remain open source and also be released under the GPL.\\
+
+This does not mean that you are not allowed to sell GPL licensed software.  For example, if you were to build your own customized Linux distribution, you would be free to sell it to customers at any price you wish.  The condition, however, is that you must also supply the original source code and any derivative works must be under the GPL.
+
+\subsection{BSD License}
+
+The BSD license used by FreeBSD (and other open source BSD's) is also used by a variety of non-operating system projects.  It differs from the GPL in that BSD licensed code may be modified and redistributed in any way.  It may continue to be open source, or someone may develop a derivative work under a completely proprietary license.  For example, you could modify the FreeBSD operating system and redistribute and sell it as your own.  In a way, the BSD license is even more free than the GNU Public License.
+
+\section*{Summary}
+
+Unix has a long history dating back to 1969.  It brought many innovations and benefits, such as portability to other systems, a powerful new programming language, multi-user and timesharing capabilities, pipes and more.  It was developed into a stable and powerful system used by universities, research facilities, governments and businesses.\\
+
+Unix did not follow the home and commodity PC revolution until the early 90's, allowing companies like Microsoft to gain a foothold in a market segment most visible to the average user.  While Unix has never held the home market, it remained a mainstay at Universities and some larger businesses, even while Microsoft, Novell and other competitors gained popularity among server systems.  At this time it seemed Unix was a system on its way to obsolescence.\\
+
+With the rise of GNU, Linux, and the open source movement, Unix regained its popularity in areas where it had previously lost ground and became prominent in new areas such as mobile devices and supercomputing.  Even desktops are being offered with Linux or Unix systems, including all of Apple's OSX products.\\
+
+Knowledge of Unix and Linux systems isn't just an option for the hardcore computer geeks and tinkerers of world.  It is now an important part of technology and is indispensable for network and system administrators, as well as those serious about software development.  While Microsoft holds the desktop market, almost everything else runs Unix.

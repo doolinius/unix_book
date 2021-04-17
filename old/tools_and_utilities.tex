@@ -1,0 +1,51 @@
+\chapter{Common Unix Tools and Utilities}
+
+This is a relativley short chapter devoted to some of the common Unix tools and utilities necessary for Unix system administration
+
+\section{Archives and Compressed Files}
+
+In any operating system it is a common task to work with compressed and archive files.  In the Windows world these are usually in the .zip, .rar and .cab formats.  While these files can be created, extracted and worked with in Unix, they are not as common as some others, particularly for software distribution.  It is therefore important to know about these formats and how to work with them.  Using .zip, .rar and .7z files in Unix also usually requires the installation of third party software, but this is typically as simple as installing from a repository (see Installing Software).
+
+\subsection{tar}
+
+\textbf{tar} is a very common archive file format.  In and of itself, it does not perform any compression.  tar was originally and can still be used for creating backup tape archives (hence, the name: "t"ape "ar"chive).  But more commonly today tar is used to create simple archive files.  This allows one to create one file that contains multiple others (including other tar files).\\
+
+To create a tar file, use a command with the following structure:
+
+\begin{verbatim}
+$ tar -cvf destination.tar  sourcefile1 sourcefile2 sourcefile3 ...
+\end{verbatim}
+
+This will create a new file called destination.tar that contains all of the source files listed after it.  The source files may also be directories.  For example:
+
+\begin{verbatim}
+$ tar -cvf music.tar Music/
+\end{verbatim}
+
+This will create a tar file called music.tar that contains the Music directory and all of its contents.  For those curious, the arguments mean the following: c - create, v - verbose (show information) and f - destination file.
+
+As always, see the tar man page for complete documentation.
+
+\subsection{gzip, bzip2}
+
+Creating an archive is not always enough.  While Windows users are accustomed to normally using the ZIP file format, which compresses and archives, tar files are not compressed.  This allows the Unix user to choose the compression utility.  While there are many different compression algorithms and tools, by far the most common are gzip and bzip2.\\
+
+gzip is probably a bit more common than bzip2.  While bzip2's compression is usually (but not always) better, it also takes more CPU power and time to compress and decompress, so it is typically used when space and bandwidth are a bigger constraint than time and CPU power.\\
+
+To gzip or bzip a file, simply execute the respective command on the target file.  Note, however, that it will not create a new file. It will compress the target file and replace it, as well as adding a new file extension, either .gz or .bz2.\\
+
+\begin{verbatim}
+$ gzip destination.tar
+$ bzip2 music.tar
+$ ls 
+destination.tar.gz    music.tar.bz2
+\end{verbatim}
+
+\subsection{Others}
+
+\section{The Mighty grep}
+
+\section{dd}
+
+\section{head and tail}
+
