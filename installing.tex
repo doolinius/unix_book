@@ -6,21 +6,27 @@ First you need a computer.  Any computer.\\
 
 With few exceptions, there is a Unix or Linux distribution that will work on any computer you can scrape together or purchase.  You can install it on anything from old Intel 386 machines that originally ran DOS to a modern laptop or server system.  This is one of the great things about Unix and Linux systems: the ability to use it on hardware that most people would consider worthless.\\
 
-This also means that there is no reason not to have a Linux or BSD machine at your disposal for learning and practicing.  Old hardware can be had for free or nearly free and this makes it a perfect candidate for learning, and the most effective way to learn Unix is to use it on a regular basis.\\
-
 The Raspberry Pi is another great option for someone interested in learning about Linux.  At about 35 dollars, it is inexpensive, runs the OS from an SD card, is lightweight, and surprisingly capable, with current versions supporting built-in Bluetooth and Wifi\footnote{Current Raspberry Pi as of this writing is the Raspberry Pi 3}.  The Pi also has built-in camera and LCD screen connectors as well as General Purpose IO pins that allow a programmer to turn the Pi into a sort of microcontroller.  The possibilities are limited only by your imagination.\\
 
 A third option is to dual boot your current laptop or desktop so that when you turn on the machine, you can select either Windows or Linux.  This will be discussed in the Dual Booting section.\\
 
-Finally, you can install Linux on a virtual machine using software such as VMWare Player or VirtualBox.  This allows you to test, experiment and learn without having to install the OS to your hard disk.  It also allows you to test various distributions.
+Finally, and perhaps most flexible of all, you can install Linux or other UNIX systems on a virtual machine using software such as VMWare Player or VirtualBox.  This allows you to test, experiment and learn without having to install the OS to your hard disk.  It also allows you to test various distributions.\\
+
+This means that there is no reason not to have a Linux or BSD machine at your disposal for learning and practicing.  Old hardware can be had for free or nearly free and this makes it a perfect candidate for learning, and the most effective way to learn Unix is to use it on a regular basis.\\
 
 \section{Linux Distributions}
 
-Unlike Apple or Microsoft, there is no Linux company. There is, however, a group of programmers who are in control of what goes into the Linux kernel, and another group of programmers that are in charge of the GNU utilities.  Literally anyone (yes, even you) can contribute code, ideas or innovations, but there is a core group that approves these inclusions or changes.  The same is true for Mozilla Firefox, Libre Office, the GIMP image editor, Apache web server, MySQL database, PHP programming language and a multitude of other open source projects.  Each group maintains their own projects and the same is true for Linux, which is just the kernel.\\
+Unlike Apple or Microsoft, there is no Linux corporation. There is, however, a group of programmers who are in control of what goes into the Linux kernel, a benevolent dictator who has the final say, and another group of programmers that are in charge of the GNU utilities that are commonly paired with the Linux kernel.  Literally anyone (yes, even you) can contribute code, ideas or innovations, but there is a core group that approves these inclusions or changes.  The same is true for Mozilla Firefox, Libre Office, the GIMP image editor, Apache web server, MySQL database, PHP programming language and a multitude of other open source projects.  Each group maintains their own projects and the same is true for Linux, which is just the kernel.\\
 
-However, this also means \textbf{there is no ''official'' Linux you can download and install}.  Anyone is free to build an operating system based on the Linux kernel, packaged with whichever packages they desire.  They can design the system differently than other systems, focusing on different aspects or principles.  This collection of Linux kernel and accompanying software is called a Linux \textbf{distribution}.  The number of Linux distributions as of this writing probably numbers in the thousands.  It's difficult to enumerate simply because literally \textit{anyone} can create a Linux distribution and many do, including businesses, research facilities and hobbyists\footnote{Yes, even you can create your own Linux distribution}.\\
+\subsection{What is a ''kernel''?}
 
-Distributions (or ''distros'') are usually designed with a particular purpose or focus in mind.  Some are designed as a stable server environment, while others are aimed at a flexible desktop system able to support as many different hardware configurations as possible.  Some are designed to run on distributed supercomputing systems while others target very small devices with limited resources.  Some distros are concerned with packaging only completely free software, free of any proprietary drivers or utilities while others aren't concerned about this fact.\\
+The \textbf{kernel} is the core of an operating system that provides access to the computer's hardware.  It is always running and all other software must work with the kernel. It handles memory management, process management and scheduling, file and storage management, network management, security, and numerous other core tasks. This is obviously a very important part of an operating system, yet it would be useless on its own.\\
+
+Yet that's all Linux really is. It's just a kernel. Think of it like a high performance race car engine that has no wheels, chassis, tires, or steering mechanism. In order for a kernel to be of any use, it requires \textbf{utilities} and \textbf{applications}, such as those built by the GNU project.\\
+
+Since Linux is only a kernel, that means \textbf{there is no ''official'' Linux operating system that you can download and install}.  Anyone is free to build an operating system based on the Linux kernel, packaged with whichever utilities and applications they desire.  They can design the system differently than other systems, focusing on different aspects or principles.  A collection of the Linux kernel and accompanying third-party software is called a Linux \textbf{distribution}.  The number of Linux distributions as of this writing probably numbers in the thousands.  It's difficult to enumerate simply because literally \textit{anyone} can create a Linux distribution and many do, including businesses, research facilities and hobbyists\footnote{Yes, even you can create your own Linux distribution}.\\
+
+Distributions (or ''distros'') are usually designed with a particular purpose or focus in mind.  Some are designed to be a stable server environment, while others are aimed at a flexible desktop system able to support as many different hardware configurations as possible.  Some are designed to run on distributed supercomputing systems while others target very small devices with limited resources.  Some distros are concerned with packaging only completely free software, free of any proprietary drivers or utilities while others aren't concerned about this fact.\\
 
 Here is a review of some popular (and a few not so popular) Linux distributions.
 
@@ -70,17 +76,17 @@ tomsrtbt and other distributions like it take small Linux distributions to the e
 
 OpenSUSE aims to be a complete, general purpose operating system that is stable, easy to use and good for a variety of purposes such as server, desktop or laptop.  This makes it very similar to Ubuntu, Debian and Fedora, but SUSE aims to provide server possibilities in the same distro.  It also has its own utilities different from other distros that some users prefer.  If it's one thing the Open Source community offers, it's choice.  It is also known for its all-in-one configuration utility, YaST.
 
+\section{The BSD Systems}
+
+While Linux is only a kernel, there are other open source UNIX systems available that descend from the BSD UNIX systems. 
+
 \subsection{FreeBSD}
 
-FreeBSD is \textbf{not} a Linux distribution.  FreeBSD is a complete operating system, including the kernel and core utilities all developed together.  This is different from Linux where the kernel is developed independently from all other software, including the GNU utilities.  While FreeBSD has its own core utilities, it is also possible to install many of thousands of non-FreeBSD software packages, such as Firefox, VLC, MPlayer and many others.\\
+FreeBSD is \textbf{not} a Linux distribution.  FreeBSD is a complete operating system, including its own kernel and core utilities all developed together.  This is different from Linux where the kernel is developed independently from all other software, including the GNU utilities.  While FreeBSD has its own core utilities, it is also possible to install many of thousands of non-FreeBSD software packages, such as Firefox, VLC, MPlayer and many others.\\
 
-FreeBSD originates from the 4.3 BSD UNIX system developed at Berkeley, which itself was derived from the original AT\&T Unix, making FreeBSD a direct descendent.\\
+FreeBSD originates from the 4.3 BSD UNIX system developed at Berkeley, which itself was derived from the original AT\&T Unix, making FreeBSD a direct descendent of the original AT\&T UNIX.\\
 
 FreeBSD aims for stability, efficiency and speed.  It is a very popular server system (Yahoo! and Netflix both use FreeBSD) and many Unix enthusiasts use it on their desktop.  It also runs well on older hardware.
-
-\subsection{PC-BSD}
-
-PC-BSD is essentially a FreeBSD distribution that aims to be easy to use and install as a desktop system.  It consists of the FreeBSD operating system, a graphical installer, pre-installed graphical interfaces and its own package management system.  PC-BSD does break some convention by installing software in unconventional directories, similar to Mac OSX.  The PC-BSD project developers are also building their own custom desktop environment called Lumina.
 
 \subsection{NetBSD}
 
@@ -88,13 +94,13 @@ NetBSD forked from the same project FreeBSD did.  NetBSD's claim and purpose is 
 
 \subsection{OpenBSD}
 
-OpenBSD is a NetBSD fork focused entirely on security.  Its claim to fame is that there have been only two remote exploits in the default install since its inception in 1996 (25 years as of this writing).
+OpenBSD is a NetBSD fork focused entirely on security.  Its claim to fame is that there have been only two remote exploits in the default install since its inception in 1996 (25 years as of this writing). It remains among the most secure operating systems available. 
 
 \section{Download Install Disk Images}
 
-The first step is to acquire the installation media.  For most Linux and BSD systems this means downloading a CD or DVD image from the internet and burning it to a disk.\\
+The first step to installation is to acquire the installation media.  For most Linux and BSD systems this means downloading a CD/DVD or USB image from the internet and burning it to a disk or writing the image to a USB drive or SD card.\\
 
-Before downloading, make note of what PC hardware you have.  If you have a computer with a 32 bit processor, you will need to download the 32-bit version, also often referred to as x86 or i386.  If you have a 64 bit capable processor you will need the 64 bit version, also known as amd64.  If you happen to be installing on a machine with an architecture other than Intel/AMD, such as an old Macintosh or Sun workstation, make sure you get the version for your architecture (ppc, sparc, mips, etc).\\
+Before downloading, make note of what PC hardware you have.  Most users will have a 64-bit Intel based system (either AMD or Intel CPU), or if it's an older system, perhaps a 32-bit system.  If you have a computer with a 32 bit processor, you will need to download the 32-bit version, also often referred to as x86 or i386.  If you have a 64 bit capable processor you will need the 64 bit version, also known as amd64.  If you happen to be installing on a machine with an architecture other than Intel/AMD, such as an ARM CPU (Raspberry Pi), an old Macintosh or Sun workstation, make sure you get the version for your architecture (ppc, sparc, mips, etc).\\
 
 The best resource for downloading the images is the official website for whichever system you intend to install. Here is a small list:\\
 
@@ -125,15 +131,17 @@ The best resource for downloading the images is the official website for whichev
 
 \section{Create Install Media}
 
-After you have downloaded the images, you will need to create the install media.  There are serveral possibilities.
+After you have downloaded the images, you will need to create the install media.  There are serveral possibilities for creating it.
 
 \subsection{Burning CDs/DVDs}
 
-This is the usual method.  You will download an ISO (.iso) image that must be burned directly to disk and not as a file.  Your CD/DVD burning software will normally handle this properly.
+This used to be the most common method, but is now more useful for older systems that cannot boot to a USB drive.  You will download an ISO (.iso) image that must be burned directly to disk and not as a file.  Your CD/DVD burning software will normally handle this properly.
 
 \subsection{USB Installers}
 
-Some distributions offer USB thumb drive installer systems.  To create these you will need to follow instructions on the distribution website, but it usually consists of directly copying files to a thumb drive or writing an image similarly to burning a CD image.  Occasionally you may need to download a CD image first, boot from it and use a utility to create a thumb drive installer.
+Most systems now offer USB thumb drive installer systems.  To create these you will need to follow instructions on the distribution website, but it usually consists of directly copying files to a thumb drive or writing an image similarly to burning a CD image.  Occasionally you may need to download a CD image first, boot from it and use a utility to create a thumb drive installer.\\
+
+Utilities such as Balena Etcher, Win32 Disk Imager or the 'dd' utility on UNIX systems can be used to write these installer images to the drives.
 
 % Add remarks about Etcher
 
@@ -143,7 +151,9 @@ On particularly old hardware it may be necessary to create boot floppy images.  
 
 \subsection{SD Card Images}
 
-The Raspberry Pi runs the OS from an SD card.  To ''install'' a Raspberry Pi distribution, you must download the SD card image and write the image directly to the SD card.  This is very much like burning an ISO to cd.  You don't want to copy the image file into the SD card's folder structure, you want to copy the image \textit{directly to} the SD card, using software like Win32DiskImager or the \textbf{dd} command in Linux/Unix or macOS.
+The Raspberry Pi runs the OS from an SD card.  To ''install'' a Raspberry Pi distribution, you must download the SD card image and write the image directly to the SD card.  This is very much like burning an ISO to cd.  You don't want to copy the image file into the SD card's folder structure, you want to copy the image \textit{directly to} the SD card, using software like Win32DiskImager or the \textbf{dd} command in Linux/Unix or macOS.\\
+
+OpenBSD has a more unusual process on the Raspberry Pi.  (SERIAL/UEFI/SET TTY)
 
 \section{Boot PC From Install Media}
 
