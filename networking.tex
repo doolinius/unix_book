@@ -1,7 +1,136 @@
 \chapter{Linux/Unix Networking}
 
+TCP/IP networking has been an important part of Unix systems since 1984,when 4.2BSD first introduced the protocol to the operating system. 4.3BSD improved on the prior version and this became a near defacto standard forTCP/IP networking implementations. To this day, many modern operating systems owe their own TCP/IP network drivers to 4.3BSD source code, including Microsoft’s.
+
+Therefore, it is no surprise that the fundamentals of Unix networking are the same as in other major operating systems, and the same terminology, acronyms and even tools will be quite similar.
+
 \section{Network Interfaces}
+
+Just as in Windows, on any Unix machine there will be a network interface created by the operating system for every operational Network Interface Card (NIC) that is supported. It is possible, though not very common, forsome NICs to not be supported by particular flavors of Unix. 
+
+The name given to network interfaces varies between Unix variants and even Linux distributions. On most popular Linux distributions, network interfaces begin with \textbf{eth0} and continue with \textbf{eth1}, \textbf{eth2} and so on. For everynetwork adapter, it will have an 'eth' abbreviation followed bit a numerical identifier. macOS names ethernet interfaces similarly, with en0, en1 and soon. 
+
+FreeBSD, NetBSD and OpenBSD’s interface names depend on the NIC manufacturer or driver, and may have names such as em0, xl0 or bge0. However, FreeBSD allows these to be renamed in/etc/rc.conf, so one can theoretically establish a more Linux style naming scheme, though most don't bother. Solaris does something similar, as does Arch Linux. 
+
+Wireless interfaces may differ from wired interfaces. In popular Linux distros, for example, it is common for them to be named \textbf{wlan0}. However,because WiFi adapters are still ethernet, macOS still applies the enX nameeven to wireless adapters.
+
+All systems will also have what is called a loopback interface, which is a virtual interface that allows the operating system to communicate withitself using TCP/IP. On most systems this interface is called \textbf{lo0}.
+
+Finding the names of the interfaces on a Unix machine depends on the Unix variant or Linux distribution. On many machines, simply running the \textbf{dmesg} command (usually as root) will reveal the name of network interfaces as they are setup at boot by the OS. However, this does require scanning through a lot of output, even if piped to less. For decades, the most common means would be to run the command \textbf{ifconfig -a}, which would list all network interfaces. This is still a relatively safe assumption, but in recent years on Linux, ifconfig has been replaced with the \textbf{ip} command, and ip awill perform the same task.  More on these two tools later in the next section.
 
 \section{Network Configuration}
 
+Unfortunately, there is no one set of instructions for configuring a network interface on a Unix systems. It is all entirely dependent upon both the Unix variant or the Linux distribution. Many Unix systems configure the primary network interface during installation, which may mean you will not haveto change it later. However some systems require multiple interfaces and others may need to be modified, so it is still worth knowing.
+
+Many Unix systems have graphical utilities or menu driven commandline utilities for configuring network  interfaces or information. Open-SUSE, for example, has the \textbf{yast} configuration tool and AIX uses its \textbf{smitty} command line, menu driven application.  Some Linux distributions use applications such as \textbf{Network Manager} or for wireless, \textbf{wicd}, which while easy to use, may be difficult to work with when attempting to make changes to configuration files. 
+
+The two most common configuration tools on the Unix command line are, as mentioned, \textbf{ifconfig} and \textbf{ip}.  ip is the newer of the two and is now quite common in newer Linux distributions.  These tools can be used to list interfaces, query their status, set IP addresses and netmasks, take them down or bring them back up. ip can also modify the routing table, while ifconfig cannot and usually requires the use of the \textbf{route} command to do so. On modern systems without ifconfig, it is usually an apt-get away, by instaling the \textbf{net-tools} package. The following table lists operations and their equivalent ’ip’ and ’ifconfig’commands, or other command if ifconfig cannot perform the task.
+
+As you can see, it is possible to configure an interface through only thesecommands. However, this will not be enough to make the settings per-manent. These must be saved in configuration files. This, however, is where Unix variants and distributions differ the most.  The best advice for permanent configuration changes is to read the documentation for the Unix variant or Linux distribution you are using. However, there are some common configurations that appear often enough to be worth mentioning.
+
+\subsubsection{Debian systems}
+
+On Debian systems, most of the configuration can be entered in /etc/net-work/interfaces. In this file you can give your interface a static IP addressor use DHCP and set up routing information. A DHCP entry may look as follows:
+
+\begin{verbatim}
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+\end{verbatim}
+
+This will allow the interface to use a DHCP client (more on that in a later section) to automatically configure the network interface. A manual configuration will look similar to the following:
+
+\begin{verbatim}
+auto eth0
+iface eth0 inet static
+    address 192.168.1.143
+    netmask 255.255.255.0
+    gateway 192.168.1.254
+\end{verbatim}
+
+\subsubsection{RedHat Systems}
+
+On Redhat systems, such as Fedora, CentOS and RHEL, each network interface has its own configuration file in /etc/sysconfig/network-scripts/ifcfg-eth0 (replace ’eth0’ with the name of the interface to be configured). The following would be the contents of a file set for DHCP:
+
+\begin{verbatim}
+DEVICE=eth0
+BOOTPROTO=dhcp
+ONBOOT=yes
+\end{verbatim}
+
+... and for static IP:
+
+\begin{verbatim}
+DEVICE=eth0
+BOOTPROTO=none
+ONBOOT=yes
+NETMASK=255.255.255.0
+IPADDR=192.168.1.143
+GATEWAY=192.168.1.254
+USERCTL=no
+\end{verbatim}
+
+\subsubsection{*BSD Systems}
+
+All major BSD systems, such as FreeBSD, use config files in /etc to configure network adapters.  On FreeBSD and NetBSD the lines appear thusly in /etc/rc.conf:
+
+\begin{verbatim}
+    # nfe0 will be replaced with your particular network adapter name
+    ifconfig_nfe0="inet 192.168.1.10 netmask 255.255.255.0"
+    defaultroute="192.168.1.1"
+\end{verbatim}
+
+OpenBSD in /etc/hostname.smsc0: 
+
+\begin{verbatim}
+# inet <ip address> <netmask> <broadcast ip>
+inet 192.168.1.10 255.255.255.0 192.168.1.255
+\end{verbatim}
+
+\subsection{DNS}
+
+Along with the IP address, netmask and default gateway, one more important piece of information is required for nearly all operational network connections.  The operating system must know the IP addresses of one or more DNS servers, so that connections can be made by name (such as www.wvncc.edu) instead of by IP address only. 
+
+On nearly all Unix machines, this file is found at /etc/resolv.conf and it has a simple format. The following is an example resolv.conf:
+
+\begin{verbatim}
+    domain cit.wvncc.edu
+    search cit.wvncc.edu wvncc.edu
+    nameserver 192.168.1.200
+    nameserver 192.168.1.201
+    nameserver 192.168.1.202
+\end{verbatim}
+
+The ’domain’ directive specifies the domain this machine should beconsidered a part of. The ’search’ directive specifies which domains should be searched when attempting to access a computer or host by its name only. For example, if I try to ”ping thompson”, the OS will first try to ping ’thompson.cit.wvncc.edu’, followed by ’thompson.wvncc.edu’. The nameserver directive is the most important here. This is a list of IP addresses that correspond to valid DNS servers. Preferrably, these servers should be located on the local network, but in the event that none are available, it is possible to use a public DNS server such as Google’s ’8.8.8.8’. This file may be modified directly, but be aware of services that may modify it automatically, such as certian DHCP clients and the resolvconf program on FreeBSD and other Unix systems.
+
 \section{Troubleshooting}
+
+Troubleshooting Unix network connections involves tools that are similar or identical to the tools used on other operating systems, such as ping, traceroute and nslookup. This section will cover a number of useful utilities for finding network information and troubleshooting connections.
+
+\subsection{ping}
+
+\textbf{ping} is the quintessential network connection testing tool. The concept is quite simple: ping sends an ”echo request” packet to a remote host. If your connection is working, the remote host is available and responds to pings, an ”echo response” will be received from the remote host. Obviously, this can be used to check the availability of remote hosts but it also tells a bit more about the connection. Here are some examples.
+
+\begin{itemize}
+    \item If the machine you’re testing cannot ping a remote host but a neigh-boring machine can, then it is likely a problem with the test machine.
+    \item If you can ping by IP address but not by name, you likely have a DNS problem
+    \item If you can ping your default gateway/router, but you cannot ping anything outside your network, then your router’s connection to the outside world is likely at fault
+    \item If you can ping other hosts on your network, but not your router, then your router may be down
+    \item If you cannot ping anything it is likely a problem with your local machine. 
+\end{itemize}
+
+ping will also report any lost packets and round trip times. High packet loss may indicate a problem with connection quality or hardware failure. High round trip times indicates a bottleneck somewhere in the route from the local host to the remote host.
+
+\subsection{netstat}
+
+The \textbf{netstat} command, and on BSD systems, \textbf{sockstat}, can be used to list currently open network ports as well as currently established network connections.  The valid command arguments for netstat and its ouput format varies beteen Unix variants. On Linux, the following command will list currently open TCP ports:
+
+\begin{verbatim}
+    $ netstat -at 
+\end{verbatim}
+
+On BSD systems you must use a command flag to limit the list to IPv4 connections, and the -l lists only listening ports.  You can leave that out if you want to see active connections:
+
+\begin{verbatim}
+    $ sockstat -4l
+\end{verbatim}

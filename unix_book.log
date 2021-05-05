@@ -1,72 +1,62 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  17 JAN 2017 22:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  4 MAY 2021 11:13
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**unix_book.tex
-(./unix_book.tex
-LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+**/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.tex
+(/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-\Gm@cnth=\count88
-\Gm@cntv=\count89
-\c@Gm@tempcnt=\count90
-\Gm@bindingoffset=\dimen103
-\Gm@wd@mp=\dimen104
-\Gm@odd@mp=\dimen105
-\Gm@even@mp=\dimen106
-\Gm@layoutwidth=\dimen107
-\Gm@layoutheight=\dimen108
-\Gm@layouthoffset=\dimen109
-\Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks15
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip43
-\f@ncyO@elh=\skip44
-\f@ncyO@erh=\skip45
-\f@ncyO@olh=\skip46
-\f@ncyO@orh=\skip47
-\f@ncyO@elf=\skip48
-\f@ncyO@erf=\skip49
-\f@ncyO@olf=\skip50
-\f@ncyO@orf=\skip51
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/pxfonts.sty
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count176
+\Gm@cntv=\count177
+\c@Gm@tempcnt=\count178
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks16
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
+\f@nch@headwidth=\skip49
+\f@nch@O@elh=\skip50
+\f@nch@O@erh=\skip51
+\f@nch@O@olh=\skip52
+\f@nch@O@orh=\skip53
+\f@nch@O@elf=\skip54
+\f@nch@O@erf=\skip55
+\f@nch@O@olf=\skip56
+\f@nch@O@orf=\skip57
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/pxfonts.sty
 Package: pxfonts 2008/01/22 v1.1.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -140,74 +130,65 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \symlargesymbolsA=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 (Font)                  U/pxexa/m/n --> U/pxexa/bx/n on input line 129.
+LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 591.
 LaTeX Info: Redefining \not on input line 997.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
-\MT@toks=\toks16
-\MT@count=\count91
-LaTeX Info: Redefining \textls on input line 766.
-\MT@outer@kern=\dimen111
-LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count92
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
-
-LaTeX Info: Redefining \lsstyle on input line 915.
-LaTeX Info: Redefining \lslig on input line 915.
-\MT@outer@space=\skip52
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
+\MT@toks=\toks17
+\MT@count=\count179
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen143
+LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
+\MT@listname@count=\count180
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 914.
+LaTeX Info: Redefining \lslig on input line 914.
+\MT@outer@space=\skip58
 )
 Package microtype Info: Loading configuration file microtype.cfg.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
-))
-(./unix_book.aux (./introduction.aux) (./installing.aux) (./command_line.aux)
-(./users_and_groups.aux) (./unix_permissions.aux) (./installing_software.aux)
-(./desktop.aux) (./hard_disks.aux) (./system_administration.aux) (./lamp.aux)
-(./processes.aux) (./anti_virus.aux) (./networking.aux) (./shell_scripting.aux)
-(./appendix.aux))
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
+)) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count181
+\l__pdf_internal_box=\box45
+) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.aux (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/introduction.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/command_line.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/users_and_groups.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_permissions.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing_software.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/desktop.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/hard_disks.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/system_administration.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/lamp.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/processes.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/anti_virus.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/networking.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/shell_scripting.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/appendix.aux))
 \openout1 = `unix_book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/pxmi/m/it on input line 27.
-LaTeX Font Info:    Try loading font information for OML+pxmi on input line 27.
-
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/omlpxmi.fd
+LaTeX Font Info:    Trying to load font information for OML+pxmi on input line 27.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/omlpxmi.fd
 File: omlpxmi.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for OMS/pxsy/m/n on input line 27.
-LaTeX Font Info:    Try loading font information for OMS+pxsy on input line 27.
-
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/omspxsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+pxsy on input line 27.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/omspxsy.fd
 File: omspxsy.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for OMX/pxex/m/n on input line 27.
-LaTeX Font Info:    Try loading font information for OMX+pxex on input line 27.
-
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/omxpxex.fd
+LaTeX Font Info:    Trying to load font information for OMX+pxex on input line 27.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/omxpxex.fd
 File: omxpxex.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for U/pxexa/m/n on input line 27.
-LaTeX Font Info:    Try loading font information for U+pxexa on input line 27.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/upxexa.fd
+LaTeX Font Info:    Trying to load font information for U+pxexa on input line 27.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/upxexa.fd
 File: upxexa.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for OT1+pxr on input line 27.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/ot1pxr.fd
+LaTeX Font Info:    Trying to load font information for OT1+pxr on input line 27.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/ot1pxr.fd
 File: ot1pxr.fd 2000/12/14 v1.0
 )
 *geometry* driver: auto-detecting
@@ -251,48 +232,52 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
+LaTeX Info: Redefining \showhyphens on input line 27.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-ppl.cfg
+(/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
-) [1
-
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-(./unix_book.toc
-LaTeX Font Info:    Try loading font information for U+pxmia on input line 2.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/upxmia.fd
+)
+LaTeX Font Info:    Font shape `OT1/pxr/b/n' in size <24.88> not available
+(Font)              Font shape `OT1/pxr/bx/n' tried instead on input line 32.
+LaTeX Font Info:    Trying to load font information for U+pxmia on input line 32.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/upxmia.fd
 File: upxmia.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxsya on input line 2.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/upxsya.fd
+LaTeX Font Info:    Trying to load font information for U+pxsya on input line 32.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/upxsya.fd
 File: upxsya.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxsyb on input line 2.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/upxsyb.fd
+LaTeX Font Info:    Trying to load font information for U+pxsyb on input line 32.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/upxsyb.fd
 File: utxsyb.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxsyc on input line 2.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/upxsyc.fd
+LaTeX Font Info:    Trying to load font information for U+pxsyc on input line 32.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 ) [1
 
-] [2]
-[3])
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.toc
+LaTeX Font Info:    Font shape `OT1/pxr/b/n' in size <10> not available
+(Font)              Font shape `OT1/pxr/bx/n' tried instead on input line 1.
+ [1
+
+] [2] [3])
 \tf@toc=\write3
 \openout3 = `unix_book.toc'.
 
  [4]
 \openout2 = `introduction.aux'.
 
- (./introduction.tex
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/introduction.tex
 Chapter 0.
+LaTeX Font Info:    Font shape `OT1/pxr/b/n' in size <20.74> not available
+(Font)              Font shape `OT1/pxr/bx/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/pxr/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/pxr/bx/n' tried instead on input line 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
@@ -309,7 +294,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
@@ -317,12 +302,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
@@ -331,215 +321,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-
- []
-
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+LaTeX Font Info:    Font shape `OT1/pxr/b/n' in size <12> not available
+(Font)              Font shape `OT1/pxr/bx/n' tried instead on input line 43.
+ [8] [9] [10] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
-
- []
-
-[11]
-Overfull \hbox (11.8298pt too wide) in paragraph at lines 97--97
-[]\OT1/pxr/bx/n/14.4 What is the dif-fer-ence be-tween Unix and Linux? 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 147--148
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-) [15]
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+[16]) [17]
 \openout2 = `installing.aux'.
 
- (./installing.tex [16
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing.tex [18
 
 
 
@@ -570,13 +418,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
@@ -585,142 +433,167 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-[18]
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-[19]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+pxr on input line 104.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/omspxr.fd
-File: omspxr.fd 2000/12/14 v1.0
-)
-LaTeX Font Info:    Font shape `OMS/pxr/m/n' in size <10> not available
-(Font)              Font shape `OMS/pxsy/m/n' tried instead on input line 104.
- [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+pxr on input line 110.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/ts1pxr.fd
+File: ts1pxr.fd 2000/12/14 v1.0
+) [25]
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
-[29]) [30]
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
+
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+[32]) [33]
 \openout2 = `command_line.aux'.
 
- (./command_line.tex
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/command_line.tex [34
+
+
+
+]
 Chapter 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -747,21 +620,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-[31
-
-
-
-]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pxtt on input line 17.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/ot1pxtt.fd
+LaTeX Font Info:    Trying to load font information for OT1+pxtt on input line 17.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/ot1pxtt.fd
 File: ot1pxtt.fd 2000/12/14 v1.0
 )
-Package microtype Info: Loading generic settings for font family
+Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pxtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
@@ -770,7 +638,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-[32]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
@@ -795,353 +663,348 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-
- []
-
-[34]
-Overfull \hbox (2.91405pt too wide) in paragraph at lines 106--106
-[]\OT1/pxtt/m/n/10 -rw-rw-r-- 1 jdoolin jdoolin     2679 Oct 19 16:05 websites.
-txt[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
-
- []
-
-
-Overfull \hbox (26.53398pt too wide) in paragraph at lines 126--126
-[]\OT1/pxtt/m/n/10 $ wget http://unix.wvncc.edu/cit220/StudentDataFiles.zip -O 
-sdf.zip[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
-
- []
-
-[36]
-Overfull \hbox (11.0784pt too wide) in paragraph at lines 156--157
-[]\OT1/pxr/m/n/10 (-20) So in the above case, my present work-ing di-rec-tory, 
-or pwd, is /home/jdoolin.
- []
-
-
-Overfull \hbox (73.13531pt too wide) in paragraph at lines 174--175
-[]\OT1/pxr/m/n/10 (-20) The first 'pwd' com-mand re-ports that I am cur-rently 
-in the /home/jdoolin/StudentDataFiles
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 
-Overfull \hbox (31.78397pt too wide) in paragraph at lines 215--215
-[]\OT1/pxtt/m/n/10 / <-- the root partition or top level directory of the entir
-e system[] 
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
  []
 
 
-Overfull \hbox (41.76393pt too wide) in paragraph at lines 215--215
-[]\OT1/pxtt/m/n/10 /home/ <-- the home directory, which will contain all user d
-irectories[] 
- []
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
-
-Overfull \hbox (67.75386pt too wide) in paragraph at lines 215--215
-[]\OT1/pxtt/m/n/10 /home/jdoolin/Documents/file.txt <-- the file located in a D
-ocuments folder[] 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Overfull \hbox (2.91405pt too wide) in paragraph at lines 105--105
+[]\OT1/pxtt/m/n/10 -rw-rw-r-- 1 jdoolin jdoolin     2679 Oct 19 16:05 websites.txt[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 
-Overfull \hbox (18.99431pt too wide) in paragraph at lines 232--233
-[]\OT1/pxr/m/n/10 (-20) This will change your present work-ing di-rec-tory to /
-home/jdoolin/Documents.
+Overfull \hbox (26.53398pt too wide) in paragraph at lines 125--125
+[]\OT1/pxtt/m/n/10 $ wget http://unix.wvncc.edu/cit220/StudentDataFiles.zip -O sdf.zip[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
+Overfull \hbox (11.0784pt too wide) in paragraph at lines 155--156
+[]\OT1/pxr/m/n/10 (-20) So in the above case, my present work-ing di-rec-tory, or pwd, is /home/jdoolin.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Overfull \hbox (73.13531pt too wide) in paragraph at lines 173--174
+[]\OT1/pxr/m/n/10 (-20) The first 'pwd' com-mand re-ports that I am cur-rently in the /home/jdoolin/StudentDataFiles
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+LaTeX Font Info:    Trying to load font information for OMS+pxr on input line 193.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/omspxr.fd
+File: omspxr.fd 2000/12/14 v1.0
+)
+LaTeX Font Info:    Font shape `OMS/pxr/m/n' in size <10> not available
+(Font)              Font shape `OMS/pxsy/m/n' tried instead on input line 193.
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
+ []
+
+
+Overfull \hbox (31.78397pt too wide) in paragraph at lines 214--214
+[]\OT1/pxtt/m/n/10 / <-- the root partition or top level directory of the entire system[] 
+ []
+
+
+Overfull \hbox (41.76393pt too wide) in paragraph at lines 214--214
+[]\OT1/pxtt/m/n/10 /home/ <-- the home directory, which will contain all user directories[] 
+ []
+
+
+Overfull \hbox (67.75386pt too wide) in paragraph at lines 214--214
+[]\OT1/pxtt/m/n/10 /home/jdoolin/Documents/file.txt <-- the file located in a Documents folder[] 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+
+Overfull \hbox (18.99431pt too wide) in paragraph at lines 231--232
+[]\OT1/pxr/m/n/10 (-20) This will change your present work-ing di-rec-tory to /home/jdoolin/Documents.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--388
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 402--403
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 
  []
 
 
-Overfull \hbox (52.84283pt too wide) in paragraph at lines 438--439
-\OT1/pxr/m/n/10 (-20) tory in-side the pho-tos di-rec-tory. There will now be a
- file in /home/jdoolin/photos/vacation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
 
  []
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 528--529
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--531
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 532--533
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 534--535
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
 
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 536--537
+Overfull \hbox (52.84283pt too wide) in paragraph at lines 437--438
+\OT1/pxr/m/n/10 (-20) tory in-side the pho-tos di-rec-tory. There will now be a file in /home/jdoolin/photos/vacation
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+pxr on input line 544.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pxfonts/omlpxr.fd
-File: omlpxr.fd 2000/12/14 v1.0
-)
-LaTeX Font Info:    Font shape `OML/pxr/m/n' in size <10> not available
-(Font)              Font shape `OML/pxmi/m/it' tried instead on input line 544.
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+ []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 575--576
+Underfull \hbox (badness 10000) in paragraph at lines 497--498
 
  []
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--609
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--512
 
  []
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
 
  []
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
+LaTeX Font Info:    Trying to load font information for OML+pxr on input line 543.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pxfonts/omlpxr.fd
+File: omlpxr.fd 2000/12/14 v1.0
+)
+LaTeX Font Info:    Font shape `OML/pxr/m/n' in size <10> not available
+(Font)              Font shape `OML/pxmi/m/it' tried instead on input line 543.
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 670--671
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
 
-Overfull \hbox (5.01404pt too wide) in paragraph at lines 685--685
-[]\OT1/pxtt/m/n/10 /opt/java/bin:/opt/java/jre/bin:/opt/android-sdk/platform-to
-ols[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
 
  []
 
-[55] [56]) [57]
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
+
+ []
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+
+ []
+
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+
+ []
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 669--670
+
+ []
+
+
+Overfull \hbox (5.01404pt too wide) in paragraph at lines 684--684
+[]\OT1/pxtt/m/n/10 /opt/java/bin:/opt/java/jre/bin:/opt/android-sdk/platform-tools[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
+
+ []
+
+[59] [60]) [61]
 \openout2 = `users_and_groups.aux'.
 
- (./users_and_groups.tex [58
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/users_and_groups.tex [62
 
 
 
@@ -1162,7 +1025,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-[59]
+[63]
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
@@ -1187,7 +1050,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-[60]
+[64]
 Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
@@ -1197,7 +1060,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
-[61]
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
@@ -1222,10 +1085,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
-[62]
+[66]
 Overfull \hbox (58.03389pt too wide) in paragraph at lines 79--79
-[]\OT1/pxtt/m/n/10 jdoolin:x:1000:1000:Jeremy Doolin, CIT Instructor:/home/jdoo
-lin:/bin/bash[] 
+[]\OT1/pxtt/m/n/10 jdoolin:x:1000:1000:Jeremy Doolin, CIT Instructor:/home/jdoolin:/bin/bash[] 
  []
 
 
@@ -1233,7 +1095,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
-[63]
+[67]
 Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
@@ -1243,7 +1105,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
-[64]
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
@@ -1253,12 +1115,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-[65]
+[69]
 Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
-[66]
+[70]
 Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
@@ -1275,8 +1137,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
 
 Overfull \hbox (23.91399pt too wide) in paragraph at lines 204--204
-[]\OT1/pxtt/m/n/10 uid=1000(jdoolin) gid=1000(jdoolin) groups=1000(jdoolin),10(
-wheel),[] 
+[]\OT1/pxtt/m/n/10 uid=1000(jdoolin) gid=1000(jdoolin) groups=1000(jdoolin),10(wheel),[] 
  []
 
 
@@ -1284,10 +1145,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
-) [67]
+) [71]
 \openout2 = `unix_permissions.aux'.
 
- (./unix_permissions.tex [68
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_permissions.tex [72
 
 
 
@@ -1298,27 +1159,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
-[69]
+[73]
 Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
 
 Overfull \hbox (0.28406pt too wide) in paragraph at lines 31--31
-[]\OT1/pxtt/m/n/10 drwx------  4 jdoolin  jdoolin    512 Feb 26 14:40 old_midte
-rm[] 
+[]\OT1/pxtt/m/n/10 drwx------  4 jdoolin  jdoolin    512 Feb 26 14:40 old_midterm[] 
  []
 
 
 Overfull \hbox (18.664pt too wide) in paragraph at lines 31--31
-[]\OT1/pxtt/m/n/10 -rw-r--r--  1 jdoolin  jdoolin   4265 Feb 26 14:41 old_midte
-rm.zip[] 
+[]\OT1/pxtt/m/n/10 -rw-r--r--  1 jdoolin  jdoolin   4265 Feb 26 14:41 old_midterm.zip[] 
  []
 
 
 Overfull \hbox (0.28406pt too wide) in paragraph at lines 31--31
-[]\OT1/pxtt/m/n/10 drwxrwxr-x  2 jdoolin  cit        512 Feb 26 18:39 old_resul
-ts[] 
+[]\OT1/pxtt/m/n/10 drwxrwxr-x  2 jdoolin  cit        512 Feb 26 18:39 old_results[] 
  []
 
 
@@ -1341,7 +1199,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
-[70]
+[74]
 Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
@@ -1356,16 +1214,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--73
 
  []
 
-[71]
+[75]
 Overfull \hbox (37.03395pt too wide) in paragraph at lines 94--94
-[]\OT1/pxtt/m/n/10 chown: changing ownership of "unix_book.tex": Operation not 
-permitted[] 
+[]\OT1/pxtt/m/n/10 chown: changing ownership of "unix_book.tex": Operation not permitted[] 
  []
 
 
 Overfull \hbox (37.03395pt too wide) in paragraph at lines 107--107
-[]\OT1/pxtt/m/n/10 chown: changing ownership of "unix_book.tex": Operation not 
-permitted[] 
+[]\OT1/pxtt/m/n/10 chown: changing ownership of "unix_book.tex": Operation not permitted[] 
  []
 
 
@@ -1373,7 +1229,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[72]
+[76]
 Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
@@ -1398,10 +1254,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-[73] [74] [75]) [76]
+[77] [78] [79]) [80]
 \openout2 = `installing_software.aux'.
 
- (./installing_software.tex
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing_software.tex
 Chapter 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1418,7 +1274,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-[77
+[81
 
 
 
@@ -1447,7 +1303,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[78]
+[82]
 Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
@@ -1467,7 +1323,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[79]
+[83]
 Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
@@ -1492,7 +1348,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
-[80]
+[84]
 Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
@@ -1502,7 +1358,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-[81]
+[85]
 Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
@@ -1512,10 +1368,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-[82]) [83]
+[86]) [87]
 \openout2 = `desktop.aux'.
 
- (./desktop.tex [84
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/desktop.tex [88
 
 
 
@@ -1541,7 +1397,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[85]
+[89]
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
@@ -1556,12 +1412,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-[86]
+[90]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[87]
+[91]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
@@ -1576,7 +1432,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-[88]
+[92]
 Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
@@ -1601,12 +1457,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-[89]
+[93]
 Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
-[90]
+[94]
 Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
@@ -1621,7 +1477,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-[91]
+[95]
 Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
@@ -1641,7 +1497,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
-[92]
+[96]
 Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
@@ -1671,12 +1527,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
-[93]
+[97]
 Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-[94]
+[98]
 Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
@@ -1691,10 +1547,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
-) [95]
+) [99]
 \openout2 = `hard_disks.aux'.
 
- (./hard_disks.tex [96
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/hard_disks.tex [100
 
 
 
@@ -1710,7 +1566,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[97]
+[101]
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
@@ -1740,7 +1596,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
-[98]
+[102]
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
@@ -1750,33 +1606,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[99]
+[103]
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-[100]
+[104]
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[101]
+[105]
 Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
-[102]
+[106]
 Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-[103]
+[107]
 Overfull \hbox (22.86398pt too wide) in paragraph at lines 209--209
-[]\OT1/pxtt/m/n/10 Changes will remain in memory only, until you decide to writ
-e them.[] 
+[]\OT1/pxtt/m/n/10 Changes will remain in memory only, until you decide to write them.[] 
  []
 
-[104]
+[108]
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
@@ -1791,10 +1646,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
-[105]
+[109]
 Overfull \hbox (16.03401pt too wide) in paragraph at lines 237--237
-[]\OT1/pxtt/m/n/10 $ sudo mount -t ntfs /dev/sdb1 /mnt/windows -o remount,ro,no
-atime[] 
+[]\OT1/pxtt/m/n/10 $ sudo mount -t ntfs /dev/sdb1 /mnt/windows -o remount,ro,noatime[] 
  []
 
 
@@ -1802,7 +1656,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
-[106]
+[110]
 Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
@@ -1812,7 +1666,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
-[107]
+[111]
 Underfull \hbox (badness 10000) in paragraph at lines 289--290
 
  []
@@ -1822,22 +1676,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
-[108] [109]
+[112] [113]
 Overfull \hbox (139.94363pt too wide) in paragraph at lines 355--355
-[]\OT1/pxtt/m/n/10 /dev/sda1: UUID="51dfcc2e-b71c-4357-b3e7-2f8878f5f19c" TYPE=
-"ext2" PARTUUID="000d0f28-01"[] 
+[]\OT1/pxtt/m/n/10 /dev/sda1: UUID="51dfcc2e-b71c-4357-b3e7-2f8878f5f19c" TYPE="ext2" PARTUUID="000d0f28-01"[] 
  []
 
 
 Overfull \hbox (5.53404pt too wide) in paragraph at lines 361--361
-[]\OT1/pxtt/m/n/10 UUID=216370fe-d3fd-425d-9e73-82aed041dce0  /home ext4  defau
-lts
+[]\OT1/pxtt/m/n/10 UUID=216370fe-d3fd-425d-9e73-82aed041dce0  /home ext4  defaults
  []
 
-) [110]
+) [114]
 \openout2 = `system_administration.aux'.
 
- (./system_administration.tex
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/system_administration.tex
 Chapter 8.
 
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
@@ -1846,11 +1698,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
 
 Overfull \hbox (22.86398pt too wide) in paragraph at lines 15--15
-[]\OT1/pxtt/m/n/10 $ tar -cvf destination.tar  sourcefile1 sourcefile2 sourcefi
-le3 ...[] 
+[]\OT1/pxtt/m/n/10 $ tar -cvf destination.tar  sourcefile1 sourcefile2 sourcefile3 ...[] 
  []
 
-[111
+[115
 
 
 
@@ -1869,10 +1720,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-) [112] [113]
+) [116] [117]
 \openout2 = `lamp.aux'.
 
- (./lamp.tex [114
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/lamp.tex [118
 
 
 
@@ -1908,12 +1759,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[115]
+[119]
 Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
-[116]
+[120]
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
@@ -1928,24 +1779,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
-) [117] [118]
+) [121] [122]
 \openout2 = `processes.aux'.
 
- (./processes.tex
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/processes.tex
 Chapter 10.
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-[119
+[123
 
 
 
 ]
 Overfull \hbox (68.53386pt too wide) in paragraph at lines 30--30
-[]\OT1/pxtt/m/n/10 ## List all processes along with full path to the binary and
- user ownership[] 
+[]\OT1/pxtt/m/n/10 ## List all processes along with full path to the binary and user ownership[] 
  []
 
 
@@ -1953,7 +1803,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-[120]
+[124]
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
@@ -1973,7 +1823,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-[121]
+[125]
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
@@ -1983,77 +1833,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-) [122] [123]
+) [126] [127]
 \openout2 = `anti_virus.aux'.
 
- (./anti_virus.tex [124
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/anti_virus.tex [128
 
 
 
 ]
 Chapter 11.
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-[125]
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-[126]
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-[127]
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
-
-) [128] [129]
+[129] [130] [131] [132] [133] [134]) [135] [136]
 \openout2 = `networking.aux'.
 
- (./networking.tex [130
-
-
-
-]
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/networking.tex
 Chapter 12.
-) [131]
+[137
+
+
+
+] [138] [139]
+Overfull \hbox (37.03395pt too wide) in paragraph at lines 81--81
+[]    \OT1/pxtt/m/n/10 # nfe0 will be replaced with your particular network adapter name[] 
+ []
+
+[140] [141]) [142]
 \openout2 = `shell_scripting.aux'.
 
- (./shell_scripting.tex [132
-
-
-
-]
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/shell_scripting.tex
 Chapter 13.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -2065,7 +1871,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[133]
+[143
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
@@ -2075,10 +1885,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[134] [135]
+[144] [145]
 Overfull \hbox (16.03401pt too wide) in paragraph at lines 101--101
-[]\OT1/pxtt/m/n/10 $ sudo mv /usr/local/bin/mkprojects.sh  /usr/local/bin/mkpro
-jects[] 
+[]\OT1/pxtt/m/n/10 $ sudo mv /usr/local/bin/mkprojects.sh  /usr/local/bin/mkprojects[] 
  []
 
 
@@ -2086,60 +1895,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-[136] [137] [138]
+[146] [147] [148]
 Overfull \hbox (3.96404pt too wide) in paragraph at lines 204--204
-[]    \OT1/pxtt/m/n/10 echo "SUCCESS: Configuration detected, setup will commen
-ce"[] 
+[]    \OT1/pxtt/m/n/10 echo "SUCCESS: Configuration detected, setup will commence"[] 
  []
 
-) [139]
+) [149]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [140
+ (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/appendix.tex [150
 
 
 
 ]
 Appendix A.
-[141] [142
+[151] [152
 
 ]
 Appendix B.
-[143] [144
+[153] [154
 
 ]
 Appendix C.
-) [145] [146
+) [155] [156
 
 
-] [147
+] [157
 
-] (./unix_book.aux (./introduction.aux) (./installing.aux)
-(./command_line.aux) (./users_and_groups.aux) (./unix_permissions.aux)
-(./installing_software.aux) (./desktop.aux) (./hard_disks.aux)
-(./system_administration.aux) (./lamp.aux) (./processes.aux) (./anti_virus.aux)
-(./networking.aux) (./shell_scripting.aux) (./appendix.aux)) ) 
+] (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.aux (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/introduction.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/command_line.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/users_and_groups.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_permissions.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/installing_software.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/desktop.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/hard_disks.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/system_administration.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/lamp.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/processes.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/anti_virus.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/networking.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/shell_scripting.aux) (/Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 3599 strings out of 493117
- 51562 string characters out of 6135433
- 137313 words of memory out of 5000000
- 6622 multiletter control sequences out of 15000+600000
- 47344 words of font info for 312 fonts, out of 8000000 for 9000
+ 4395 strings out of 480608
+ 67876 string characters out of 5903631
+ 327321 words of memory out of 5000000
+ 19822 multiletter control sequences out of 15000+600000
+ 578309 words of font info for 338 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,11n,47p,956b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texli
-ve/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/pxfonts/pxsy.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/pxfonts/rpxb.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/public/pxfonts/rpxmi.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/pxfonts/rpxr.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/txfo
-nts/txtt.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8
-a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on unix_book.pdf (149 pages, 333262 bytes).
+ 33i,11n,49p,1002b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/pxfonts/pxsy.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/pxfonts/rpcxr.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/pxfonts/rpxb.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/pxfonts/rpxmi.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/pxfonts/rpxr.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /Volumes/Users/jdoolin/gdrive/WVNCC/unix_book/unix_book.pdf (159 pages, 360847 bytes).
 PDF statistics:
- 518 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
+ 554 PDF objects out of 1000 (max. 8388607)
+ 380 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 30721 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 35329 words of extra memory for PDF output out of 35830 (max. 10000000)
 
