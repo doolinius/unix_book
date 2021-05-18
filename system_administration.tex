@@ -41,9 +41,38 @@ destination.tar.gz    music.tar.bz2
 
 \subsection{Others}
 
+While a combination of tar and either gzip and bzip2 is by far the most common archival and compression method used in the Unix world, there is still support for many other archive utilities which are usually available through software repositories or BSD ports. Among them are zip, xz, 7zip,rar, cpio, compress and many other lesser known utilities.
+
 \section{The Mighty grep}
 
-\section{dd}
+\textbf{grep}, as mentioned a few times earlier in the book, is a tremendously useful system administration tool.  It provides two primary functions:  filtering text streams and locating files containing certain text patterns. grep is so common and prevalent among Unix admins, that the program has become a verb, such as in the sentence, ”I had to grep through a few thousand log files.”
+
+grep is used in one of two ways: in a Unix command pipeline or as aprogram in and of itself.
+
+\begin{verbatim}
+[jdoolin@thompson  ̃]$cat/var/log/messages | grep sda
+[jdoolin@thompson  ̃]$ grep "randint" *.py
+\end{verbatim}
+
+The previous two commands do not display what the normal output would be. The first command would send the contents of the system logto the grep command, which would filter out any lines that contain thestring ”sda”. This could be a command used to search the system log forany information or errors on the hard disks in the system.  The second command will search all files ending in .py for the string ”randint”. This is an effective way to search the contents of files for certain text patterns.grep has a very useful flag, -v, that allows one to search for all lines that do not contain a particular string or pattern.
+
+\begin{verbatim}[jdoolin@thompson  ̃]$ df -h | grep -v tmpfs
+System                                Size   Used Avail Use% Mounted on
+/dev/dm-0                              64G    46G   15G  76% /
+udev                                   10M      0   10M   0% 
+/dev/dev/sda1                         236M    33M  191M  15% /boot
+/dev/mapper/thompson--home-home       266G    32G  221G  13% /home
+\end{verbatim}
+
+The previous command filtered out all lines that contain the string’tmpfs’, so that one does not see the many virtual filesystems in the ’df’output.
+
+\section{dd - The Ultimate Data Copying Tool}
+
+\textbf{dd} is among the most versatile and useful Unix commands at your disposal. Think of it like ’cp’ on steroids. Where ’cp’ can copy only whole files and directories, dd can copy only certain sections of files if you wish, or copy data into a certain area of a file. Better yet, dd can even access and use /dev/ devices, meaning you can directly access the data of devices such as hard disks, flash media and optical disks. This makes dd a useful tool for many tasks. Here are a few examples.
+
+\subsection{dd: as an image or clone tool}
+
+dd can be used to create images of CDROMs, DVDs and BluRays, floppydisks, USB drives, SD cards and even entire hard drives.
 
 \section{head and tail}
 

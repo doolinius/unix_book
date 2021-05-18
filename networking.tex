@@ -134,3 +134,26 @@ On BSD systems you must use a command flag to limit the list to IPv4 connections
 \begin{verbatim}
     $ sockstat -4l
 \end{verbatim}
+
+\subsubsection{What Program is Listening?}
+
+Sometimes it is necessary to find out which process is listening on a particular port.  In some cases it may be needed to disable unneeded services, although it is also useful when you suspect something may be listening that shouldn't in the event of an intrusion. Both the netstat and sockstat programs are useful here as well.
+
+On Linux you must be root to list the process information: 
+
+\begin{verbatim}
+$ sudo netstat -tlup
+\end{verbatim}
+
+And on FreeBSD (root not required):
+
+\begin{verbatim}
+$ sockstat -4
+USER     COMMAND    PID   FD PROTO  LOCAL ADDRESS         FOREIGN ADDRESS      
+root     sendmail   1307  4  tcp4   127.0.0.1:25          *:*
+root     sshd       1301  4  tcp4   *:22                  *:*
+root     sendmail   1262  3  tcp4   192.168.1.22:25       *:*
+root     sshd       1257  3  tcp4   192.168.1.22:22       *:*
+root     syslogd    1209  5  udp4   192.168.1.22:514      *:*
+\end{verbatim}
+
